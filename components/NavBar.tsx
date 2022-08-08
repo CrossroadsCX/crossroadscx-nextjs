@@ -17,12 +17,13 @@ export const NavBar = () => {
           <div className="px-4 w-60 max-w-full">
             <a href="#" className="w-full block py-5">
               <Image
-                src="/images/logo/logo.svg"
+                src="/images/logo/logo-symbol-v2.svg"
                 alt="logo"
-                className="w-full"
-                width="200"
-                height="200"
+                className="w-20"
+                width="100"
+                height="100"
               />
+              {/* <h1 className="text-black align-middle">CrossroadsCX</h1> */}
             </a>
           </div>
           <div className="flex px-4 justify-between items-center w-full">

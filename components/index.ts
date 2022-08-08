@@ -1,6 +1,7 @@
 import { BrandsSection } from "./BrandsSection";
 import { CallToActionSection } from "./CallToActionSection";
 import { ContactSection } from "./ContactSection";
+import { FAQSection } from "./FAQSection";
 import { Footer } from "./Footer";
 import { HeroSection } from "./HeroSection";
 import { NavBar } from "./NavBar";
@@ -14,6 +15,7 @@ export {
   BrandsSection,
   CallToActionSection,
   ContactSection,
+  FAQSection,
   Footer,
   HeroSection,
   NavBar,

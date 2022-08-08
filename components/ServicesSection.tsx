@@ -8,7 +8,7 @@ export const ServicesSection = () => {
           <div className="w-full px-4">
             <div className="text-center mx-auto mb-12 lg:mb-20 max-w-[510px]">
               <span className="font-semibold text-lg text-primary mb-2 block">
-                What we Serve
+                What We Do
               </span>
               <h2
                 className="
@@ -20,11 +20,10 @@ export const ServicesSection = () => {
                   mb-4
                 "
               >
-                Our Best Services
+                CX Services
               </h2>
               <p className="text-base text-body-color">
-                There are many variations of passages of Lorem Ipsum available
-                but the majority have suffered alteration in some form.
+                We&apos;re a full-service micro-agency. We&apos;re also human beings. No sales jargon or technical run-arounds. Let&apos;s chat about what you need.
               </p>
             </div>
           </div>
@@ -85,10 +84,10 @@ export const ServicesSection = () => {
                 </svg>
               </div>
               <h4 className="font-semibold text-xl text-dark mb-3">
-                Marketing Solutions
+                Technology Leaders
               </h4>
               <p className="text-body-color">
-                Lorem Ipsum is simply dummy text of the printing and industry.
+                <q>Our IT was cutting edge... five years ago. We need to level up, but where to even start?</q>
               </p>
 
               <span
@@ -173,10 +172,10 @@ export const ServicesSection = () => {
                 </svg>
               </div>
               <h4 className="font-semibold text-xl text-dark mb-3">
-                Business Analytics
+                Data Storytellers
               </h4>
               <p className="text-body-color">
-                Lorem Ipsum is simply dummy text of the printing and industry.
+                <q>So much internal data, so little actual use from it - we should be doing much more!</q>
               </p>
               <span
                 className="
@@ -260,10 +259,10 @@ export const ServicesSection = () => {
                 </svg>
               </div>
               <h4 className="font-semibold text-xl text-dark mb-3">
-                UX & UI Design
+                Systems Integrators
               </h4>
               <p className="text-body-color">
-                Lorem Ipsum is simply dummy text of the printing and industry.
+                <q>Why do we look at four different systems to find a simple, but critical, answer? Can&apos;t we bring these together in one place?</q>
               </p>
 
               <span

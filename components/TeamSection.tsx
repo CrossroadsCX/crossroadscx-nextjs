@@ -1,7 +1,10 @@
 import React from 'react'
 import Image from 'next/future/image'
+import { useSmoothScrollTo } from '../helpers/useSmoothScrollTo'
 
 export const TeamSection = () => {
+  const scrollBind = useSmoothScrollTo('#team')
+
   return (
     <section
       className="
@@ -13,7 +16,7 @@ export const TeamSection = () => {
         overflow-hidden
       "
     >
-      <div className="container">
+      <div className="container" {...scrollBind}>
         <div className="flex flex-wrap -mx-4">
           <div className="w-full px-4">
             <div className="text-center mx-auto mb-[60px] lg:mb-20 max-w-[510px]">

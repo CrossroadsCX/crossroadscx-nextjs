@@ -1,10 +1,13 @@
 import React from 'react'
 import Image from 'next/future/image'
+import { useSmoothScrollTo } from '../helpers/useSmoothScrollTo'
 
 export const HeroSection = () => {
 
+  const scrollBind = useSmoothScrollTo('#home')
+
   return (
-    <div className="relative pt-[120px] lg:pt-[150px] pb-[110px] bg-white">
+    <section className="relative pt-[120px] lg:pt-[150px] pb-[110px] bg-white" {...scrollBind}>
       <div className="container">
         <div className="flex flex-wrap -mx-4">
           <div className="w-full lg:w-5/12 px-4">
@@ -189,6 +192,6 @@ export const HeroSection = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }

@@ -1,8 +1,11 @@
 import React from 'react'
+import { useSmoothScrollTo } from '../helpers/useSmoothScrollTo'
 
 export const ServicesSection = () => {
+  const bind = useSmoothScrollTo('#services')
+
   return (
-    <section className="pt-20 lg:pt-[120px] pb-12 lg:pb-[90px] bg-white">
+    <section className="pt-20 lg:pt-[120px] pb-12 lg:pb-[90px] bg-white" {...bind}>
       <div className="container">
         <div className="flex flex-wrap -mx-4">
           <div className="w-full px-4">

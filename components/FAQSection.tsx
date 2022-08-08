@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
+import { useSmoothScrollTo } from '../helpers/useSmoothScrollTo'
 
 export const FAQSection = () => {
   const [currentOpen, setCurrentOpen] = useState<number>()
+
+  const scrollBind = useSmoothScrollTo('#faq')
 
   return (
     <section
@@ -15,6 +18,7 @@ export const FAQSection = () => {
         z-20
         overflow-hidden
       "
+      {...scrollBind}
     >
       <div className="container">
         <div className="flex flex-wrap -mx-4">

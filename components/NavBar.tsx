@@ -30,10 +30,10 @@ export const NavBar = () => {
         z-50 w-full left-0 top-0
       `}
     >
-      <div className="container">
+      <section className="container">
         <div className="flex -mx-4 items-center justify-between relative">
           <div className="px-4 w-80 max-w-full">
-            <a href="#" className="w-full flex items-center justify-between py-5">
+            <a href="#home" className="w-full flex items-center justify-between py-5">
               <Image
                 src="/images/logo/logo-symbol-v2.svg"
                 alt="logo"
@@ -75,7 +75,6 @@ export const NavBar = () => {
                 ></span>
               </button>
               <nav
-                x-transition
                 className={`
                   ${!isOpen && 'hidden'}
                   absolute
@@ -95,10 +94,10 @@ export const NavBar = () => {
                 `}
                 id="navbarCollapse"
               >
-                <ul className="blcok lg:flex">
+                <ul className="block lg:flex">
                   <li>
                     <a
-                      href="#"
+                      href="#home"
                       className="
                         text-base
                         font-medium
@@ -115,7 +114,7 @@ export const NavBar = () => {
                   </li>
                   <li>
                     <a
-                      href="#"
+                      href="#services"
                       className="
                         text-base
                         font-medium
@@ -127,12 +126,12 @@ export const NavBar = () => {
                         lg:ml-12
                       "
                     >
-                      Payment
+                      Services
                     </a>
                   </li>
                   <li>
                     <a
-                      href="#"
+                      href="#team"
                       className="
                         text-base
                         font-medium
@@ -144,7 +143,58 @@ export const NavBar = () => {
                         lg:ml-12
                       "
                     >
-                      Features
+                      Team
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#faq"
+                      className="
+                        text-base
+                        font-medium
+                        text-dark
+                        hover:text-primary
+                        py-2
+                        lg:inline-flex
+                        flex
+                        lg:ml-12
+                      "
+                    >
+                      FAQ
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#testimonials"
+                      className="
+                        text-base
+                        font-medium
+                        text-dark
+                        hover:text-primary
+                        py-2
+                        lg:inline-flex
+                        flex
+                        lg:ml-12
+                      "
+                    >
+                      Testimonials
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#contact-us"
+                      className="
+                        text-base
+                        font-medium
+                        text-dark
+                        hover:text-primary
+                        py-2
+                        lg:inline-flex
+                        flex
+                        lg:ml-12
+                      "
+                    >
+                      Contact Us
                     </a>
                   </li>
                 </ul>
@@ -182,7 +232,7 @@ export const NavBar = () => {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </header>
   )
 }

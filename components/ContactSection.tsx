@@ -1,5 +1,6 @@
 import React, { useState, FormEventHandler } from 'react'
 import { useSmoothScrollTo } from '../helpers/useSmoothScrollTo'
+import axios from 'axios'
 
 export const ContactSection = () => {
   const scrollBind = useSmoothScrollTo('#contact-us')
@@ -9,7 +10,7 @@ export const ContactSection = () => {
   const [message, setMessage] = useState<string>()
   const [contactSumbitted, setContactSubmitted] = useState(false)
 
-  const onContactSubmit: FormEventHandler<HTMLFormElement> = (e) => {
+  const onContactSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault()
     setContactSubmitted(true)
 
@@ -25,6 +26,9 @@ export const ContactSection = () => {
     }
 
     console.log(formData)
+
+    const response = await axios.post('/api/contact', formData)
+    console.log(response)
   }
 
   return (
@@ -183,6 +187,7 @@ export const ContactSection = () => {
                   (<form onSubmit={onContactSubmit}>
                     <div className="mb-6">
                       <input
+                        required
                         onChange={(e) => setName(e.target.value)}
                         type="text"
                         placeholder="Your Name"
@@ -201,6 +206,7 @@ export const ContactSection = () => {
                     </div>
                     <div className="mb-6">
                       <input
+                        required
                         onChange={(e) => setEmail(e.target.value)}
                         type="email"
                         placeholder="Your Email"

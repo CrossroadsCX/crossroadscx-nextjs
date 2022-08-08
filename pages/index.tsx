@@ -1,12 +1,14 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import {
+  ContactSection,
   FAQSection,
   Footer,
   HeroSection,
   NavBar,
   ServicesSection,
   TeamSection,
+  TestimonialsSection,
 } from '../components'
 
 const Home: NextPage = () => {
@@ -22,6 +24,8 @@ const Home: NextPage = () => {
       <ServicesSection />
       <TeamSection />
       <FAQSection />
+      <TestimonialsSection />
+      <ContactSection />
       <Footer />
     </div>
   )

@@ -141,10 +141,10 @@ export const HeroSection = () => {
             <div className="lg:text-right lg:ml-auto">
               <div className="relative inline-block z-10 pt-11 lg:pt-0">
                 <Image
-                  src="/images/hero/hero-image-05.jpg"
+                  src="/images/hero/hero-image-01.png"
                   alt="hero"
                   className="max-w-full lg:ml-auto"
-                  width="500" height="500"
+                  width="500" height="10"
                 />
                 <span className="absolute -left-8 -bottom-8 z-[-1]">
                   <svg

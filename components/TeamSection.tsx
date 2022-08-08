@@ -7,6 +7,7 @@ export const TeamSection = () => {
 
   return (
     <section
+      {...scrollBind}
       className="
         bg-[#F4F7FF]
         pt-20
@@ -16,7 +17,7 @@ export const TeamSection = () => {
         overflow-hidden
       "
     >
-      <div className="container" {...scrollBind}>
+      <div className="container">
         <div className="flex flex-wrap -mx-4">
           <div className="w-full px-4">
             <div className="text-center mx-auto mb-[60px] lg:mb-20 max-w-[510px]">

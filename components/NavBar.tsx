@@ -14,7 +14,7 @@ export const NavBar = () => {
     >
       <div className="container">
         <div className="flex -mx-4 items-center justify-between relative">
-          <div className="px-4 w-96 max-w-full">
+          <div className="px-4 w-80 max-w-full">
             <a href="#" className="w-full flex items-center justify-between py-5">
               <Image
                 src="/images/logo/logo-symbol-v2.svg"

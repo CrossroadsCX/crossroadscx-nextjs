@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
-import SIBApi from '@sendinblue/client'
+import * as SIBApi from '@sendinblue/client'
 import { types } from 'util'
 import { isNativeError } from 'util/types'
 
@@ -40,6 +40,7 @@ export default async function handler(
 
     const sendInfo = new SIBApi.SendSmtpEmail()
     sendInfo.to = [toEmail]
+    sendInfo.sender = sender
     sendInfo.subject = 'New Contact Us Submission'
 
     sendInfo.htmlContent = `
@@ -69,12 +70,10 @@ export default async function handler(
     const { response, body } = await api.sendTransacEmail(sendInfo)
 
     // If there was an error sending the message
-    if (response.statusCode !== 200) {
+    if (response.statusCode !== 201) {
       const { statusCode, statusMessage } = response
       return res.status(500).json({ error: `SIB message failed to send (${statusCode}): ${statusMessage}`})
     }
-
-    console.log(req.body)
     return res.status(200).json({ message: 'Contact Submitted Successfully' })
   } catch (err) {
     console.error(err)

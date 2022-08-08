@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/future/image'
 
 export const BrandsSection = () => {
   return (
@@ -19,7 +20,7 @@ export const BrandsSection = () => {
                   mx-4
                 "
               >
-                <img
+                <Image
                   src="assets/images/brands/graygrids.svg"
                   alt="image"
                   className="w-full h-10"
@@ -37,7 +38,7 @@ export const BrandsSection = () => {
                   mx-4
                 "
               >
-                <img
+                <Image
                   src="assets/images/brands/lineicons.svg"
                   alt="image"
                   className="w-full h-10"
@@ -55,7 +56,7 @@ export const BrandsSection = () => {
                   mx-4
                 "
               >
-                <img
+                <Image
                   src="assets/images/brands/uideck.svg"
                   alt="image"
                   className="w-full h-10"
@@ -73,7 +74,7 @@ export const BrandsSection = () => {
                   mx-4
                 "
               >
-                <img
+                <Image
                   src="assets/images/brands/ayroui.svg"
                   alt="image"
                   className="w-full h-10"

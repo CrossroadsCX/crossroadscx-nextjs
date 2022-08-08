@@ -1,9 +1,10 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
-import { NavBar } from '../components/NavBar'
-import { HeroSection } from '../components/HeroSection'
-import { ServicesSection } from '../components/ServicesSection'
+import {
+  HeroSection,
+  NavBar,
+  ServicesSection,
+} from '../components'
 
 const Home: NextPage = () => {
   return (

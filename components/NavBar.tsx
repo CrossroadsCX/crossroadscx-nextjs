@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Image from 'next/future/image'
 
 export const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -7,7 +8,7 @@ export const NavBar = () => {
   return (
     <header
       className={`
-        ${scrolledFromTop ? 'fixed z-50 bg-primary bg-opacity-80 shadow-sm backdrop-blur-sm' : 'absolute'}
+        ${scrolledFromTop ? 'fixed z-50 bg-white bg-opacity-80 shadow-sm backdrop-blur-sm' : 'absolute'}
         z-50 w-full left-0 top-0
       `}
     >
@@ -15,18 +16,19 @@ export const NavBar = () => {
         <div className="flex -mx-4 items-center justify-between relative">
           <div className="px-4 w-60 max-w-full">
             <a href="#" className="w-full block py-5">
-              <img
-                src="assets/images/logo/logo-white.svg"
+              <Image
+                src="/images/logo/logo.svg"
                 alt="logo"
-                className="max-w-full"
+                className="w-full"
+                width="200"
+                height="200"
               />
             </a>
           </div>
           <div className="flex px-4 justify-between items-center w-full">
             <div>
               <button
-                onClick={() => setIsOpen(!isOpen)}
-
+                onClick={ () => setIsOpen(!isOpen)}
                 className={`
                   ${isOpen && 'navbarTogglerActive'}
                   block
@@ -35,6 +37,8 @@ export const NavBar = () => {
                   top-1/2
                   -translate-y-1/2
                   lg:hidden
+                  focus:ring-2
+                  ring-primary
                   px-3
                   py-[6px]
                   rounded-lg
@@ -42,16 +46,17 @@ export const NavBar = () => {
                 id="navbarToggler"
               >
                 <span
-                  className="relative w-[30px] h-[2px] my-[6px] block bg-white"
+                  className="relative w-[30px] h-[2px] my-[6px] block bg-body-color"
                 ></span>
                 <span
-                  className="relative w-[30px] h-[2px] my-[6px] block bg-white"
+                  className="relative w-[30px] h-[2px] my-[6px] block bg-body-color"
                 ></span>
                 <span
-                  className="relative w-[30px] h-[2px] my-[6px] block bg-white"
+                  className="relative w-[30px] h-[2px] my-[6px] block bg-body-color"
                 ></span>
               </button>
               <nav
+                x-transition
                 className={`
                   ${!isOpen && 'hidden'}
                   absolute
@@ -65,12 +70,13 @@ export const NavBar = () => {
                   w-full
                   lg:max-w-full lg:w-full
                   right-4
-                  top-full
                   lg:block lg:static lg:shadow-none
+                  transition-all
+                  top-full
                 `}
                 id="navbarCollapse"
               >
-                <ul className="block lg:flex">
+                <ul className="blcok lg:flex">
                   <li>
                     <a
                       href="#"
@@ -78,8 +84,7 @@ export const NavBar = () => {
                         text-base
                         font-medium
                         text-dark
-                        lg:text-white lg:hover:text-white lg:hover:opacity-50
-                        hover:opacity-100 hover:text-primary
+                        hover:text-primary
                         py-2
                         lg:inline-flex
                         flex
@@ -96,15 +101,14 @@ export const NavBar = () => {
                         text-base
                         font-medium
                         text-dark
-                        lg:text-white lg:hover:text-white lg:hover:opacity-50
-                        hover:opacity-100 hover:text-primary
+                        hover:text-primary
                         py-2
                         lg:inline-flex
                         flex
                         lg:ml-12
                       "
                     >
-                      About
+                      Payment
                     </a>
                   </li>
                   <li>
@@ -114,8 +118,7 @@ export const NavBar = () => {
                         text-base
                         font-medium
                         text-dark
-                        lg:text-white lg:hover:text-white lg:hover:opacity-50
-                        hover:opacity-100 hover:text-primary
+                        hover:text-primary
                         py-2
                         lg:inline-flex
                         flex
@@ -123,24 +126,6 @@ export const NavBar = () => {
                       "
                     >
                       Features
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="
-                        text-base
-                        font-medium
-                        text-dark
-                        lg:text-white lg:hover:text-white lg:hover:opacity-50
-                        hover:opacity-100 hover:text-primary
-                        py-2
-                        lg:inline-flex
-                        flex
-                        lg:ml-12
-                      "
-                    >
-                      Contact
                     </a>
                   </li>
                 </ul>
@@ -152,16 +137,13 @@ export const NavBar = () => {
                 className="
                   text-base
                   font-medium
-                  text-white
-                  bg-primary
-                  rounded-lg
+                  text-dark
+                  hover:text-primary
                   py-3
                   px-7
-                  hover:opacity-50
-                  mr-3
                 "
               >
-                Sign In
+                Login
               </a>
               <a
                 href="#"
@@ -169,11 +151,11 @@ export const NavBar = () => {
                   text-base
                   font-medium
                   text-white
-                  bg-white bg-opacity-20
+                  bg-primary
                   rounded-lg
                   py-3
                   px-7
-                  hover:bg-opacity-100 hover:text-dark
+                  hover:bg-opacity-90
                 "
               >
                 Sign Up

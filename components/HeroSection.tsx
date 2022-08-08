@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/future/image'
 
 export const HeroSection = () => {
 
@@ -52,7 +53,7 @@ export const HeroSection = () => {
                 </li>
                 <li>
                   <a
-                    href="javascript:void(0)"
+                    href="#"
                     className="
                       py-4
                       px-6
@@ -119,16 +120,17 @@ export const HeroSection = () => {
                 </h6>
                 <div className="flex items-center max-w-[550px]">
                   <div className="w-full py-3 mr-4">
-                    <img src="assets/images/brands/ayroui.svg" alt="ayroui" />
+                    <Image src="/images/brands/ayroui.svg" alt="ayroui" width="200" height="10" />
                   </div>
                   <div className="w-full py-3 mr-4">
-                    <img
-                      src="assets/images/brands/graygrids.svg"
+                    <Image
+                      src="/images/brands/graygrids.svg"
                       alt="graygrids"
+                      width="200" height="10"
                     />
                   </div>
                   <div className="w-full py-3 mr-4">
-                    <img src="assets/images/brands/uideck.svg" alt="uideck" />
+                    <Image src="/images/brands/uideck.svg" alt="uideck" width="200" height="10"/>
                   </div>
                 </div>
               </div>
@@ -138,10 +140,11 @@ export const HeroSection = () => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="lg:text-right lg:ml-auto">
               <div className="relative inline-block z-10 pt-11 lg:pt-0">
-                <img
-                  src="assets/images/hero/hero-image-01.png"
+                <Image
+                  src="/images/hero/hero-image-05.jpg"
                   alt="hero"
                   className="max-w-full lg:ml-auto"
+                  width="500" height="500"
                 />
                 <span className="absolute -left-8 -bottom-8 z-[-1]">
                   <svg

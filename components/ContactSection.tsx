@@ -25,10 +25,7 @@ export const ContactSection = () => {
       message
     }
 
-    console.log(formData)
-
     const response = await axios.post('/api/contact', formData)
-    console.log(response)
   }
 
   return (

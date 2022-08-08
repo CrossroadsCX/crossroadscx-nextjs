@@ -201,7 +201,7 @@ export const NavBar = () => {
               </nav>
             </div>
             <div className="sm:flex justify-end hidden pr-16 lg:pr-0">
-              <a
+              {/* <a
                 href="#"
                 className="
                   text-base
@@ -213,9 +213,9 @@ export const NavBar = () => {
                 "
               >
                 Login
-              </a>
+              </a> */}
               <a
-                href="#"
+                href="#contact-us"
                 className="
                   text-base
                   font-medium
@@ -227,7 +227,7 @@ export const NavBar = () => {
                   hover:bg-opacity-90
                 "
               >
-                Sign Up
+                Get In Touch
               </a>
             </div>
           </div>

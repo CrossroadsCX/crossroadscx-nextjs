@@ -1,8 +1,31 @@
-import React from 'react'
+import React, { useState, FormEventHandler } from 'react'
 import { useSmoothScrollTo } from '../helpers/useSmoothScrollTo'
 
 export const ContactSection = () => {
   const scrollBind = useSmoothScrollTo('#contact-us')
+  const [name, setName] = useState<string>()
+  const [email, setEmail] = useState<string>()
+  const [phone, setPhone] = useState<string>()
+  const [message, setMessage] = useState<string>()
+  const [contactSumbitted, setContactSubmitted] = useState(false)
+
+  const onContactSubmit: FormEventHandler<HTMLFormElement> = (e) => {
+    e.preventDefault()
+    setContactSubmitted(true)
+
+    setTimeout(() => {
+      setContactSubmitted(false)
+    }, 5000)
+
+    const formData = {
+      name,
+      email,
+      phone,
+      message
+    }
+
+    console.log(formData)
+  }
 
   return (
     <section className="bg-white py-20 lg:py-[120px] overflow-hidden relative z-10" {...scrollBind}>
@@ -65,12 +88,12 @@ export const ContactSection = () => {
                 <div className="w-full">
                   <h4 className="font-bold text-dark text-xl mb-1">Our Location</h4>
                   <p className="text-base text-body-color">
-                    99 S.t Jomblo Park Pekanbaru 28292. Indonesia
+                    Chicago and New York City
                   </p>
                 </div>
               </div>
 
-              <div className="flex mb-8 max-w-[370px] w-full">
+              {/* <div className="flex mb-8 max-w-[370px] w-full">
                 <div
                   className="
                     max-w-[60px]
@@ -109,7 +132,7 @@ export const ContactSection = () => {
                   <h4 className="font-bold text-dark text-xl mb-1">Phone Number</h4>
                   <p className="text-base text-body-color">(+62)81 414 257 9980</p>
                 </div>
-              </div>
+              </div> */}
 
               <div className="flex mb-8 max-w-[370px] w-full">
                 <div
@@ -144,101 +167,112 @@ export const ContactSection = () => {
                   <h4 className="font-bold text-dark text-xl mb-1">
                     Email Address
                   </h4>
-                  <p className="text-base text-body-color">info@yourdomain.com</p>
+                  <a className="text-base text-body-color hover:underline" href="mailto:hello@crossroadscx.com">hello@crossroadscx.com</a>
                 </div>
               </div>
             </div>
           </div>
           <div className="w-full lg:w-1/2 xl:w-5/12 px-4">
             <div className="bg-white relative rounded-lg p-8 sm:p-12 shadow-lg">
-              <form>
-                <div className="mb-6">
-                  <input
-                    type="text"
-                    placeholder="Your Name"
-                    className="
-                      w-full
-                      rounded
-                      py-3
-                      px-[14px]
-                      text-body-color text-base
-                      border border-[f0f0f0]
-                      outline-none
-                      focus-visible:shadow-none
-                      focus:border-primary
-                    "
-                  />
-                </div>
-                <div className="mb-6">
-                  <input
-                    type="email"
-                    placeholder="Your Email"
-                    className="
-                      w-full
-                      rounded
-                      py-3
-                      px-[14px]
-                      text-body-color text-base
-                      border border-[f0f0f0]
-                      outline-none
-                      focus-visible:shadow-none
-                      focus:border-primary
-                    "
-                  />
-                </div>
-                <div className="mb-6">
-                  <input
-                    type="text"
-                    placeholder="Your Phone"
-                    className="
-                      w-full
-                      rounded
-                      py-3
-                      px-[14px]
-                      text-body-color text-base
-                      border border-[f0f0f0]
-                      outline-none
-                      focus-visible:shadow-none
-                      focus:border-primary
-                    "
-                  />
-                </div>
-                <div className="mb-6">
-                  <textarea
-                    rows={6}
-                    placeholder="Your Message"
-                    className="
-                      w-full
-                      rounded
-                      py-3
-                      px-[14px]
-                      text-body-color text-base
-                      border border-[f0f0f0]
-                      resize-none
-                      outline-none
-                      focus-visible:shadow-none
-                      focus:border-primary
-                    "
-                  ></textarea>
-                </div>
-                <div>
-                  <button
-                    type="submit"
-                    className="
-                      w-full
-                      text-white
-                      bg-primary
-                      rounded
-                      border border-primary
-                      p-3
-                      transition
-                      hover:bg-opacity-90
-                    "
-                  >
-                    Send Message
-                  </button>
-                </div>
-              </form>
+              {
+                contactSumbitted ? (
+                  <div className="text-base text-body-color">
+                    Thank You! We&apos;ll be in touch soon.
+                  </div>
+                ) :
+                  (<form onSubmit={onContactSubmit}>
+                    <div className="mb-6">
+                      <input
+                        onChange={(e) => setName(e.target.value)}
+                        type="text"
+                        placeholder="Your Name"
+                        className="
+                          w-full
+                          rounded
+                          py-3
+                          px-[14px]
+                          text-body-color text-base
+                          border border-[f0f0f0]
+                          outline-none
+                          focus-visible:shadow-none
+                          focus:border-primary
+                        "
+                      />
+                    </div>
+                    <div className="mb-6">
+                      <input
+                        onChange={(e) => setEmail(e.target.value)}
+                        type="email"
+                        placeholder="Your Email"
+                        className="
+                          w-full
+                          rounded
+                          py-3
+                          px-[14px]
+                          text-body-color text-base
+                          border border-[f0f0f0]
+                          outline-none
+                          focus-visible:shadow-none
+                          focus:border-primary
+                        "
+                      />
+                    </div>
+                    <div className="mb-6">
+                      <input
+                        onChange={(e) => setPhone(e.target.value)}
+                        type="text"
+                        placeholder="Your Phone"
+                        className="
+                          w-full
+                          rounded
+                          py-3
+                          px-[14px]
+                          text-body-color text-base
+                          border border-[f0f0f0]
+                          outline-none
+                          focus-visible:shadow-none
+                          focus:border-primary
+                        "
+                      />
+                    </div>
+                    <div className="mb-6">
+                      <textarea
+                        onChange={(e) => setMessage(e.target.value)}
+                        rows={6}
+                        placeholder="Your Message"
+                        className="
+                          w-full
+                          rounded
+                          py-3
+                          px-[14px]
+                          text-body-color text-base
+                          border border-[f0f0f0]
+                          resize-none
+                          outline-none
+                          focus-visible:shadow-none
+                          focus:border-primary
+                        "
+                      ></textarea>
+                    </div>
+                    <div>
+                      <button
+                        type="submit"
+                        className="
+                          w-full
+                          text-white
+                          bg-primary
+                          rounded
+                          border border-primary
+                          p-3
+                          transition
+                          hover:bg-opacity-90
+                        "
+                      >
+                        Send Message
+                      </button>
+                    </div>
+                  </form>)
+              }
               <div>
                 <span className="absolute -top-10 -right-9 z-[-1]">
                   <svg

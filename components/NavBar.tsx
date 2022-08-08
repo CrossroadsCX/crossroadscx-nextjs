@@ -1,14 +1,32 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/future/image'
 
 export const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const [scrolledFromTop, setScrolledFromTop] = useState(false)
+  const [isSticky, setIsSticky] = useState(false)
+
+  const handleScroll = () => {
+    const position = window.scrollY
+
+    if (position >= 50) {
+      setIsSticky(true)
+    } else {
+      setIsSticky(false)
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   return (
     <header
       className={`
-        ${scrolledFromTop ? 'fixed z-50 bg-white bg-opacity-80 shadow-sm backdrop-blur-sm' : 'absolute'}
+        ${isSticky ? 'fixed z-50 bg-white bg-opacity-80 shadow-sm backdrop-blur-sm' : 'absolute'}
         z-50 w-full left-0 top-0
       `}
     >

@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import {
+  Footer,
   HeroSection,
   NavBar,
   ServicesSection,
@@ -19,6 +20,7 @@ const Home: NextPage = () => {
       <HeroSection />
       <ServicesSection />
       <TeamSection />
+      <Footer />
     </div>
   )
 }

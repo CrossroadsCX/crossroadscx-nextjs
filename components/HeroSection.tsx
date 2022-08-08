@@ -116,24 +116,24 @@ export const HeroSection = () => {
                     mb-2
                   "
                 >
-                  Used by Thriving Brands
+                  Our strongest toolsets and technologies
                   <span
                     className="w-8 h-[1px] bg-body-color inline-block ml-2"
                   ></span>
                 </h6>
                 <div className="flex items-center max-w-[550px]">
                   <div className="w-full py-3 mr-4">
-                    <Image src="/images/brands/ayroui.svg" alt="ayroui" width="200" height="10" />
+                    <Image src="/images/tools/react.svg" alt="ayroui" width="200" height="10" />
                   </div>
                   <div className="w-full py-3 mr-4">
                     <Image
-                      src="/images/brands/graygrids.svg"
+                      src="/images/tools/snowflake.svg"
                       alt="graygrids"
                       width="200" height="10"
                     />
                   </div>
                   <div className="w-full py-3 mr-4">
-                    <Image src="/images/brands/uideck.svg" alt="uideck" width="200" height="10"/>
+                    <Image src="/images/tools/gcp.svg" alt="uideck" width="200" height="10"/>
                   </div>
                 </div>
               </div>

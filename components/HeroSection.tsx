@@ -126,14 +126,14 @@ export const HeroSection = () => {
                     <Image src="/images/tools/react.svg" alt="ayroui" width="200" height="10" />
                   </div>
                   <div className="w-full py-3 mr-4">
+                    <Image src="/images/tools/gcp.svg" alt="uideck" width="200" height="10"/>
+                  </div>
+                  <div className="w-full py-3 mr-4">
                     <Image
                       src="/images/tools/snowflake.svg"
                       alt="graygrids"
                       width="200" height="10"
                     />
-                  </div>
-                  <div className="w-full py-3 mr-4">
-                    <Image src="/images/tools/gcp.svg" alt="uideck" width="200" height="10"/>
                   </div>
                 </div>
               </div>

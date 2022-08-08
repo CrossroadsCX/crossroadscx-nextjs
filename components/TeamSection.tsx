@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/future/image'
 
 export const TeamSection = () => {
   return (
@@ -56,10 +57,12 @@ export const TeamSection = () => {
               <div className="w-full sm:w-1/2 lg:w-1/4 px-4">
                 <div className="max-w-[200px] mx-auto mb-10">
                   <div className="rounded overflow-hidden mb-5">
-                    <img
-                      src="assets/images/team/team-05/image-01.jpg"
+                    <Image
+                      src="/images/team/team-05/image-01.jpg"
                       alt="image"
                       className="w-full"
+                      width="500"
+                      height="500"
                     />
                   </div>
                   <div className="text-center">
@@ -71,7 +74,7 @@ export const TeamSection = () => {
                     </p>
                     <div className="flex justify-center items-center">
                       <a
-                        href="javascript:void(0)"
+                        href="#"
                         className="text-[#CDCED6] hover:text-primary mx-3"
                       >
                         <svg
@@ -86,7 +89,7 @@ export const TeamSection = () => {
                         </svg>
                       </a>
                       <a
-                        href="javascript:void(0)"
+                        href="#"
                         className="text-[#CDCED6] hover:text-primary mx-3"
                       >
                         <svg
@@ -101,7 +104,7 @@ export const TeamSection = () => {
                         </svg>
                       </a>
                       <a
-                        href="javascript:void(0)"
+                        href="#"
                         className="text-[#CDCED6] hover:text-primary mx-3"
                       >
                         <svg
@@ -128,10 +131,12 @@ export const TeamSection = () => {
               <div className="w-full sm:w-1/2 lg:w-1/4 px-4">
                 <div className="max-w-[200px] mx-auto mb-10">
                   <div className="rounded overflow-hidden mb-5">
-                    <img
-                      src="assets/images/team/team-05/image-02.jpg"
+                    <Image
+                      src="/images/team/team-05/image-02.jpg"
                       alt="image"
                       className="w-full"
+                      width="500"
+                      height="500"
                     />
                   </div>
                   <div className="text-center">
@@ -143,7 +148,7 @@ export const TeamSection = () => {
                     </p>
                     <div className="flex justify-center items-center">
                       <a
-                        href="javascript:void(0)"
+                        href="#"
                         className="text-[#CDCED6] hover:text-primary mx-3"
                       >
                         <svg
@@ -158,7 +163,7 @@ export const TeamSection = () => {
                         </svg>
                       </a>
                       <a
-                        href="javascript:void(0)"
+                        href="#"
                         className="text-[#CDCED6] hover:text-primary mx-3"
                       >
                         <svg
@@ -173,7 +178,7 @@ export const TeamSection = () => {
                         </svg>
                       </a>
                       <a
-                        href="javascript:void(0)"
+                        href="#"
                         className="text-[#CDCED6] hover:text-primary mx-3"
                       >
                         <svg
@@ -200,10 +205,12 @@ export const TeamSection = () => {
               <div className="w-full sm:w-1/2 lg:w-1/4 px-4">
                 <div className="max-w-[200px] mx-auto mb-10">
                   <div className="rounded overflow-hidden mb-5">
-                    <img
-                      src="assets/images/team/team-05/image-03.jpg"
+                    <Image
+                      src="/images/team/team-05/image-03.jpg"
                       alt="image"
                       className="w-full"
+                      width="500"
+                      height="500"
                     />
                   </div>
                   <div className="text-center">
@@ -215,7 +222,7 @@ export const TeamSection = () => {
                     </p>
                     <div className="flex justify-center items-center">
                       <a
-                        href="javascript:void(0)"
+                        href="#"
                         className="text-[#CDCED6] hover:text-primary mx-3"
                       >
                         <svg
@@ -230,7 +237,7 @@ export const TeamSection = () => {
                         </svg>
                       </a>
                       <a
-                        href="javascript:void(0)"
+                        href="#"
                         className="text-[#CDCED6] hover:text-primary mx-3"
                       >
                         <svg
@@ -245,7 +252,7 @@ export const TeamSection = () => {
                         </svg>
                       </a>
                       <a
-                        href="javascript:void(0)"
+                        href="#"
                         className="text-[#CDCED6] hover:text-primary mx-3"
                       >
                         <svg
@@ -272,10 +279,12 @@ export const TeamSection = () => {
               <div className="w-full sm:w-1/2 lg:w-1/4 px-4">
                 <div className="max-w-[200px] mx-auto mb-10">
                   <div className="rounded overflow-hidden mb-5">
-                    <img
-                      src="assets/images/team/team-05/image-04.jpg"
+                    <Image
+                      src="/images/team/team-05/image-04.jpg"
                       alt="image"
                       className="w-full"
+                      width="500"
+                      height="500"
                     />
                   </div>
                   <div className="text-center">
@@ -287,7 +296,7 @@ export const TeamSection = () => {
                     </p>
                     <div className="flex justify-center items-center">
                       <a
-                        href="javascript:void(0)"
+                        href="#"
                         className="text-[#CDCED6] hover:text-primary mx-3"
                       >
                         <svg
@@ -302,7 +311,7 @@ export const TeamSection = () => {
                         </svg>
                       </a>
                       <a
-                        href="javascript:void(0)"
+                        href="#"
                         className="text-[#CDCED6] hover:text-primary mx-3"
                       >
                         <svg
@@ -317,7 +326,7 @@ export const TeamSection = () => {
                         </svg>
                       </a>
                       <a
-                        href="javascript:void(0)"
+                        href="#"
                         className="text-[#CDCED6] hover:text-primary mx-3"
                       >
                         <svg

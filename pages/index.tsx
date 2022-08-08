@@ -4,6 +4,7 @@ import {
   HeroSection,
   NavBar,
   ServicesSection,
+  TeamSection,
 } from '../components'
 
 const Home: NextPage = () => {
@@ -17,6 +18,7 @@ const Home: NextPage = () => {
       <NavBar />
       <HeroSection />
       <ServicesSection />
+      <TeamSection />
     </div>
   )
 }

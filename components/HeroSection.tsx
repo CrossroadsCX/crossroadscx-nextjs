@@ -31,7 +31,7 @@ export const HeroSection = () => {
               <ul className="flex flex-wrap items-center">
                 <li>
                   <a
-                    href="javascript:void(0)"
+                    href="#"
                     className="
                       py-4
                       px-6

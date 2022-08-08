@@ -14,8 +14,8 @@ export const NavBar = () => {
     >
       <div className="container">
         <div className="flex -mx-4 items-center justify-between relative">
-          <div className="px-4 w-60 max-w-full">
-            <a href="#" className="w-full block py-5">
+          <div className="px-4 w-96 max-w-full">
+            <a href="#" className="w-full flex items-center justify-between py-5">
               <Image
                 src="/images/logo/logo-symbol-v2.svg"
                 alt="logo"
@@ -23,7 +23,7 @@ export const NavBar = () => {
                 width="100"
                 height="100"
               />
-              {/* <h1 className="text-black align-middle">CrossroadsCX</h1> */}
+              <div className="text-black text-2xl">CrossroadsCX</div>
             </a>
           </div>
           <div className="flex px-4 justify-between items-center w-full">

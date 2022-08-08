@@ -21,17 +21,20 @@ export const HeroSection = () => {
                   mb-3
                 "
               >
-                Startup Site Template Built-with TailGrids Components
+                Boutique software consultancy
               </h1>
+              <h2
+                className="text-dark text-2xl mb-3"
+              >
+                High quality customer experiences
+              </h2>
               <p className="text-base mb-8 text-body-color max-w-[480px]">
-                With TailGrids, business and students thrive together. Business
-                can perfectly match their staffing to changing demand throughout
-                the dayed.
+              CrossroadsCX is a boutique consultancy that uses modern technologies to create exceptional experiences for our clients. Start-ups and enterprises engage CrossroadsCX to help deliver ambitious e-commerce, data, and software projects. We can augment your existing team or operate as a fully outsourced team.
               </p>
               <ul className="flex flex-wrap items-center">
                 <li>
                   <a
-                    href="#"
+                    href="/docs/CrossroadsCX Offerings.pdf"
                     className="
                       py-4
                       px-6
@@ -48,12 +51,12 @@ export const HeroSection = () => {
                       rounded-lg
                     "
                   >
-                    Get Started
+                    Download Our Offerings
                   </a>
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="/docs/CrossroadsCX Offerings.pdf"
                     className="
                       py-4
                       px-6

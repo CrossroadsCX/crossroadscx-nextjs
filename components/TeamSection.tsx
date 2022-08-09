@@ -41,8 +41,7 @@ export const TeamSection = () => {
                 Our Team Members
               </h2>
               <p className="text-base text-body-color">
-                There are many variations of passages of Lorem Ipsum available
-                but the majority have suffered alteration in some form.
+                It&apos;s nice to meet you!
               </p>
             </div>
           </div>

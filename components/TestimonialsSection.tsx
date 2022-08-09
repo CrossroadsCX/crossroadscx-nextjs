@@ -24,11 +24,10 @@ export const TestimonialsSection = () => {
                   mb-4
                 "
               >
-                What our Clients Says
+                What our Clients Say
               </h2>
               <p className="text-base text-body-color">
-                There are many variations of passages of Lorem Ipsum available
-                but the majority have suffered alteration in some form.
+                Don&apos;t take it from us, we&apos;ll let our friends speak for us.
               </p>
             </div>
           </div>

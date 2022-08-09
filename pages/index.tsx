@@ -24,7 +24,7 @@ const Home: NextPage = () => {
       <ServicesSection />
       <TeamSection />
       <FAQSection />
-      <TestimonialsSection />
+      {/* <TestimonialsSection /> */}
       <ContactSection />
       <Footer />
     </div>

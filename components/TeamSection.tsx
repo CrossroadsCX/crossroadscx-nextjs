@@ -66,7 +66,7 @@ export const TeamSection = () => {
                 <div className="max-w-[200px] mx-auto mb-10">
                   <div className="rounded overflow-hidden mb-5">
                     <Image
-                      src="/images/team/team-05/image-01.jpg"
+                      src="/images/team/Chris.jpg"
                       alt="image"
                       className="w-full"
                       width="500"

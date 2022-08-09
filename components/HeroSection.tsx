@@ -124,18 +124,39 @@ export const HeroSection = () => {
                     className="w-8 h-[1px] bg-body-color inline-block ml-2"
                   ></span>
                 </h6>
-                <div className="flex items-center max-w-[550px]">
-                  <div className="w-full py-3 mr-4">
-                    <Image src="/images/tools/react.svg" alt="React" width="200" height="10" />
+                <div className="flex items-center max-w-[550px] flex-wrap">
+                  <div className="w-1/4 py-3 mr-4">
+                    <Image src="/images/tools/react.svg" alt="React" width="120" height="10" />
                   </div>
-                  <div className="w-full py-3 mr-4">
-                    <Image src="/images/tools/gcp.svg" alt="GCP" width="200" height="10"/>
+                  <div className="w-1/4 py-3 mr-4">
+                    <Image src="/images/tools/gcp.svg" alt="GCP" width="120" height="10"/>
                   </div>
-                  <div className="w-full py-3 mr-4">
+                  <div className="w-1/4 py-3 mr-4">
                     <Image
                       src="/images/tools/snowflake.svg"
                       alt="Snowflake"
-                      width="200" height="10"
+                      width="120" height="10"
+                    />
+                  </div>
+                  <div className="w-1/4 py-3 mr-4">
+                    <Image
+                      src="/images/tools/tableau.svg"
+                      alt="Tableau"
+                      width="150" height="10"
+                    />
+                  </div>
+                  <div className="w-1/4 py-3 mr-4">
+                    <Image
+                      src="/images/tools/graphql.svg"
+                      alt="GraphQL"
+                      width="150" height="10"
+                    />
+                  </div>
+                  <div className="w-1/4 py-3 mr-4">
+                    <Image
+                      src="/images/tools/nextjs.svg"
+                      alt="NextJS"
+                      width="150" height="10"
                     />
                   </div>
                 </div>

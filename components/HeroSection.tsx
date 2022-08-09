@@ -119,6 +119,7 @@ export const HeroSection = () => {
                   alt="hero"
                   className="max-w-full lg:ml-auto rounded-lg rounded-tl-[150px]"
                   width="500" height="10"
+                  priority
                 />
                 <span className="absolute -left-8 -bottom-8 z-[-1]">
                   <svg

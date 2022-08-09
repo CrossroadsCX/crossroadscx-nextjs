@@ -128,7 +128,7 @@ export const TeamSection = () => {
                   </div>
                   <div className="text-center">
                     <h4 className="font-semibold text-base text-dark mb-2">
-                      Mario Enrique Aquino Medina
+                      Mario Medina
                     </h4>
                     <p className="text-[10px] uppercase text-body-color mb-5">
                       Developer

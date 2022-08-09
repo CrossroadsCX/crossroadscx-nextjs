@@ -109,9 +109,26 @@ export const Footer = () => {
           </div>
           <div className="w-full md:w-1/2 lg:w-4/12 2xl:w-3/12 px-4">
             <div className="w-full mb-10">
-              <a href="https://crossroads-cx.medium.com/" target="_blank" rel="noreferrer">
-                <h4 className="text-white text-lg font-semibold mb-9 hover:underline">Read Our Blog</h4>
-              </a>
+              <h4 className="text-white text-lg font-semibold mb-9">Read Our Blog</h4>
+              <ul>
+                <li>
+                  <a
+                    href="https://crossroads-cx.medium.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="
+                      inline-block
+                      text-base text-[#efefef]
+                      hover:text-white
+                      leading-loose
+                      mb-2
+                      hover:underline
+                    "
+                  >
+                    CrossroadsCX on Medium
+                  </a>
+                </li>
+              </ul>
               {/* <a
                 href="#"
                 className="flex items-center text-[#efefef] hover:text-white mb-8"
@@ -150,7 +167,7 @@ export const Footer = () => {
               <ul>
                 <li>
                   <a
-                    href="#"
+                    href="#home"
                     className="
                       inline-block
                       text-base text-[#efefef]
@@ -159,12 +176,12 @@ export const Footer = () => {
                       mb-2
                     "
                   >
-                    About company
+                    Home
                   </a>
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="#services"
                     className="
                       inline-block
                       text-base text-[#efefef]
@@ -173,12 +190,12 @@ export const Footer = () => {
                       mb-2
                     "
                   >
-                    Company services
+                    Services
                   </a>
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="#team"
                     className="
                       inline-block
                       text-base text-[#efefef]
@@ -187,12 +204,12 @@ export const Footer = () => {
                       mb-2
                     "
                   >
-                    Job opportunities
+                    Team
                   </a>
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="#faq"
                     className="
                       inline-block
                       text-base text-[#efefef]
@@ -201,13 +218,41 @@ export const Footer = () => {
                       mb-2
                     "
                   >
-                    Creative people
+                    FAQ
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#testimonials"
+                    className="
+                      inline-block
+                      text-base text-[#efefef]
+                      hover:text-white
+                      leading-loose
+                      mb-2
+                    "
+                  >
+                    Testimonials
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#contact-us"
+                    className="
+                      inline-block
+                      text-base text-[#efefef]
+                      hover:text-white
+                      leading-loose
+                      mb-2
+                    "
+                  >
+                    Contact Us
                   </a>
                 </li>
               </ul>
             </div>
           </div>
-          <div className="w-full sm:w-1/2 lg:w-3/12 2xl:w-2/12 px-4">
+          {/* <div className="w-full sm:w-1/2 lg:w-3/12 2xl:w-2/12 px-4">
             <div className="w-full mb-10">
               <h4 className="text-white text-lg font-semibold mb-9">Customer</h4>
               <ul>
@@ -269,7 +314,7 @@ export const Footer = () => {
                 </li>
               </ul>
             </div>
-          </div>
+          </div> */}
           <div className="w-full sm:w-1/2 lg:w-4/12 2xl:w-2/12 px-4">
             <div className="w-full mb-10">
               <h4 className="text-white text-lg font-semibold mb-9">

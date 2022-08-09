@@ -37,11 +37,10 @@ export const FAQSection = () => {
                   mb-4
                 "
               >
-                Any Questions? Look Here
+                You have questions. <br /> We have answers.
               </h2>
               <p className="text-base text-body-color">
-                There are many variations of passages of Lorem Ipsum available
-                but the majority have suffered alteration in some form.
+                Feel free to ask any questions <a href="#contact-us" className="hover:underline font-bold italic">below</a> as well.
               </p>
             </div>
           </div>
@@ -97,7 +96,7 @@ export const FAQSection = () => {
                 </div>
                 <div className="w-full">
                   <h4 className="text-lg font-semibold text-black">
-                    How long we deliver your first blog post?
+                    What makes you different than other technology vendors?
                   </h4>
                 </div>
               </button>
@@ -107,10 +106,14 @@ export const FAQSection = () => {
                 ${currentOpen === 1 ? '' : 'hidden'}
               `}>
                 <p className="text-base text-body-color leading-relaxed py-3">
-                  It takes 2-3 weeks to get your first blog post ready. That
-                  includes the in-depth research & creation of your monthly
-                  content marketing strategy that we do before writing your
-                  first blog post, Ipsum available .
+                  We&apos;ve been where you&apos;re sitting. We know there are a lot of risks to hiring
+                  outside help. We try to build trust with our clients first and help them grow. We would
+                  much rather create a lasting relationship where we can prove our value time and time again.
+                  <br /><br />
+                  We pride ourselves on our clear and consistent communication - including offering advice
+                  to our clients that may be out-of-box, less costly alternatives to building
+                  everything ourselves. We will ensure that you are informed of all timelines and risks
+                  and will be there to assist in your decision making every step of the way.
                 </p>
               </div>
             </div>
@@ -162,7 +165,7 @@ export const FAQSection = () => {
                 </div>
                 <div className="w-full">
                   <h4 className="text-lg font-semibold text-black">
-                    How long we deliver your first blog post?
+                    What types of projects / clients have you worked with in the past?
                   </h4>
                 </div>
               </button>
@@ -172,10 +175,11 @@ export const FAQSection = () => {
                 ${currentOpen === 2 ? '' : 'hidden'}
               `}>
                 <p className="text-base text-body-color leading-relaxed py-3">
-                  It takes 2-3 weeks to get your first blog post ready. That
-                  includes the in-depth research & creation of your monthly
-                  content marketing strategy that we do before writing your
-                  first blog post, Ipsum available .
+                  We&apos;ve worked on projects and clients from small single-employee non-profits to large
+                  multi-billion dollar commerce giants. Their industries span e-commerce, finance, government, legal, and logistics.
+                  Our services for these clients have included architecting greenfield applications, augmenting existing teams,
+                  connecting out-of-the-box software tools / workflows, and even just playing an advisory role. If we aren&apos;t
+                  absolutely sure that we are a good fit for your project, we will be the first to say so.
                 </p>
               </div>
             </div>
@@ -227,7 +231,7 @@ export const FAQSection = () => {
                 </div>
                 <div className="w-full">
                   <h4 className="text-lg font-semibold text-black">
-                    How long we deliver your first blog post?
+                    Can you help with IT services?
                   </h4>
                 </div>
               </button>
@@ -237,10 +241,8 @@ export const FAQSection = () => {
                 ${currentOpen === 3 ? '' : 'hidden'}
               `}>
                 <p className="text-base text-body-color leading-relaxed py-3">
-                  It takes 2-3 weeks to get your first blog post ready. That
-                  includes the in-depth research & creation of your monthly
-                  content marketing strategy that we do before writing your
-                  first blog post, Ipsum available .
+                  Unfortunately, no. While we do help our mothers with their printers when they call,
+                  that&apos;s generally free-of-charge and not a recommended service to our clients.
                 </p>
               </div>
             </div>
@@ -294,7 +296,7 @@ export const FAQSection = () => {
                 </div>
                 <div className="w-full">
                   <h4 className="text-lg font-semibold text-black">
-                    How long we deliver your first blog post?
+                    What types of engagements do you offer?
                   </h4>
                 </div>
               </button>
@@ -304,10 +306,11 @@ export const FAQSection = () => {
                 ${currentOpen === 4 ? '' : 'hidden'}
               `}>
                 <p className="text-base text-body-color leading-relaxed py-3">
-                  It takes 2-3 weeks to get your first blog post ready. That
-                  includes the in-depth research & creation of your monthly
-                  content marketing strategy that we do before writing your
-                  first blog post, Ipsum available .
+                  We&apos;re flexible. We want to make sure that you get the value you deserve.
+                  We are comfortable operating on an hourly basis if that works for you, although we
+                  also are very comfortable in a project-by-project basis or even on retainer. The retainer option
+                  does allow us to be more flexible with our customers and flex higher during periods of
+                  time that we are needed more.
                 </p>
               </div>
             </div>
@@ -424,7 +427,7 @@ export const FAQSection = () => {
                 </div>
                 <div className="w-full">
                   <h4 className="text-lg font-semibold text-black">
-                    How long we deliver your first blog post?
+                    What types of engagements do you offer?
                   </h4>
                 </div>
               </button>
@@ -434,10 +437,11 @@ export const FAQSection = () => {
                 ${currentOpen === 6 ? '' : 'hidden'}
               `}>
                 <p className="text-base text-body-color leading-relaxed py-3">
-                  It takes 2-3 weeks to get your first blog post ready. That
-                  includes the in-depth research & creation of your monthly
-                  content marketing strategy that we do before writing your
-                  first blog post, Ipsum available .
+                  We&apos;re flexible. We want to make sure that you get the value you deserve.
+                  We are comfortable operating on an hourly basis if that works for you, although we
+                  also are very comfortable in a project-by-project basis or even on retainer. The retainer option
+                  does allow us to be more flexible with our customers and flex higher during periods of
+                  time that we are needed more.
                 </p>
               </div>
             </div>

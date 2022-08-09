@@ -6,6 +6,14 @@ export const FAQSection = () => {
 
   const scrollBind = useSmoothScrollTo('#faq')
 
+  const handleOpen = (index: number) => {
+    if (currentOpen === index) {
+      setCurrentOpen(undefined)
+    } else {
+      setCurrentOpen(index)
+    }
+  }
+
   return (
     <section
       className="
@@ -64,10 +72,12 @@ export const FAQSection = () => {
             >
               <button
                 className="faq-btn flex w-full text-left"
-                onClick={() => setCurrentOpen(currentOpen ? undefined : 1)}
+                onClick={() => handleOpen(1)}
               >
                 <div
-                  className="
+                  className={`
+                    ${currentOpen === 1 ? 'rotate-0' : '-rotate-90'}
+                    transition
                     w-full
                     max-w-[40px]
                     h-10
@@ -79,7 +89,7 @@ export const FAQSection = () => {
                     text-primary
                     bg-opacity-5
                     mr-5
-                  "
+                  `}
                 >
                   <svg
                     width="17"
@@ -133,10 +143,12 @@ export const FAQSection = () => {
             >
               <button
                 className="faq-btn flex w-full text-left"
-                onClick={() => setCurrentOpen(currentOpen === 2 ? undefined : 2)}
+                onClick={() => handleOpen(2)}
               >
                 <div
-                  className="
+                  className={`
+                    ${currentOpen === 2 ? 'rotate-0' : '-rotate-90'}
+                    transition
                     w-full
                     max-w-[40px]
                     h-10
@@ -148,7 +160,7 @@ export const FAQSection = () => {
                     text-primary
                     bg-opacity-5
                     mr-5
-                  "
+                  `}
                 >
                   <svg
                     width="17"
@@ -199,10 +211,12 @@ export const FAQSection = () => {
             >
               <button
                 className="faq-btn flex w-full text-left"
-                onClick={() => setCurrentOpen(currentOpen ? undefined : 3)}
+                onClick={() => handleOpen(3)}
               >
                 <div
-                  className="
+                  className={`
+                    ${currentOpen === 3 ? 'rotate-0' : '-rotate-90'}
+                    transition
                     w-full
                     max-w-[40px]
                     h-10
@@ -214,7 +228,7 @@ export const FAQSection = () => {
                     text-primary
                     bg-opacity-5
                     mr-5
-                  "
+                  `}
                 >
                   <svg
                     width="17"
@@ -264,10 +278,12 @@ export const FAQSection = () => {
             >
               <button
                 className="faq-btn flex w-full text-left"
-                onClick={() => setCurrentOpen(currentOpen ? undefined : 4)}
+                onClick={() => handleOpen(4)}
               >
                 <div
-                  className="
+                  className={`
+                    ${currentOpen === 4 ? 'rotate-0' : '-rotate-90'}
+                    transition
                     w-full
                     max-w-[40px]
                     h-10
@@ -279,7 +295,7 @@ export const FAQSection = () => {
                     text-primary
                     bg-opacity-5
                     mr-5
-                  "
+                  `}
                 >
                   <svg
                     width="17"
@@ -330,10 +346,12 @@ export const FAQSection = () => {
             >
               <button
                 className="faq-btn flex w-full text-left"
-                onClick={() => setCurrentOpen(currentOpen ? undefined : 5)}
+                onClick={() => handleOpen(5)}
               >
                 <div
-                  className="
+                  className={`
+                    ${currentOpen === 5 ? 'rotate-0' : '-rotate-90'}
+                    transition
                     w-full
                     max-w-[40px]
                     h-10
@@ -345,7 +363,7 @@ export const FAQSection = () => {
                     text-primary
                     bg-opacity-5
                     mr-5
-                  "
+                  `}
                 >
                   <svg
                     width="17"
@@ -395,10 +413,12 @@ export const FAQSection = () => {
             >
               <button
                 className="faq-btn flex w-full text-left"
-                onClick={() => setCurrentOpen(currentOpen ? undefined : 6)}
+                onClick={() => handleOpen(6)}
               >
                 <div
-                  className="
+                  className={`
+                    ${currentOpen === 6 ? 'rotate-0' : '-rotate-90'}
+                    transition
                     w-full
                     max-w-[40px]
                     h-10
@@ -410,7 +430,7 @@ export const FAQSection = () => {
                     text-primary
                     bg-opacity-5
                     mr-5
-                  "
+                  `}
                 >
                   <svg
                     width="17"

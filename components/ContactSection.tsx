@@ -52,9 +52,7 @@ export const ContactSection = () => {
                 GET IN TOUCH WITH US
               </h2>
               <p className="text-base text-body-color leading-relaxed mb-9">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eius tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                adiqua minim veniam quis nostrud exercitation ullamco
+                Let&apos;s Chat.
               </p>
 
               <div className="flex mb-8 max-w-[370px] w-full">

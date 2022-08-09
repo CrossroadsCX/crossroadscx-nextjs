@@ -4,6 +4,7 @@ import { useSmoothScrollTo } from '../helpers/useSmoothScrollTo'
 import { TwitterIcon } from './TwitterIcon'
 import { LinkedInIcon } from './LinkedInIcon'
 import { GitHubIcon } from './GitubIcon'
+import { TableauIcon } from './TableauIcon'
 
 export const TeamSection = () => {
   const scrollBind = useSmoothScrollTo('#team')
@@ -109,6 +110,7 @@ export const TeamSection = () => {
                     <div className="flex justify-center items-center">
                       <TwitterIcon link="https://twitter.com/jimmysteinmetz" />
                       <LinkedInIcon link="https://linkedin.com/in/jimmysteinmetz" />
+                      <TableauIcon link="https://public.tableau.com/app/profile/jimmy.steinmetz4934" />
                       <GitHubIcon link="https://github.com/jimmysteinmetz" />
                     </div>
                   </div>

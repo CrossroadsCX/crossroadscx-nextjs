@@ -87,7 +87,9 @@ export const ContactSection = () => {
                 <div className="w-full">
                   <h4 className="font-bold text-dark text-xl mb-1">Our Location</h4>
                   <p className="text-base text-body-color">
-                    Chicago and New York City
+                    Chicago, IL
+                    <br />
+                    New York, NY
                   </p>
                 </div>
               </div>

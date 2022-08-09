@@ -126,15 +126,15 @@ export const HeroSection = () => {
                 </h6>
                 <div className="flex items-center max-w-[550px]">
                   <div className="w-full py-3 mr-4">
-                    <Image src="/images/tools/react.svg" alt="ayroui" width="200" height="10" />
+                    <Image src="/images/tools/react.svg" alt="React" width="200" height="10" />
                   </div>
                   <div className="w-full py-3 mr-4">
-                    <Image src="/images/tools/gcp.svg" alt="uideck" width="200" height="10"/>
+                    <Image src="/images/tools/gcp.svg" alt="GCP" width="200" height="10"/>
                   </div>
                   <div className="w-full py-3 mr-4">
                     <Image
                       src="/images/tools/snowflake.svg"
-                      alt="graygrids"
+                      alt="Snowflake"
                       width="200" height="10"
                     />
                   </div>
@@ -147,9 +147,9 @@ export const HeroSection = () => {
             <div className="lg:text-right lg:ml-auto">
               <div className="relative inline-block z-10 pt-11 lg:pt-0">
                 <Image
-                  src="/images/hero/hero.png"
+                  src="/images/hero/hero.jpg"
                   alt="hero"
-                  className="max-w-full lg:ml-auto rounded-lg"
+                  className="max-w-full lg:ml-auto rounded-lg rounded-tl-[150px]"
                   width="500" height="10"
                 />
                 <span className="absolute -left-8 -bottom-8 z-[-1]">

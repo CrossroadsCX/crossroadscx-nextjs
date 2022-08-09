@@ -362,7 +362,7 @@ export const FAQSection = () => {
                 </div>
                 <div className="w-full">
                   <h4 className="text-lg font-semibold text-black">
-                    How long we deliver your first blog post?
+                    Are you familiar with &lt;insert-technology-here&gt;
                   </h4>
                 </div>
               </button>
@@ -372,10 +372,10 @@ export const FAQSection = () => {
                 ${currentOpen === 5 ? '' : 'hidden'}
               `}>
                 <p className="text-base text-body-color leading-relaxed py-3">
-                  It takes 2-3 weeks to get your first blog post ready. That
-                  includes the in-depth research & creation of your monthly
-                  content marketing strategy that we do before writing your
-                  first blog post, Ipsum available .
+                  Maybe? It&apos;s always worth asking. If we aren&apos;t experts, we&apos;ll let you know.
+                  We&apos;ll also let you know if it&apos;s similar enough to technologies that we know well
+                  and continue the discussion from there. We will never sell you on a project that we aren&apos;t
+                  able to execute at a very high standard.
                 </p>
               </div>
             </div>
@@ -427,7 +427,7 @@ export const FAQSection = () => {
                 </div>
                 <div className="w-full">
                   <h4 className="text-lg font-semibold text-black">
-                    What types of engagements do you offer?
+                    Do you work with existing teams or partners?
                   </h4>
                 </div>
               </button>
@@ -437,11 +437,13 @@ export const FAQSection = () => {
                 ${currentOpen === 6 ? '' : 'hidden'}
               `}>
                 <p className="text-base text-body-color leading-relaxed py-3">
-                  We&apos;re flexible. We want to make sure that you get the value you deserve.
-                  We are comfortable operating on an hourly basis if that works for you, although we
-                  also are very comfortable in a project-by-project basis or even on retainer. The retainer option
-                  does allow us to be more flexible with our customers and flex higher during periods of
-                  time that we are needed more.
+                  Yes.
+                  <br /><br />
+                  We&apos;re very comfortable augmenting existing teams, and believe that
+                  we are very quick studies on new codebases, patterns, and workflows. We have experience with
+                  performing roles ranging from hands-on-a-keyboard to assisting C-level executives make
+                  high-impact decisions. We can also work hand-in-hand with existing vendors and partners to
+                  ensure your project is successful.
                 </p>
               </div>
             </div>

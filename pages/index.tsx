@@ -10,6 +10,7 @@ import {
   TeamSection,
   TestimonialsSection,
 } from '../components'
+import { ToolsetsSection } from '../components/ToolsetsSection'
 
 const Home: NextPage = () => {
   return (
@@ -21,6 +22,7 @@ const Home: NextPage = () => {
       </Head>
       <NavBar />
       <HeroSection />
+      <ToolsetsSection />
       <ServicesSection />
       <TeamSection />
       <FAQSection />

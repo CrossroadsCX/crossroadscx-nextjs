@@ -108,59 +108,6 @@ export const HeroSection = () => {
                   </a>
                 </li>
               </ul>
-              <div className="clients pt-16">
-                <h6
-                  className="
-                    font-normal
-                    text-xs
-                    flex
-                    items-center
-                    text-body-color
-                    mb-2
-                  "
-                >
-                  Our strongest toolsets and technologies
-                  <span
-                    className="w-8 h-[1px] bg-body-color inline-block ml-2"
-                  ></span>
-                </h6>
-                <div className="flex items-center max-w-[550px] flex-wrap">
-                  <div className="w-1/4 py-3 mr-4">
-                    <Image src="/images/tools/react.svg" alt="React" width="120" height="10" />
-                  </div>
-                  <div className="w-1/4 py-3 mr-4">
-                    <Image src="/images/tools/gcp.svg" alt="GCP" width="120" height="10"/>
-                  </div>
-                  <div className="w-1/4 py-3 mr-4">
-                    <Image
-                      src="/images/tools/snowflake.svg"
-                      alt="Snowflake"
-                      width="120" height="10"
-                    />
-                  </div>
-                  <div className="w-1/4 py-3 mr-4">
-                    <Image
-                      src="/images/tools/tableau.svg"
-                      alt="Tableau"
-                      width="150" height="10"
-                    />
-                  </div>
-                  <div className="w-1/4 py-3 mr-4">
-                    <Image
-                      src="/images/tools/graphql.svg"
-                      alt="GraphQL"
-                      width="150" height="10"
-                    />
-                  </div>
-                  <div className="w-1/4 py-3 mr-4">
-                    <Image
-                      src="/images/tools/nextjs.svg"
-                      alt="NextJS"
-                      width="150" height="10"
-                    />
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
           <div className="hidden lg:block lg:w-1/12 px-4"></div>

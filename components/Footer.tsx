@@ -427,10 +427,10 @@ export const Footer = () => {
           <div className="flex flex-wrap -mx-4">
             <div className="w-full md:w-1/3 lg:w-1/2 px-4">
               <div className="flex justify-center md:justify-start my-1">
-                <p className="text-base text-[#efefef]">&copy; 2025 TailGrids</p>
+                <p className="text-base text-[#efefef]">&copy; {new Date().getFullYear()} CrossroadsCX</p>
               </div>
             </div>
-            <div className="w-full md:w-2/3 lg:w-1/2 px-4">
+            {/* <div className="w-full md:w-2/3 lg:w-1/2 px-4">
               <div className="my-1">
                 <div
                   className="
@@ -461,7 +461,7 @@ export const Footer = () => {
                   </a>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

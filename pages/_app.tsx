@@ -21,6 +21,17 @@ function MyApp({ Component, pageProps }: AppProps) {
           gtag('config', 'UA-119741426-1');
         `}
       </Script>
+      <Script strategy="lazyOnload" id="mouseflow">
+        {`
+        window._mfq = window._mfq || [];
+        (function() {
+          var mf = document.createElement("script");
+          mf.type = "text/javascript"; mf.defer = true;
+          mf.src = "//cdn.mouseflow.com/projects/43690825-7542-4d4e-a475-df82488129ad.js";
+          document.getElementsByTagName("head")[0].appendChild(mf);
+        })();
+        `}
+      </Script>
       <Script
         id="fullstory"
         strategy="lazyOnload"

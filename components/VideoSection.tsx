@@ -327,8 +327,8 @@ export const VideoSection = () => {
       </div>
 
       <div
-        x-show="videoOpen"
-        x-transition
+        // x-show="videoOpen"
+        // x-transition
         className="
           fixed
           top-0

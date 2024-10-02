@@ -92,7 +92,7 @@ export const TeamSection = () => {
                 <div className="max-w-[200px] mx-auto mb-10">
                   <div className="rounded overflow-hidden mb-5">
                     <Image
-                      src="/images/team/Jimmy.jpg"
+                      src="/images/team/Danny.jpg"
                       alt="image"
                       className="w-full"
                       width="500"
@@ -101,10 +101,10 @@ export const TeamSection = () => {
                   </div>
                   <div className="text-center">
                     <h4 className="font-semibold text-base text-dark mb-2">
-                      Jimmy Steinmetz
+                      Danny Steinmetz
                     </h4>
                     <p className="text-[10px] uppercase text-body-color mb-5">
-                      CAO / Co-Founder
+                      Data and Analytics Lead
                     </p>
                     <div className="flex justify-center items-center">
                       <TwitterIcon link="https://twitter.com/jimmysteinmetz" />

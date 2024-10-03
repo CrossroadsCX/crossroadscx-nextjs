@@ -107,10 +107,9 @@ export const TeamSection = () => {
                       Data and Analytics Lead
                     </p>
                     <div className="flex justify-center items-center">
-                      <TwitterIcon link="https://twitter.com/jimmysteinmetz" />
-                      <LinkedInIcon link="https://linkedin.com/in/jimmysteinmetz" />
-                      <TableauIcon link="https://public.tableau.com/app/profile/jimmy.steinmetz4934" />
-                      <GitHubIcon link="https://github.com/jimmysteinmetz" />
+                      <LinkedInIcon link="https://www.linkedin.com/in/danny-steinmetz/" />
+                      <TableauIcon link="https://public.tableau.com/app/profile/danny.steinmetz" />
+                      <GitHubIcon link="https://github.com/dmsteinmetz14" />
                     </div>
                   </div>
                 </div>

@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import Image from 'next/future/image'
+
 
 export const VideoSection = () => {
   const [videoOpen, setVideoOpen] = useState(false)
@@ -57,7 +59,7 @@ export const VideoSection = () => {
       <div>
         <div className="lg:absolute top-0 right-0 h-full w-full lg:w-1/2 z-10">
           <div className="h-full w-full flex items-center justify-center">
-            <img
+            <Image
               src="assets/images/videos/image-01.jpg"
               alt="image"
               className="

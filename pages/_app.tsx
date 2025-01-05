@@ -21,6 +21,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           gtag('config', 'UA-119741426-1');
         `}
       </Script>
+      <script id="vtag-ai-js" async src="https://r2.leadsy.ai/tag.js" data-pid="MT1gPz0jD4KHEwCn" data-version="062024"></script>
       <Script strategy="lazyOnload" id="mouseflow">
         {`
         window._mfq = window._mfq || [];

@@ -163,7 +163,7 @@ export const NavBar = () => {
                       FAQ
                     </a>
                   </li>
-                  <li>
+                  {/* <li>
                     <a
                       href="#testimonials"
                       className="
@@ -179,7 +179,7 @@ export const NavBar = () => {
                     >
                       Testimonials
                     </a>
-                  </li>
+                  </li> */}
                   <li>
                     <a
                       href="#contact-us"

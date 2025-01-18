@@ -413,7 +413,7 @@ export const Footer = () => {
                         />
                       </svg>
                     </span>
-                    Chicago, IL <br /> New York, NY
+                    Chicago, IL
                   </p>
                 </li>
               </ul>

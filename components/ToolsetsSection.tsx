@@ -15,34 +15,25 @@ const tools = [
 
 export const ToolsetsSection = () => {
   return (
-    <section className="pb-12 lg:pb-[90px] bg-white">
+    <section className="py-16 lg:py-20 bg-white" aria-labelledby="toolsets-heading">
       <div className="container">
-        <div className="flex flex-wrap -mx-4">
-          <h6
-            className="
-              font-normal
-              text-xs
-              flex
-              items-center
-              text-body-color
-              mb-2
-            "
-          >
-            Our strongest toolsets and technologies
-            <span
-              className="w-8 h-[1px] bg-body-color inline-block ml-2"
-            ></span>
-          </h6>
-          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-2 w-full">
-            {tools.map((tool) => (
-              <div key={tool.name} className="py-3">
-                <a href={tool.href} target="_blank" rel="noreferrer">
-                  <Image src={tool.src} alt={tool.name} width={tool.width} height="60" />
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
+        <h2 id="toolsets-heading" className="text-sm font-medium text-body-color text-center mb-8">
+          Tools we know well
+        </h2>
+        <ul className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-9 items-center gap-x-8 gap-y-6">
+          {tools.map((tool) => (
+            <li key={tool.name} className="flex justify-center">
+              <a
+                href={tool.href}
+                target="_blank"
+                rel="noreferrer"
+                className="grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition"
+              >
+                <Image src={tool.src} alt={tool.name} width={tool.width} height="60" className="h-8 w-auto" />
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   )

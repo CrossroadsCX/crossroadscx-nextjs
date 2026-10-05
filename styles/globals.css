@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
-
 html,
 body {
   padding: 0;
@@ -19,16 +17,6 @@ a {
 
 * {
   box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
 }
 
 .snap {
@@ -144,7 +132,12 @@ input#checkboxLabelFive:checked ~ .box {
 }
 
 html {
-  scroll-behavior: smooth;
-  /* keep anchored sections clear of the fixed header (~120px) */
-  scroll-padding-top: 120px;
+  /* keep anchored sections clear of the fixed 72px header plus the 46px SectionNav (STUCK_OFFSET in SectionNav.tsx) */
+  scroll-padding-top: 118px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }

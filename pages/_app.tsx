@@ -1,10 +1,35 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import Script from 'next/script'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter()
+
+  // Global smooth scrolling would animate the jump to the top when switching pages,
+  // so turn it off during route changes and restore it after the router has scrolled.
+  useEffect(() => {
+    const disable = () => {
+      document.documentElement.style.scrollBehavior = 'auto'
+    }
+    const restore = () => {
+      requestAnimationFrame(() => {
+        document.documentElement.style.scrollBehavior = ''
+      })
+    }
+    router.events.on('routeChangeStart', disable)
+    router.events.on('routeChangeComplete', restore)
+    router.events.on('routeChangeError', restore)
+    return () => {
+      router.events.off('routeChangeStart', disable)
+      router.events.off('routeChangeComplete', restore)
+      router.events.off('routeChangeError', restore)
+    }
+  }, [router.events])
+
   return (
     <>
       {GA_ID && (

@@ -1,11 +1,13 @@
 import { BrandsSection } from "./BrandsSection";
 import { CallToActionSection } from "./CallToActionSection";
 import { ContactSection } from "./ContactSection";
+import { ExamplesSection } from "./ExamplesSection";
 import { FAQSection } from "./FAQSection";
 import { Footer } from "./Footer";
 import { HeroSection } from "./HeroSection";
 import { NavBar } from "./NavBar";
 import { PricingSection } from "./PricingSection";
+import { SectionNav } from "./SectionNav";
 import { ServicesSection } from "./ServicesSection";
 import { TeamSection } from "./TeamSection";
 import { TestimonialsSection } from "./TestimonialsSection";
@@ -16,11 +18,13 @@ export {
   BrandsSection,
   CallToActionSection,
   ContactSection,
+  ExamplesSection,
   FAQSection,
   Footer,
   HeroSection,
   NavBar,
   PricingSection,
+  SectionNav,
   ServicesSection,
   TeamSection,
   TestimonialsSection,

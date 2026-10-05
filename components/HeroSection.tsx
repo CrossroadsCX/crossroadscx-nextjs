@@ -53,7 +53,7 @@ export const HeroSection = () => {
                         rounded-lg
                       "
                     >
-                      Get In Touch
+                      Get in touch
                     </a>
                   </Link>
                 </li>
@@ -81,7 +81,7 @@ export const HeroSection = () => {
                           <path d="M7 11h7.5M11.5 7.5L15 11l-3.5 3.5" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                       </span>
-                      Sound familiar?
+                      Sounds familiar?
                     </a>
                   </Link>
                 </li>
@@ -96,7 +96,7 @@ export const HeroSection = () => {
                   src="/images/hero/hero.jpg"
                   alt="Neon sign on a brick wall reading 'This is the sign you've been looking for'"
                   className="max-w-full lg:ml-auto rounded-lg rounded-tl-[150px]"
-                  width="500" height="10"
+                  width="500" height="333"
                   priority
                 />
                 <span className="absolute -left-8 -bottom-8 z-[-1]">

@@ -1,271 +1,144 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Image from 'next/future/image'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
+
+// The header links pages only, labeled by the kind of help rather than the kind of visitor.
+// Sections are reached by scrolling, in-page CTAs, and the footer site map.
+const PAGES = [
+  { label: 'How we help', href: '/' },
+  { label: 'Engineering', href: '/engineering' },
+]
+
+const focusRing = 'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary'
 
 export const NavBar = () => {
+  const { pathname } = useRouter()
   const [isOpen, setIsOpen] = useState(false)
   const [isSticky, setIsSticky] = useState(false)
-
-  const handleScroll = () => {
-    const position = window.scrollY
-
-    if (position >= 50) {
-      setIsSticky(true)
-    } else {
-      setIsSticky(false)
-    }
-  }
+  const headerRef = useRef<HTMLElement>(null)
+  // Both pages have their own contact form; anything else sends people to the home page's.
+  const contactHref = PAGES.some((page) => page.href === pathname) ? '#contact-us' : '/#contact-us'
 
   useEffect(() => {
+    const handleScroll = () => setIsSticky(window.scrollY >= 50)
+    // Pages can load already scrolled (deep links, scroll restoration)
+    handleScroll()
     window.addEventListener('scroll', handleScroll)
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  useEffect(() => {
+    if (!isOpen) return
+    const handleClick = (event: MouseEvent) => {
+      if (headerRef.current && !headerRef.current.contains(event.target as Node)) {
+        setIsOpen(false)
+      }
+    }
+    const handleKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsOpen(false)
+        document.getElementById('navbarToggler')?.focus()
+      }
+    }
+    document.addEventListener('mousedown', handleClick)
+    document.addEventListener('keydown', handleKey)
+    return () => {
+      document.removeEventListener('mousedown', handleClick)
+      document.removeEventListener('keydown', handleKey)
+    }
+  }, [isOpen])
+
+  const pageLinks = (itemClassName: string) =>
+    PAGES.map((page) => {
+      const isCurrent = page.href === pathname
+      return (
+        <li key={page.href}>
+          <Link href={page.href}>
+            <a
+              aria-current={isCurrent ? 'page' : undefined}
+              onClick={() => setIsOpen(false)}
+              className={`${itemClassName} ${isCurrent ? 'text-primary underline underline-offset-8 decoration-2' : 'text-dark hover:text-primary'} ${focusRing}`}
+            >
+              {page.label}
+            </a>
+          </Link>
+        </li>
+      )
+    })
 
   return (
     <header
+      ref={headerRef}
       className={`
-        ${isSticky ? 'fixed z-50 bg-white bg-opacity-80 shadow-sm backdrop-blur-sm' : 'absolute'}
-        z-50 w-full left-0 top-0 bg-white
+        ${isSticky ? 'shadow-sm' : ''}
+        fixed z-50 w-full left-0 top-0 bg-white
       `}
     >
-      <section className="container">
-        <div className="flex -mx-4 items-center justify-between relative">
-          <div className="px-4 w-80 max-w-full">
-            <Link href="/#home">
-              <a  className="w-full flex items-center justify-between py-5">
+      <div className="container">
+        <div className="flex items-center justify-between h-[72px] gap-4">
+          <div className="flex items-center gap-10">
+            <Link href="/">
+              <a className={`flex items-center gap-3 shrink-0 ${focusRing}`}>
                 <Image
                   src="/images/logo/logo-symbol-v2.svg"
-                  alt="CrossroadsCX"
-                  className="w-20"
-                  width="100"
-                  height="100"
+                  alt=""
+                  className="w-11"
+                  width="44"
+                  height="44"
                 />
-                <div className="text-black text-2xl">CrossroadsCX</div>
+                {/* Wordmark hides on small phones so the header row fits; it stays the link's accessible name */}
+                <span className="sr-only sm:not-sr-only text-black text-2xl">CrossroadsCX</span>
               </a>
             </Link>
+
+            <nav className="hidden md:block" aria-label="Main">
+              <ul className="flex gap-8">
+                {pageLinks('text-base font-medium whitespace-nowrap')}
+              </ul>
+            </nav>
           </div>
-          <div className="flex px-4 justify-between items-center w-full">
-            <div>
-              <button
-                onClick={ () => setIsOpen(!isOpen)}
-                className={`
-                  ${isOpen ? 'navbarTogglerActive' : ''}
-                  block
-                  absolute
-                  right-4
-                  top-1/2
-                  -translate-y-1/2
-                  lg:hidden
-                  focus:ring-2
-                  ring-primary
-                  px-3
-                  py-[6px]
-                  rounded-lg
-                `}
-                id="navbarToggler"
-              >
-                <span
-                  className="relative w-[30px] h-[2px] my-[6px] block bg-body-color"
-                ></span>
-                <span
-                  className="relative w-[30px] h-[2px] my-[6px] block bg-body-color"
-                ></span>
-                <span
-                  className="relative w-[30px] h-[2px] my-[6px] block bg-body-color"
-                ></span>
-              </button>
-              <nav
-                className={`
-                  ${isOpen ? '' : 'hidden'}
-                  absolute
-                  py-5
-                  px-6
-                  bg-white
-                  lg:bg-transparent
-                  shadow
-                  rounded-lg
-                  max-w-[250px]
-                  w-full
-                  lg:max-w-full lg:w-full
-                  right-4
-                  lg:block lg:static lg:shadow-none
-                  transition-all
-                  top-full
-                `}
-                id="navbarCollapse"
-              >
-                <ul className="block lg:flex">
-                  <li>
-                    <Link href="/#home">
-                      <a
-                        onClick={() => setIsOpen(false)}
-                        className="
-                          text-base
-                          font-medium
-                          text-dark
-                          hover:text-primary
-                          py-2
-                          lg:inline-flex
-                          flex
-                          lg:ml-12
-                        "
-                      >
-                        Home
-                      </a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/#when-to-call">
-                      <a
-                        onClick={() => setIsOpen(false)}
-                        className="
-                          text-base
-                          font-medium
-                          text-dark
-                          hover:text-primary
-                          py-2
-                          lg:inline-flex
-                          flex
-                          lg:ml-12
-                        "
-                      >
-                        Is this you?
-                      </a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/#services">
-                      <a
-                        onClick={() => setIsOpen(false)}
-                        className="
-                          text-base
-                          font-medium
-                          text-dark
-                          hover:text-primary
-                          py-2
-                          lg:inline-flex
-                          flex
-                          lg:ml-12
-                        "
-                      >
-                        Services
-                      </a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/#team">
-                      <a
-                        onClick={() => setIsOpen(false)}
-                        className="
-                          text-base
-                          font-medium
-                          text-dark
-                          hover:text-primary
-                          py-2
-                          lg:inline-flex
-                          flex
-                          lg:ml-12
-                        "
-                      >
-                        Team
-                      </a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/#faq">
-                      <a
-                        onClick={() => setIsOpen(false)}
-                        className="
-                          text-base
-                          font-medium
-                          text-dark
-                          hover:text-primary
-                          py-2
-                          lg:inline-flex
-                          flex
-                          lg:ml-12
-                        "
-                      >
-                        FAQ
-                      </a>
-                    </Link>
-                  </li>
-                  {/* <li>
-                    <a
-                      href="#testimonials"
-                      className="
-                        text-base
-                        font-medium
-                        text-dark
-                        hover:text-primary
-                        py-2
-                        lg:inline-flex
-                        flex
-                        lg:ml-12
-                      "
-                    >
-                      Testimonials
-                    </a>
-                  </li> */}
-                  <li>
-                    <Link href="/#contact-us">
-                      <a
-                        onClick={() => setIsOpen(false)}
-                        className="
-                          text-base
-                          font-medium
-                          text-dark
-                          hover:text-primary
-                          py-2
-                          lg:inline-flex
-                          flex
-                          lg:ml-12
-                        "
-                      >
-                        Contact Us
-                      </a>
-                    </Link>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-            <div className="sm:flex justify-end hidden pr-16 lg:pr-0">
-              {/* <a
-                href="#"
-                className="
-                  text-base
-                  font-medium
-                  text-dark
-                  hover:text-primary
-                  py-3
-                  px-7
-                "
-              >
-                Login
-              </a> */}
-              <Link href="/#contact-us">
-                <a
-                  className="
-                    text-base
-                    font-medium
-                    text-white
-                    bg-primary
-                    rounded-lg
-                    py-3
-                    px-7
-                    hover:bg-opacity-90
-                  "
-                >
-                  Get In Touch
-                </a>
-              </Link>
-            </div>
+
+          <div className="flex items-center gap-3">
+            <a
+              href={contactHref}
+              className={`text-sm sm:text-base font-medium text-white bg-primary rounded-lg py-2 px-4 sm:py-3 sm:px-6 hover:bg-opacity-90 whitespace-nowrap ${focusRing}`}
+            >
+              Get in touch
+            </a>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className={`
+                ${isOpen ? 'navbarTogglerActive' : ''}
+                md:hidden
+                px-2
+                py-[6px]
+                rounded-lg
+                ${focusRing}
+              `}
+              id="navbarToggler"
+              aria-label={isOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isOpen}
+              aria-controls="navbarCollapse"
+            >
+              <span className="relative w-[30px] h-[2px] my-[6px] block bg-body-color"></span>
+              <span className="relative w-[30px] h-[2px] my-[6px] block bg-body-color"></span>
+              <span className="relative w-[30px] h-[2px] my-[6px] block bg-body-color"></span>
+            </button>
           </div>
         </div>
-      </section>
+      </div>
+
+      <div
+        id="navbarCollapse"
+        className={`${isOpen ? '' : 'hidden'} md:hidden absolute left-0 right-0 top-full bg-white shadow-lg border-t border-[#EFEFEF]`}
+      >
+        <nav className="container py-2" aria-label="Main">
+          <ul>
+            {pageLinks('flex py-3 text-base font-medium')}
+          </ul>
+        </nav>
+      </div>
     </header>
   )
 }

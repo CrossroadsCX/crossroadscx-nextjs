@@ -12,6 +12,7 @@ pnpm typecheck   # tsc --noEmit
 pnpm lint        # next lint
 pnpm build       # run before calling any change done
 ```
+`pnpm dev` writes to `.next-dev` and `pnpm build` to `.next` (see `next.config.js`), so building while the dev server runs is safe.
 
 ## Deployment
 - Vercel team `crossroadscx`, project `crossroadscx-nextjs`. Pushing to `main` deploys to production; other branches get preview URLs.
@@ -20,8 +21,12 @@ pnpm build       # run before calling any change done
   - `NEXT_PUBLIC_GA_ID`: GA4 measurement ID (`G-…`). Analytics is skipped when unset.
 
 ## Architecture notes
-- The home page (`pages/index.tsx`) is a single scrolling page composed of `components/*Section.tsx`. `pages/services.tsx` reuses `ServicesSection`.
-- Each section's root element has an `id` (`home`, `services`, `team`, `faq`, `contact-us`). Nav, footer and CTA links are `next/link` to `/#id`, so they work from any page. The Next router scrolls to the matching `id`, and `html { scroll-behavior: smooth }` in `styles/globals.css` animates it. Next 12 `Link` requires a child `<a>`.
+- The home page (`pages/index.tsx`) is a single scrolling page composed of `components/*Section.tsx`.
+- `pages/engineering.tsx` is a standalone page for technical buyers (CTOs, platform and data leads, startups). `/services` redirects to `/#services`.
+- Section ids. Home: `home`, `when-to-call`, `services`, `examples`, `team`, `faq`, `contact-us`. Engineering: `engineering`, `eng-triggers`, `eng-capabilities`, `eng-how-we-work`, `eng-examples`, `eng-team`, `eng-faq`, `contact-us`. `TeamSection`, `FAQSection` and `ContactSection` take props so both pages reuse them.
+- Navigation (`components/NavBar.tsx`): the header links **pages only**: "How we help" (`/`) and "Engineering" (`/engineering`), with the current one underlined and `aria-current`. Pages are labeled by the kind of help, not the kind of visitor (we serve non-profits and one-person shops, so not "business leaders"). "Get in touch" scrolls to the current page's form. Section links live in `components/SectionNav.tsx`: an opaque bar rendered right after each page's hero that sticks under the header and highlights the section in view (scroll spy, `aria-current="location"`). Each page passes its own `sections` list. The footer is the site map with one column per page. Don't put section links or an audience toggle in the header itself; both were tried and read as confusing. Each page also points to the other in its Services intro.
+- The header is fixed at 72px and the SectionNav is 46px (including borders). `scroll-padding-top` in `styles/globals.css` (118px) and `STUCK_OFFSET` in `SectionNav.tsx` must match them; change them together. Smooth scrolling is wrapped in `prefers-reduced-motion`. Next 12 `Link` requires a child `<a>`.
+- The site has no dark theme. Don't reintroduce `prefers-color-scheme: dark` styles.
 - Images use `next/future/image` (Next 12 experimental flag in `next.config.js`). Always give meaningful `alt` text.
 - Third-party scripts go in `pages/_app.tsx` via `next/script`, never raw `<script>`.
 - Contact form: `components/ContactSection.tsx` → `POST /api/contact` (`pages/api/contact.ts`) → Resend REST API via `fetch`, sending to hello@crossroadscx.com with `reply_to` set to the visitor. It has a `company` honeypot field. The UI must only show success after a 2xx response. The previous Brevo integration failed silently for over a year, so never let failures be swallowed.
@@ -30,17 +35,25 @@ pnpm build       # run before calling any change done
 ## Content facts (must stay accurate)
 - Team: **Chris Birk** (CEO / Co-Founder) and **Mario Medina** (Developer). No one else.
 - Location: **Chicago, IL** only.
-- Contact: hello@crossroadscx.com. No phone number is published.
-- Offerings: practical AI and automation (assistants, agents, workflow automation, evaluation and guardrails), data and analytics (pipelines, models, dashboards), systems integration (CRM, e-commerce, membership, APIs), and custom web software. Engagements are hourly, project or retainer, either augmenting a team or fully outsourced. **No general IT support.**
+- Contact: hello@crossroadscx.com. No phone number is published, and the contact form doesn't ask for one.
+- Discovery calls are free ("no cost for discovery, we're happy to advise"). Don't promise a reply time.
+- Offerings: cloud architecture and DevOps, custom software and application development, practical AI and automation (assistants, agents, workflow automation, evaluation and guardrails, AI-assisted engineering practices), data and analytics (pipelines, models, dashboards), systems integration (CRM, e-commerce, membership, APIs), and security hardening for client platforms. Engagements are hourly, project or retainer, either augmenting a team or fully outsourced. **No general IT support** (DevOps means infrastructure and CI/CD for the client's product, not help desk).
+- Audiences: the home page speaks to non-technical buyers and referrers; `/engineering` speaks to engineering leaders. Both stay plain-spoken; the engineering page earns trust with concrete stack detail.
+- Credentials: Chris's Google Cloud Professional Cloud Architect certification has **expired**. Don't state or imply it's current. Don't claim Google Cloud partner status.
+- Chris's pre-CrossroadsCX work (led a 15+ engineer GCP migration team; civic-tech nonprofit serving Congress) may be described as his prior experience, never as a CrossroadsCX engagement, and never with employer names.
 - Don't name clients without Chris's explicit OK.
 - Industries served: manufacturing, restaurants, non-profits, e-commerce, finance, government, legal, logistics.
 - Featured tools (toolset row): Claude, OpenAI, Google ADK, React, Google Cloud, Snowflake, Tableau, GraphQL, Next.js.
 - No blog. The old Medium blog is inactive and isn't linked.
 
 ## Voice
-Plain-spoken, warm, a little wry. "We're also human beings." No sales jargon, no AI hype, no buzzword stacks. Short sentences. Write from the client's pain point first (the persona quotes in `ServicesSection`), then what we do about it.
+Plain-spoken, warm, a little wry. "We're also human beings." No sales jargon, no AI hype, no buzzword stacks. Short sentences. Write from the client's pain point first (the quotes in `WhenToCallSection` and the engineering triggers), then what we do about it.
+
+## Planning
+`docs/PLANNING.md` holds deferred work and content we're waiting on (e.g. real results for the examples). Check it before adding similar features.
 
 ## Subagents (`.claude/agents/`)
 - `content-editor`: drafts and reviews site copy against the facts and voice above.
 - `code-reviewer`: reviews diffs for this stack (Next 12, pnpm, Tailwind, API route safety).
 - `seo-a11y-auditor`: meta tags, alt text, headings, anchors, accessibility.
+- `design-reviewer`: layout, navigation and wayfinding, visual hierarchy, readability, responsiveness, engagement, and general design best practices.

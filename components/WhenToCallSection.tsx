@@ -28,29 +28,6 @@ const triggers = [
   },
 ]
 
-const examples = [
-  {
-    who: 'A multi-location restaurant group',
-    problem: 'Every location reported sales, labor and inventory from a different system. Getting the full picture meant waiting on spreadsheets.',
-    work: 'We connected the point-of-sale, scheduling and inventory tools and built one dashboard for the whole group.',
-  },
-  {
-    who: 'A statewide non-profit association',
-    problem: 'Membership, the online store and event registration lived in separate tools. Staff re-typed the same data between them.',
-    work: 'We integrated the systems and automated renewals and receipts, so staff could get back to members.',
-  },
-  {
-    who: 'A manufacturer asking about AI',
-    problem: 'Leadership kept hearing they should "use AI" and didn\'t know where to start, or what was safe.',
-    work: 'We reviewed their workflows, ranked the real candidates, and built for the best one, tested against their own data with a person reviewing the output.',
-  },
-  {
-    who: 'A professional services firm',
-    problem: 'The business ran on an internal tool built years ago. Nobody left on staff understood it.',
-    work: 'We assessed it, mapped a plan, and rebuilt it in stages while the old one kept running.',
-  },
-]
-
 export const WhenToCallSection = () => {
   return (
     <section className="bg-[#F4F7FF] py-20 lg:py-[120px]" id="when-to-call">
@@ -59,7 +36,7 @@ export const WhenToCallSection = () => {
           <div className="w-full px-4">
             <div className="text-center mx-auto mb-12 lg:mb-16 max-w-[560px]">
               <span className="font-semibold text-lg text-primary mb-2 block">
-                When to call us
+                When to call
               </span>
               <h2 className="font-bold text-3xl sm:text-4xl md:text-[40px] text-dark mb-4">
                 Sounds familiar?
@@ -82,40 +59,16 @@ export const WhenToCallSection = () => {
           ))}
         </ul>
 
-        <div className="mt-16 lg:mt-20">
-          <h3 className="font-bold text-2xl sm:text-3xl text-dark text-center mb-3">
-            What that looks like in practice
-          </h3>
-          <p className="text-base text-body-color text-center mx-auto max-w-[560px] mb-10">
-            A few recent engagements. We keep client names to ourselves, and we&apos;d do the same for you.
-          </p>
-          <div className="grid gap-8 md:grid-cols-2">
-            {examples.map((example) => (
-              <article key={example.who} className="bg-white rounded-xl border border-[#EFEFEF] p-8">
-                <h4 className="font-semibold text-xl text-dark mb-4">{example.who}</h4>
-                <p className="text-base text-body-color mb-3">
-                  <span className="font-semibold text-dark">The problem: </span>
-                  {example.problem}
-                </p>
-                <p className="text-base text-body-color">
-                  <span className="font-semibold text-dark">What we did: </span>
-                  {example.work}
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-
         <div className="mt-16 text-center mx-auto max-w-[560px]">
           <p className="text-sm text-body-color mb-6">
             We work with manufacturers, restaurants, non-profits, e-commerce, finance, government, legal and logistics teams, from one-person shops to multi-location enterprises.
           </p>
           <p className="text-lg text-dark mb-6">
-            Not on this list? Tell us what&apos;s going wrong in plain English. We&apos;ll tell you honestly whether we&apos;re a fit. The first call is free.
+            Not on this list? Tell us what&apos;s going wrong in plain English. We&apos;ll tell you honestly whether we&apos;re a fit. Discovery calls are free.
           </p>
           <Link href="/#contact-us">
             <a className="py-4 px-10 inline-flex items-center justify-center text-center text-white text-base bg-primary hover:bg-opacity-90 font-normal rounded-lg">
-              Get In Touch
+              Get in touch
             </a>
           </Link>
         </div>

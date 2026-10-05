@@ -2,15 +2,26 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import {
   ContactSection,
+  ExamplesSection,
   FAQSection,
   Footer,
   HeroSection,
   NavBar,
+  SectionNav,
   ServicesSection,
   TeamSection,
   WhenToCallSection,
 } from '../components'
 import { ToolsetsSection } from '../components/ToolsetsSection'
+
+const sections = [
+  { id: 'when-to-call', label: 'When to call' },
+  { id: 'services', label: 'Services' },
+  { id: 'examples', label: 'Examples' },
+  { id: 'team', label: 'Team' },
+  { id: 'faq', label: 'FAQ' },
+  { id: 'contact-us', label: 'Contact' },
+]
 
 const Home: NextPage = () => {
   return (
@@ -29,8 +40,10 @@ const Home: NextPage = () => {
       </Head>
       <NavBar />
       <HeroSection />
+      <SectionNav sections={sections} />
       <WhenToCallSection />
       <ServicesSection />
+      <ExamplesSection />
       <ToolsetsSection />
       <TeamSection />
       <FAQSection />

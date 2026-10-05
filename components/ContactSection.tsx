@@ -1,10 +1,41 @@
 import React, { useState, FormEventHandler } from 'react'
 type SubmitStatus = 'idle' | 'sending' | 'sent' | 'error'
 
-export const ContactSection = () => {
+type ContactSectionProps = {
+  eyebrow?: string
+  heading?: string
+  intro?: string
+}
+
+const inputClass = `
+  w-full
+  rounded
+  py-3
+  px-[14px]
+  bg-white
+  text-dark text-base
+  border border-[#8A94A0]
+  focus:outline-none
+  focus-visible:ring-2
+  focus-visible:ring-primary
+  focus:border-primary
+`
+
+const labelClass = 'block mb-2 text-sm font-medium text-dark'
+
+const nextSteps = [
+  'You tell us what\'s going wrong, in plain English.',
+  'We set up a discovery call. There\'s no cost for discovery, and we\'re happy to advise either way.',
+  'If we\'re a fit, we propose the smallest sensible next step.',
+]
+
+export const ContactSection = ({
+  eyebrow = 'Contact us',
+  heading = 'Tell us what\'s going wrong',
+  intro = 'We\'ll tell you honestly whether we can help.',
+}: ContactSectionProps) => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
-  const [phone, setPhone] = useState('')
   const [message, setMessage] = useState('')
   const [company, setCompany] = useState('')
   const [status, setStatus] = useState<SubmitStatus>('idle')
@@ -18,7 +49,7 @@ export const ContactSection = () => {
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, phone, message, company }),
+        body: JSON.stringify({ name, email, message, company }),
       })
 
       if (!response.ok) {
@@ -29,7 +60,6 @@ export const ContactSection = () => {
       setStatus('sent')
       setName('')
       setEmail('')
-      setPhone('')
       setMessage('')
     } catch (err) {
       setErrorMessage(err instanceof Error ? err.message : 'Something went wrong.')
@@ -38,19 +68,18 @@ export const ContactSection = () => {
   }
 
   return (
-    <section className="bg-white py-20 lg:py-[120px] overflow-hidden relative z-10" id="contact-us">
+    <section className="bg-[#F4F7FF] py-20 lg:py-[120px] overflow-hidden relative z-10" id="contact-us">
       <div className="container">
         <div className="flex flex-wrap lg:justify-between -mx-4">
           <div className="w-full lg:w-1/2 xl:w-6/12 px-4">
             <div className="max-w-[570px] mb-12 lg:mb-0">
-              <span className="block mb-4 text-base text-primary font-semibold">
-                Contact Us
+              <span className="block mb-4 text-lg text-primary font-semibold">
+                {eyebrow}
               </span>
               <h2
                 className="
                   text-dark
                   mb-6
-                  uppercase
                   font-bold
                   text-[32px]
                   sm:text-[40px]
@@ -58,11 +87,20 @@ export const ContactSection = () => {
                   xl:text-[40px]
                 "
               >
-                GET IN TOUCH WITH US
+                {heading}
               </h2>
-              <p className="text-base text-body-color leading-relaxed mb-9">
-                Let&apos;s Chat.
+              <p className="text-base text-body-color leading-relaxed mb-6">
+                {intro}
               </p>
+              <h3 className="font-semibold text-dark text-lg mb-3">What happens next</h3>
+              <ol className="mb-10 space-y-3">
+                {nextSteps.map((step, i) => (
+                  <li key={step} className="flex gap-3 text-base text-body-color">
+                    <span className="flex-none w-7 h-7 rounded-full bg-primary text-white text-sm font-semibold flex items-center justify-center">{i + 1}</span>
+                    <span>{step}</span>
+                  </li>
+                ))}
+              </ol>
 
               <div className="flex mb-8 max-w-[370px] w-full">
                 <div
@@ -100,47 +138,6 @@ export const ContactSection = () => {
                   </p>
                 </div>
               </div>
-
-              {/* <div className="flex mb-8 max-w-[370px] w-full">
-                <div
-                  className="
-                    max-w-[60px]
-                    sm:max-w-[70px]
-                    w-full
-                    h-[60px]
-                    sm:h-[70px]
-                    flex
-                    items-center
-                    justify-center
-                    mr-6
-                    overflow-hidden
-                    bg-primary bg-opacity-5
-                    text-primary
-                    rounded
-                  "
-                >
-                  <svg
-                    width="24"
-                    height="26"
-                    viewBox="0 0 24 26"
-                    className="fill-current"
-                  >
-                    <path
-                      d="M22.6149 15.1386C22.5307 14.1704 21.7308 13.4968 20.7626 13.4968H2.82869C1.86042 13.4968 1.10265 14.2125 0.97636 15.1386L0.092295 23.9793C0.0501967 24.4845 0.21859 25.0317 0.555377 25.4106C0.892163 25.7895 1.39734 26 1.94462 26H21.6887C22.1939 26 22.6991 25.7895 23.078 25.4106C23.4148 25.0317 23.5832 24.5266 23.5411 23.9793L22.6149 15.1386ZM21.9413 24.4424C21.8992 24.4845 21.815 24.5687 21.6466 24.5687H1.94462C1.81833 24.5687 1.69203 24.4845 1.64993 24.4424C1.60783 24.4003 1.52364 24.3161 1.56574 24.1477L2.4498 15.2649C2.4498 15.0544 2.61819 14.9281 2.82869 14.9281H20.8047C21.0152 14.9281 21.1415 15.0544 21.1835 15.2649L22.0676 24.1477C22.0255 24.274 21.9834 24.4003 21.9413 24.4424Z"
-                    />
-                    <path
-                      d="M11.7965 16.7805C10.1547 16.7805 8.84961 18.0855 8.84961 19.7273C8.84961 21.3692 10.1547 22.6742 11.7965 22.6742C13.4383 22.6742 14.7434 21.3692 14.7434 19.7273C14.7434 18.0855 13.4383 16.7805 11.7965 16.7805ZM11.7965 21.2008C10.9966 21.2008 10.3231 20.5272 10.3231 19.7273C10.3231 18.9275 10.9966 18.2539 11.7965 18.2539C12.5964 18.2539 13.2699 18.9275 13.2699 19.7273C13.2699 20.5272 12.5964 21.2008 11.7965 21.2008Z"
-                    />
-                    <path
-                      d="M1.10265 7.85562C1.18684 9.70794 2.82868 10.4657 3.67064 10.4657H6.61752C6.65962 10.4657 6.65962 10.4657 6.65962 10.4657C7.92257 10.3815 9.18552 9.53955 9.18552 7.85562V6.84526C10.5748 6.84526 13.7742 6.84526 15.1635 6.84526V7.85562C15.1635 9.53955 16.4264 10.3815 17.6894 10.4657H17.7315H20.6363C21.4782 10.4657 23.1201 9.70794 23.2043 7.85562C23.2043 7.72932 23.2043 7.26624 23.2043 6.84526C23.2043 6.50847 23.2043 6.21378 23.2043 6.17169C23.2043 6.12959 23.2043 6.08749 23.2043 6.08749C23.078 4.90874 22.657 3.94047 21.9413 3.18271L21.8992 3.14061C20.8468 2.17235 19.5838 1.62507 18.6155 1.28828C15.795 0.193726 12.2587 0.193726 12.0903 0.193726C9.6065 0.235824 8.00677 0.446315 5.60716 1.28828C4.681 1.58297 3.41805 2.13025 2.36559 3.09851L2.3235 3.14061C1.60782 3.89838 1.18684 4.86664 1.06055 6.04539C1.06055 6.08749 1.06055 6.12959 1.06055 6.12959C1.06055 6.21378 1.06055 6.46637 1.06055 6.80316C1.10265 7.18204 1.10265 7.68722 1.10265 7.85562ZM3.37595 4.15097C4.21792 3.3932 5.27038 2.93012 6.15444 2.59333C8.34355 1.79346 9.7749 1.62507 12.1745 1.58297C12.3429 1.58297 15.6266 1.62507 18.1525 2.59333C19.0365 2.93012 20.089 3.3511 20.931 4.15097C21.394 4.65615 21.6887 5.32972 21.7729 6.12959C21.7729 6.25588 21.7729 6.46637 21.7729 6.80316C21.7729 7.22414 21.7729 7.68722 21.7729 7.81352C21.7308 8.78178 20.8047 8.99227 20.6784 8.99227H17.7736C17.3526 8.95017 16.679 8.78178 16.679 7.85562V6.12959C16.679 5.7928 16.4685 5.54021 16.1738 5.41392C15.9213 5.32972 8.55405 5.32972 8.30146 5.41392C8.00677 5.49811 7.79628 5.7928 7.79628 6.12959V7.85562C7.79628 8.78178 7.1227 8.95017 6.70172 8.99227H3.79694C3.67064 8.99227 2.74448 8.78178 2.70238 7.81352C2.70238 7.68722 2.70238 7.22414 2.70238 6.80316C2.70238 6.46637 2.70238 6.29798 2.70238 6.17169C2.61818 5.32972 2.91287 4.65615 3.37595 4.15097Z"
-                    />
-                  </svg>
-                </div>
-                <div className="w-full">
-                  <h4 className="font-bold text-dark text-xl mb-1">Phone Number</h4>
-                  <p className="text-base text-body-color">(+62)81 414 257 9980</p>
-                </div>
-              </div> */}
 
               <div className="flex mb-8 max-w-[370px] w-full">
                 <div
@@ -201,83 +198,44 @@ export const ContactSection = () => {
                       />
                     </div>
                     <div className="mb-6">
+                      <label htmlFor="contact-name" className={labelClass}>Your name</label>
                       <input
+                        id="contact-name"
+                        name="name"
+                        autoComplete="name"
                         required
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         type="text"
-                        placeholder="Your Name"
-                        className="
-                          w-full
-                          rounded
-                          py-3
-                          px-[14px]
-                          text-body-color text-base
-                          border border-[f0f0f0]
-                          outline-none
-                          focus-visible:shadow-none
-                          focus:border-primary
-                        "
+                        placeholder="Jane Smith"
+                        className={`${inputClass}`}
                       />
                     </div>
                     <div className="mb-6">
+                      <label htmlFor="contact-email" className={labelClass}>Email</label>
                       <input
+                        id="contact-email"
+                        name="email"
+                        autoComplete="email"
                         required
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         type="email"
-                        placeholder="Your Email"
-                        className="
-                          w-full
-                          rounded
-                          py-3
-                          px-[14px]
-                          text-body-color text-base
-                          border border-[f0f0f0]
-                          outline-none
-                          focus-visible:shadow-none
-                          focus:border-primary
-                        "
+                        placeholder="jane@company.com"
+                        className={`${inputClass}`}
                       />
                     </div>
                     <div className="mb-6">
-                      <input
-                        value={phone}
-                        onChange={(e) => setPhone(e.target.value)}
-                        type="tel"
-                        placeholder="Your Phone"
-                        className="
-                          w-full
-                          rounded
-                          py-3
-                          px-[14px]
-                          text-body-color text-base
-                          border border-[f0f0f0]
-                          outline-none
-                          focus-visible:shadow-none
-                          focus:border-primary
-                        "
-                      />
-                    </div>
-                    <div className="mb-6">
+                      <label htmlFor="contact-message" className={labelClass}>What&apos;s going on?</label>
                       <textarea
+                        id="contact-message"
+                        name="message"
                         required
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
                         rows={6}
-                        placeholder="Your Message"
-                        className="
-                          w-full
-                          rounded
-                          py-3
-                          px-[14px]
-                          text-body-color text-base
-                          border border-[f0f0f0]
-                          resize-none
-                          outline-none
-                          focus-visible:shadow-none
-                          focus:border-primary
-                        "
+                        placeholder="A sentence or two is plenty."
+                        className={`${inputClass} resize-none`}
                       ></textarea>
                     </div>
                     {status === 'error' && (
@@ -302,7 +260,7 @@ export const ContactSection = () => {
                           disabled:opacity-60
                         "
                       >
-                        {status === 'sending' ? 'Sending…' : 'Send Message'}
+                        {status === 'sending' ? 'Sending…' : 'Send message'}
                       </button>
                     </div>
                   </form>)

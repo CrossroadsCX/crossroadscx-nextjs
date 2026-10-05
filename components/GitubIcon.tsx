@@ -2,13 +2,14 @@ import React from 'react'
 
 type GitHubIconProps = {
   link: string;
+  className?: string;
 }
 
-export const GitHubIcon: React.FC<GitHubIconProps> = ({ link }) => {
+export const GitHubIcon: React.FC<GitHubIconProps> = ({ link, className = 'text-body-color hover:text-primary' }) => {
   return (
     <a
       href={link}
-      className="text-[#CDCED6] hover:text-primary mx-3"
+      className={`${className} mx-3`}
       target="_blank"
       rel="noreferrer"
     >

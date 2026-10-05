@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
-import Link from 'next/link'
 
-type FAQ = {
+export type FAQ = {
   question: React.ReactNode
   answer: React.ReactNode
 }
 
 // Questions business leaders ask come first; technical ones follow.
-const faqs: FAQ[] = [
+export const homeFaqs: FAQ[] = [
   {
     question: 'Should we be implementing AI at our company?',
     answer: (
@@ -43,8 +42,8 @@ const faqs: FAQ[] = [
     question: 'What does a first conversation look like?',
     answer: (
       <>
-        It&apos;s free. You tell us what&apos;s going wrong, and we ask a lot of questions. That&apos;s
-        discovery, and it&apos;s where we figure out together whether we&apos;re the right fit.
+        Discovery calls are free. You tell us what&apos;s going wrong, and we ask a lot of questions.
+        We&apos;re happy to advise, and together we figure out whether we&apos;re the right fit.
         <br /><br />
         If we are, we&apos;ll propose the smallest sensible next step. If we aren&apos;t, we&apos;ll say so,
         and point you somewhere better if we can.
@@ -141,10 +140,14 @@ const faqs: FAQ[] = [
   },
 ]
 
-// Two independent columns, so opening an item never stretches its neighbor.
-const columns = [faqs.slice(0, Math.ceil(faqs.length / 2)), faqs.slice(Math.ceil(faqs.length / 2))]
+type FAQSectionProps = {
+  faqs?: FAQ[]
+  id?: string
+}
 
-export const FAQSection = () => {
+export const FAQSection = ({ faqs = homeFaqs, id = 'faq' }: FAQSectionProps) => {
+  // Two independent columns, so opening an item never stretches its neighbor.
+  const columns = [faqs.slice(0, Math.ceil(faqs.length / 2)), faqs.slice(Math.ceil(faqs.length / 2))]
   const [currentOpen, setCurrentOpen] = useState<number>()
 
   const handleOpen = (index: number) => {
@@ -163,7 +166,7 @@ export const FAQSection = () => {
         z-20
         overflow-hidden
       "
-      id="faq"
+      id={id}
     >
       <div className="container">
         <div className="flex flex-wrap -mx-4">
@@ -182,10 +185,10 @@ export const FAQSection = () => {
                   mb-4
                 "
               >
-                You have questions. <br /> We have answers.
+                Questions we hear a lot
               </h2>
               <p className="text-base text-body-color">
-                Feel free to ask any questions <Link href="/#contact-us"><a className="hover:underline font-semibold">below</a></Link> as well.
+                Don&apos;t see yours? <a href="#contact-us" className="text-primary underline hover:no-underline">Ask us directly</a>.
               </p>
             </div>
           </div>
@@ -204,7 +207,7 @@ export const FAQSection = () => {
                       single-faq
                       w-full
                       bg-white
-                      border border-[#F3F4FE]
+                      border border-[#E5E7EB]
                       rounded-lg
                       p-4
                       sm:p-8
@@ -217,7 +220,7 @@ export const FAQSection = () => {
                       className="faq-btn flex w-full text-left"
                       onClick={() => handleOpen(index)}
                       aria-expanded={isOpen}
-                      aria-controls={`faq-answer-${index}`}
+                      aria-controls={`${id}-answer-${index}`}
                     >
                       <div
                         className={`
@@ -257,7 +260,7 @@ export const FAQSection = () => {
                       </div>
                     </button>
                     <div
-                      id={`faq-answer-${index}`}
+                      id={`${id}-answer-${index}`}
                       className={`
                         faq-content
                         pl-[62px]
@@ -276,35 +279,6 @@ export const FAQSection = () => {
         </div>
       </div>
 
-      <div className="absolute bottom-0 right-0 z-[-1]">
-        <svg
-          width="1440"
-          height="886"
-          viewBox="0 0 1440 886"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            opacity="0.5"
-            d="M193.307 -273.322L1480.87 1014.24L1121.85 1373.26C1121.85 1373.26 731.745 983.23 478.513 729.926C225.976 477.316 -165.714 85.6985 -165.714 85.6985L193.307 -273.322Z"
-            fill="url(#paint0_linear_1314_168)"
-          />
-          <defs>
-            <linearGradient
-              id="paint0_linear_1314_168"
-              x1="1308.65"
-              y1="1142.58"
-              x2="602.827"
-              y2="-418.682"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop stopColor="#3056D3" stopOpacity="0.36" />
-              <stop offset="1" stopColor="#F5F2FD" stopOpacity="0" />
-              <stop offset="1" stopColor="#F5F2FD" stopOpacity="0.096144" />
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
     </section>
   )
 }

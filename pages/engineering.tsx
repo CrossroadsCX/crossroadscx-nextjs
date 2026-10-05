@@ -6,6 +6,7 @@ import {
   FAQSection,
   Footer,
   NavBar,
+  SectionNav,
   TeamSection,
 } from '../components'
 import type { FAQ } from '../components/FAQSection'
@@ -152,6 +153,16 @@ const engineeringFaqs: FAQ[] = [
   },
 ]
 
+const sections = [
+  { id: 'eng-triggers', label: 'When to call' },
+  { id: 'eng-capabilities', label: 'Services' },
+  { id: 'eng-how-we-work', label: 'How we work' },
+  { id: 'eng-examples', label: 'Examples' },
+  { id: 'eng-team', label: 'Team' },
+  { id: 'eng-faq', label: 'FAQ' },
+  { id: 'contact-us', label: 'Contact' },
+]
+
 const sectionHeading = 'font-bold text-3xl sm:text-4xl md:text-[40px] text-dark mb-4'
 const eyebrow = 'font-semibold text-lg text-primary mb-2 block'
 const sectionIntro = 'text-center mx-auto mb-12 lg:mb-16 max-w-[640px]'
@@ -224,6 +235,8 @@ const Engineering: NextPage = () => {
           </div>
         </div>
       </section>
+
+      <SectionNav sections={sections} />
 
       <section className="bg-[#F4F7FF] py-20 lg:py-[120px]" id="eng-triggers">
         <div className="container">

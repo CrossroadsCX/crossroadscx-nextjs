@@ -71,7 +71,7 @@ export const NavBar = () => {
     <header
       ref={headerRef}
       className={`
-        ${isSticky ? 'fixed bg-opacity-90 shadow-sm backdrop-blur-sm' : 'absolute'}
+        ${isSticky ? 'fixed shadow-sm' : 'absolute'}
         z-50 w-full left-0 top-0 bg-white
       `}
     >

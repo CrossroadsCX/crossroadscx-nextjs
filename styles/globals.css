@@ -132,8 +132,8 @@ input#checkboxLabelFive:checked ~ .box {
 }
 
 html {
-  /* keep anchored sections clear of the fixed 72px header */
-  scroll-padding-top: 80px;
+  /* keep anchored sections clear of the fixed 72px header plus the 44px SectionNav */
+  scroll-padding-top: 124px;
 }
 
 @media (prefers-reduced-motion: no-preference) {

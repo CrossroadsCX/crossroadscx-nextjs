@@ -7,6 +7,7 @@ import { Footer } from "./Footer";
 import { HeroSection } from "./HeroSection";
 import { NavBar } from "./NavBar";
 import { PricingSection } from "./PricingSection";
+import { SectionNav } from "./SectionNav";
 import { ServicesSection } from "./ServicesSection";
 import { TeamSection } from "./TeamSection";
 import { TestimonialsSection } from "./TestimonialsSection";
@@ -23,6 +24,7 @@ export {
   HeroSection,
   NavBar,
   PricingSection,
+  SectionNav,
   ServicesSection,
   TeamSection,
   TestimonialsSection,

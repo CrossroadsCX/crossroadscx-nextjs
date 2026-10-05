@@ -7,7 +7,7 @@ import { LinkedInIcon } from './LinkedInIcon'
 // The footer is the full site map, so it links across pages; each column is labeled with its page.
 const columns = [
   {
-    heading: 'For business leaders',
+    heading: 'How we help',
     page: '/',
     links: [
       { label: 'When to call', href: '/#when-to-call' },
@@ -18,7 +18,7 @@ const columns = [
     ],
   },
   {
-    heading: 'For engineering teams and startups',
+    heading: 'Engineering',
     page: '/engineering',
     links: [
       { label: 'When to call', href: '/engineering#eng-triggers' },

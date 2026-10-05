@@ -3,26 +3,12 @@ import Image from 'next/future/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-type NavLink = { label: string, href: string }
-
-// Nav links are page-local: the same labels scroll to the matching section on the current page.
-// The logo and the "Engineering" link are the only header links that change pages.
-const NAV: Record<string, NavLink[]> = {
-  '/': [
-    { label: 'When to call', href: '#when-to-call' },
-    { label: 'Services', href: '#services' },
-    { label: 'Examples', href: '#examples' },
-    { label: 'Team', href: '#team' },
-    { label: 'FAQ', href: '#faq' },
-  ],
-  '/engineering': [
-    { label: 'When to call', href: '#eng-triggers' },
-    { label: 'Services', href: '#eng-capabilities' },
-    { label: 'Examples', href: '#eng-examples' },
-    { label: 'Team', href: '#eng-team' },
-    { label: 'FAQ', href: '#eng-faq' },
-  ],
-}
+// The header links pages only, labeled by the kind of help rather than the kind of visitor.
+// Sections are reached by scrolling, in-page CTAs, and the footer site map.
+const PAGES = [
+  { label: 'How we help', href: '/' },
+  { label: 'Engineering', href: '/engineering' },
+]
 
 const focusRing = 'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary'
 
@@ -31,9 +17,8 @@ export const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [isSticky, setIsSticky] = useState(false)
   const headerRef = useRef<HTMLElement>(null)
-  const links = NAV[pathname] ?? NAV['/']
-  // On pages without their own sections, the anchors point back to the home page.
-  const hrefFor = (href: string) => (NAV[pathname] ? href : `/${href}`)
+  // Both pages have their own contact form; anything else sends people to the home page's.
+  const contactHref = PAGES.some((page) => page.href === pathname) ? '#contact-us' : '/#contact-us'
 
   useEffect(() => {
     const handleScroll = () => setIsSticky(window.scrollY >= 50)
@@ -64,19 +49,23 @@ export const NavBar = () => {
     }
   }, [isOpen])
 
-  // The one page link in the header; underlined when you're on that page.
-  const isEngineering = pathname === '/engineering'
-  const engineeringLink = (className: string) => (
-    <Link href="/engineering">
-      <a
-        aria-current={isEngineering ? 'page' : undefined}
-        onClick={() => setIsOpen(false)}
-        className={`${className} ${isEngineering ? 'text-primary underline underline-offset-8 decoration-2' : 'text-dark hover:text-primary'} ${focusRing}`}
-      >
-        Engineering
-      </a>
-    </Link>
-  )
+  const pageLinks = (itemClassName: string) =>
+    PAGES.map((page) => {
+      const isCurrent = page.href === pathname
+      return (
+        <li key={page.href}>
+          <Link href={page.href}>
+            <a
+              aria-current={isCurrent ? 'page' : undefined}
+              onClick={() => setIsOpen(false)}
+              className={`${itemClassName} ${isCurrent ? 'text-primary underline underline-offset-8 decoration-2' : 'text-dark hover:text-primary'} ${focusRing}`}
+            >
+              {page.label}
+            </a>
+          </Link>
+        </li>
+      )
+    })
 
   return (
     <header
@@ -88,36 +77,31 @@ export const NavBar = () => {
     >
       <div className="container">
         <div className="flex items-center justify-between h-[72px] gap-4">
-          <Link href="/">
-            <a className={`flex items-center gap-3 shrink-0 ${focusRing}`}>
-              <Image
-                src="/images/logo/logo-symbol-v2.svg"
-                alt=""
-                className="w-11"
-                width="44"
-                height="44"
-              />
-              {/* Wordmark hides on small phones so the header row fits; it stays the link's accessible name */}
-              <span className="sr-only sm:not-sr-only text-black text-2xl">CrossroadsCX</span>
-            </a>
-          </Link>
+          <div className="flex items-center gap-10">
+            <Link href="/">
+              <a className={`flex items-center gap-3 shrink-0 ${focusRing}`}>
+                <Image
+                  src="/images/logo/logo-symbol-v2.svg"
+                  alt=""
+                  className="w-11"
+                  width="44"
+                  height="44"
+                />
+                {/* Wordmark hides on small phones so the header row fits; it stays the link's accessible name */}
+                <span className="sr-only sm:not-sr-only text-black text-2xl">CrossroadsCX</span>
+              </a>
+            </Link>
 
-          <nav className="hidden lg:block" aria-label="Main">
-            <ul className="flex gap-5 xl:gap-9">
-              {links.map((link) => (
-                <li key={link.href}>
-                  <a href={hrefFor(link.href)} className={`text-base font-medium text-dark hover:text-primary whitespace-nowrap ${focusRing}`}>
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-              <li>{engineeringLink('text-base font-medium whitespace-nowrap')}</li>
-            </ul>
-          </nav>
+            <nav className="hidden md:block" aria-label="Main">
+              <ul className="flex gap-8">
+                {pageLinks('text-base font-medium whitespace-nowrap')}
+              </ul>
+            </nav>
+          </div>
 
           <div className="flex items-center gap-3">
             <a
-              href={hrefFor('#contact-us')}
+              href={contactHref}
               className={`text-sm sm:text-base font-medium text-white bg-primary rounded-lg py-2 px-4 sm:py-3 sm:px-6 hover:bg-opacity-90 whitespace-nowrap ${focusRing}`}
             >
               Get in touch
@@ -126,7 +110,7 @@ export const NavBar = () => {
               onClick={() => setIsOpen(!isOpen)}
               className={`
                 ${isOpen ? 'navbarTogglerActive' : ''}
-                lg:hidden
+                md:hidden
                 px-2
                 py-[6px]
                 rounded-lg
@@ -147,33 +131,13 @@ export const NavBar = () => {
 
       <div
         id="navbarCollapse"
-        className={`${isOpen ? '' : 'hidden'} lg:hidden absolute left-0 right-0 top-full bg-white shadow-lg border-t border-[#EFEFEF]`}
+        className={`${isOpen ? '' : 'hidden'} md:hidden absolute left-0 right-0 top-full bg-white shadow-lg border-t border-[#EFEFEF]`}
       >
-        <div className="container py-4">
-          <nav aria-label="Main">
-            <ul>
-              {links.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={hrefFor(link.href)}
-                    onClick={() => setIsOpen(false)}
-                    className={`flex py-3 text-base font-medium text-dark hover:text-primary ${focusRing}`}
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-              <li>{engineeringLink('flex py-3 text-base font-medium')}</li>
-            </ul>
-          </nav>
-          <a
-            href={hrefFor('#contact-us')}
-            onClick={() => setIsOpen(false)}
-            className={`mt-3 flex justify-center w-full text-base font-medium text-white bg-primary rounded-lg py-3 hover:bg-opacity-90 ${focusRing}`}
-          >
-            Get in touch
-          </a>
-        </div>
+        <nav className="container py-2" aria-label="Main">
+          <ul>
+            {pageLinks('flex py-3 text-base font-medium')}
+          </ul>
+        </nav>
       </div>
     </header>
   )

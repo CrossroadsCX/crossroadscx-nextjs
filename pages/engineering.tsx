@@ -256,7 +256,7 @@ const Engineering: NextPage = () => {
               Five areas. Most engagements touch two or three.
             </p>
             <p className="text-base text-dark mt-4">
-              No engineering team? <Link href="/#services"><a className="text-primary font-medium hover:underline">Here&apos;s how we help business leaders.</a></Link>
+              No engineering team? <Link href="/#services"><a className="text-primary font-medium hover:underline">See how we help, in plain English.</a></Link>
             </p>
           </div>
           <div className="grid gap-8 md:grid-cols-2">

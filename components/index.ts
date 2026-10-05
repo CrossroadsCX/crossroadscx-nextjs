@@ -10,6 +10,7 @@ import { ServicesSection } from "./ServicesSection";
 import { TeamSection } from "./TeamSection";
 import { TestimonialsSection } from "./TestimonialsSection";
 import { VideoSection } from "./VideoSection";
+import { WhenToCallSection } from "./WhenToCallSection";
 
 export {
   BrandsSection,
@@ -24,4 +25,5 @@ export {
   TeamSection,
   TestimonialsSection,
   VideoSection,
+  WhenToCallSection,
 }

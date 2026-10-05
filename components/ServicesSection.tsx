@@ -24,7 +24,7 @@ export const ServicesSection = () => {
                 How We Help
               </h2>
               <p className="text-base text-body-color">
-                We&apos;re a small, senior team of builders. We&apos;re also human beings. No sales jargon, no AI hype, no technical run-arounds. Let&apos;s chat about what you need.
+                We&apos;re a small, senior team of builders. We&apos;re also human beings. No sales jargon, no AI hype, no technical runarounds. Let&apos;s chat about what you need.
               </p>
             </div>
           </div>
@@ -85,7 +85,7 @@ export const ServicesSection = () => {
                 </svg>
               </div>
               <h4 className="font-semibold text-xl text-dark mb-3">
-                Technology Leaders
+                Software that&apos;s showing its age
               </h4>
               <p className="text-body-color">
                 <q>Our tech was cutting edge... five years ago. We need to level up, but where to even start?</q>
@@ -176,13 +176,13 @@ export const ServicesSection = () => {
                 </svg>
               </div>
               <h4 className="font-semibold text-xl text-dark mb-3">
-                Data Storytellers
+                Data you can&apos;t see
               </h4>
               <p className="text-body-color">
                 <q>So much internal data, so little actual use from it. We should be doing much more!</q>
               </p>
               <p className="mt-4 text-sm text-body-color">
-                We build the pipelines, models, and dashboards that turn raw data into answers your team actually uses: automated, trusted, and up to date.
+                We build the reports and dashboards that turn raw data into answers your team actually uses: automated, trusted, and up to date.
               </p>
               <span
                 className="
@@ -266,13 +266,13 @@ export const ServicesSection = () => {
                 </svg>
               </div>
               <h4 className="font-semibold text-xl text-dark mb-3">
-                Systems Integrators
+                Systems that don&apos;t talk
               </h4>
               <p className="text-body-color">
                 <q>Why do we look at four different systems to find a simple, but critical, answer? Can&apos;t we bring these together in one place?</q>
               </p>
               <p className="mt-4 text-sm text-body-color">
-                We connect your CRM, e-commerce, membership, and back-office tools with APIs and automation so critical answers live in one place.
+                We connect your CRM, e-commerce, membership, and back-office tools so critical answers live in one place.
               </p>
 
               <span
@@ -349,13 +349,13 @@ export const ServicesSection = () => {
                 </svg>
               </div>
               <h4 className="font-semibold text-xl text-dark mb-3">
-                AI Pragmatists
+                The AI question
               </h4>
               <p className="text-body-color">
                 <q>Everyone says we should be using AI. What would actually help us, and how do we do it safely?</q>
               </p>
               <p className="mt-4 text-sm text-body-color">
-                We find the use cases worth doing, then build and evaluate assistants, agents, and workflow automation grounded in your data, with guardrails and privacy built in.
+                We find the use cases worth doing, then build and test assistants and automations grounded in your own data, with privacy and human review built in.
               </p>
 
               <span

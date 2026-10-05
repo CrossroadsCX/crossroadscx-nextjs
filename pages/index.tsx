@@ -8,6 +8,7 @@ import {
   NavBar,
   ServicesSection,
   TeamSection,
+  WhenToCallSection,
 } from '../components'
 import { ToolsetsSection } from '../components/ToolsetsSection'
 
@@ -28,8 +29,9 @@ const Home: NextPage = () => {
       </Head>
       <NavBar />
       <HeroSection />
-      <ToolsetsSection />
+      <WhenToCallSection />
       <ServicesSection />
+      <ToolsetsSection />
       <TeamSection />
       <FAQSection />
       <ContactSection />

@@ -8,6 +8,11 @@ const nextConfig = {
         permanent: false,
       },
       {
+        source: '/services',
+        destination: '/#services',
+        permanent: true,
+      },
+      {
         source: '/koozies',
         destination: '/',
         permanent: false,

@@ -20,7 +20,8 @@ pnpm build       # run before calling any change done
   - `NEXT_PUBLIC_GA_ID`: GA4 measurement ID (`G-…`). Analytics is skipped when unset.
 
 ## Architecture notes
-- The home page (`pages/index.tsx`) is a single scrolling page composed of `components/*Section.tsx`. `pages/services.tsx` reuses `ServicesSection`.
+- The home page (`pages/index.tsx`) is a single scrolling page composed of `components/*Section.tsx`.
+- `pages/engineering.tsx` is a standalone page for technical buyers (CTOs, platform and data leads), with its own section ids (`engineering`, `eng-triggers`, `eng-capabilities`, `eng-how-we-work`, `eng-examples`, `eng-team`) plus `ContactSection`. `/services` redirects to `/#services`.
 - Each section's root element has an `id` (`home`, `services`, `team`, `faq`, `contact-us`). Nav, footer and CTA links are `next/link` to `/#id`, so they work from any page. The Next router scrolls to the matching `id`, and `html { scroll-behavior: smooth }` in `styles/globals.css` animates it. Next 12 `Link` requires a child `<a>`.
 - Images use `next/future/image` (Next 12 experimental flag in `next.config.js`). Always give meaningful `alt` text.
 - Third-party scripts go in `pages/_app.tsx` via `next/script`, never raw `<script>`.
@@ -31,7 +32,10 @@ pnpm build       # run before calling any change done
 - Team: **Chris Birk** (CEO / Co-Founder) and **Mario Medina** (Developer). No one else.
 - Location: **Chicago, IL** only.
 - Contact: hello@crossroadscx.com. No phone number is published.
-- Offerings: practical AI and automation (assistants, agents, workflow automation, evaluation and guardrails), data and analytics (pipelines, models, dashboards), systems integration (CRM, e-commerce, membership, APIs), and custom web software. Engagements are hourly, project or retainer, either augmenting a team or fully outsourced. **No general IT support.**
+- Offerings: cloud architecture and DevOps, custom software and application development, practical AI and automation (assistants, agents, workflow automation, evaluation and guardrails, AI-assisted engineering practices), data and analytics (pipelines, models, dashboards), systems integration (CRM, e-commerce, membership, APIs), and security hardening for client platforms. Engagements are hourly, project or retainer, either augmenting a team or fully outsourced. **No general IT support** (DevOps means infrastructure and CI/CD for the client's product, not help desk).
+- Audiences: the home page speaks to non-technical buyers and referrers; `/engineering` speaks to engineering leaders. Both stay plain-spoken; the engineering page earns trust with concrete stack detail.
+- Credentials: Chris's Google Cloud Professional Cloud Architect certification has **expired**. Don't state or imply it's current. Don't claim Google Cloud partner status.
+- Chris's pre-CrossroadsCX work (led a 15+ engineer GCP migration team; civic-tech nonprofit serving Congress) may be described as his prior experience, never as a CrossroadsCX engagement, and never with employer names.
 - Don't name clients without Chris's explicit OK.
 - Industries served: manufacturing, restaurants, non-profits, e-commerce, finance, government, legal, logistics.
 - Featured tools (toolset row): Claude, OpenAI, Google ADK, React, Google Cloud, Snowflake, Tableau, GraphQL, Next.js.

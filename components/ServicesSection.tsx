@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 export const ServicesSection = () => {
 
@@ -25,6 +26,9 @@ export const ServicesSection = () => {
               </h2>
               <p className="text-base text-body-color">
                 We&apos;re a small, senior team of builders. We&apos;re also human beings. No sales jargon, no AI hype, no technical runarounds. Let&apos;s chat about what you need.
+              </p>
+              <p className="text-base text-dark mt-4">
+                Have an engineering team? <Link href="/engineering"><a className="text-primary hover:underline">Here&apos;s how we plug in.</a></Link>
               </p>
             </div>
           </div>

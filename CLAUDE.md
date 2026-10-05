@@ -12,6 +12,7 @@ pnpm typecheck   # tsc --noEmit
 pnpm lint        # next lint
 pnpm build       # run before calling any change done
 ```
+`pnpm dev` writes to `.next-dev` and `pnpm build` to `.next` (see `next.config.js`), so building while the dev server runs is safe.
 
 ## Deployment
 - Vercel team `crossroadscx`, project `crossroadscx-nextjs`. Pushing to `main` deploys to production; other branches get preview URLs.

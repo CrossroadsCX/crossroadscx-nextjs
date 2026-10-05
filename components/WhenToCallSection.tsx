@@ -66,7 +66,7 @@ export const WhenToCallSection = () => {
           <p className="text-lg text-dark mb-6">
             Not on this list? Tell us what&apos;s going wrong in plain English. We&apos;ll tell you honestly whether we&apos;re a fit. Discovery calls are free.
           </p>
-          <Link href="#contact-us">
+          <Link href="/#contact-us">
             <a className="py-4 px-10 inline-flex items-center justify-center text-center text-white text-base bg-primary hover:bg-opacity-90 font-normal rounded-lg">
               Get in touch
             </a>

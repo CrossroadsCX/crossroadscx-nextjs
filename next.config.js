@@ -1,5 +1,9 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+const { PHASE_DEVELOPMENT_SERVER } = require('next/constants')
+
+/** @type {(phase: string) => import('next').NextConfig} */
+const nextConfig = (phase) => ({
+  // `next dev` and `next build` get separate output dirs, so a build never breaks a running dev server
+  distDir: phase === PHASE_DEVELOPMENT_SERVER ? '.next-dev' : '.next',
   async redirects() {
     return [
       {
@@ -24,6 +28,6 @@ const nextConfig = {
   },
   reactStrictMode: true,
   swcMinify: true,
-}
+})
 
 module.exports = nextConfig

@@ -42,6 +42,8 @@ export const NavBar = () => {
 
   useEffect(() => {
     const handleScroll = () => setIsSticky(window.scrollY >= 50)
+    // Pages can load already scrolled (deep links, scroll restoration)
+    handleScroll()
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
@@ -53,8 +55,18 @@ export const NavBar = () => {
         setIsOpen(false)
       }
     }
+    const handleKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsOpen(false)
+        document.getElementById('navbarToggler')?.focus()
+      }
+    }
     document.addEventListener('mousedown', handleClick)
-    return () => document.removeEventListener('mousedown', handleClick)
+    document.addEventListener('keydown', handleKey)
+    return () => {
+      document.removeEventListener('mousedown', handleClick)
+      document.removeEventListener('keydown', handleKey)
+    }
   }, [isOpen])
 
   const audienceSwitch = (className: string, optionClassName: string) => (
@@ -106,7 +118,8 @@ export const NavBar = () => {
                 width="44"
                 height="44"
               />
-              <span className="text-black text-xl sm:text-2xl">CrossroadsCX</span>
+              {/* Wordmark hides on small phones so the header row fits; it stays the link's accessible name */}
+              <span className="sr-only sm:not-sr-only text-black text-2xl">CrossroadsCX</span>
             </a>
           </Link>
 

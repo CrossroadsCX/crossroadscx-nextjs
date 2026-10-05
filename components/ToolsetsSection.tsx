@@ -63,16 +63,7 @@ export const ToolsetsSection = () => {
               <a href="https://nextjs.org/" target="_blank" rel="noreferrer">
                 <Image
                   src="/images/tools/nextjs.svg"
-                  alt="NextJS"
-                  width="150" height="10"
-                />
-              </a>
-            </div>
-            <div className="w-1/7 py-3 mr-4">
-              <a href="https://www.zingg.ai/" target="_blank" rel="noreferrer">
-                <Image
-                  src="/images/tools/zingg.svg"
-                  alt="NextJS"
+                  alt="Next.js"
                   width="150" height="10"
                 />
               </a>

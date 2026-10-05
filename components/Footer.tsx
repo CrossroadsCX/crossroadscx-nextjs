@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/future/image'
 import { GitHubIcon } from './GitubIcon'
 import { LinkedInIcon } from './LinkedInIcon'
+import Link from 'next/link'
 
 export const Footer = () => {
   return (
@@ -86,18 +87,19 @@ export const Footer = () => {
         <div className="flex flex-wrap -mx-4">
           <div className="w-full sm:w-2/3 lg:w-4/12 2xl:w-3/12 px-4">
             <div className="w-full mb-10">
-              <a
-                href="#"
-                className="inline-block max-w-[160px] mb-6"
-              >
-                <Image
-                  src="/images/logo/logo-symbol-v2.svg"
-                  alt="logo"
-                  className="max-w-full rounded-lg bg-white"
-                  height="500"
-                  width="500"
-                />
-              </a>
+              <Link href="/#home">
+                <a
+                  className="inline-block max-w-[160px] mb-6"
+                >
+                  <Image
+                    src="/images/logo/logo-symbol-v2.svg"
+                    alt="CrossroadsCX"
+                    className="max-w-full rounded-lg bg-white"
+                    height="500"
+                    width="500"
+                  />
+                </a>
+              </Link>
               <p className="text-base text-[#efefef] mb-7">
                 Let&apos;s Chat.
               </p>
@@ -166,88 +168,79 @@ export const Footer = () => {
               <h4 className="text-white text-lg font-semibold mb-9">Company</h4>
               <ul>
                 <li>
-                  <a
-                    href="#home"
-                    className="
-                      inline-block
-                      text-base text-[#efefef]
-                      hover:text-white
-                      leading-loose
-                      mb-2
-                    "
-                  >
-                    Home
-                  </a>
+                  <Link href="/#home">
+                    <a
+                      className="
+                        inline-block
+                        text-base text-[#efefef]
+                        hover:text-white
+                        leading-loose
+                        mb-2
+                      "
+                    >
+                      Home
+                    </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#services"
-                    className="
-                      inline-block
-                      text-base text-[#efefef]
-                      hover:text-white
-                      leading-loose
-                      mb-2
-                    "
-                  >
-                    Services
-                  </a>
+                  <Link href="/#services">
+                    <a
+                      className="
+                        inline-block
+                        text-base text-[#efefef]
+                        hover:text-white
+                        leading-loose
+                        mb-2
+                      "
+                    >
+                      Services
+                    </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#team"
-                    className="
-                      inline-block
-                      text-base text-[#efefef]
-                      hover:text-white
-                      leading-loose
-                      mb-2
-                    "
-                  >
-                    Team
-                  </a>
+                  <Link href="/#team">
+                    <a
+                      className="
+                        inline-block
+                        text-base text-[#efefef]
+                        hover:text-white
+                        leading-loose
+                        mb-2
+                      "
+                    >
+                      Team
+                    </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#faq"
-                    className="
-                      inline-block
-                      text-base text-[#efefef]
-                      hover:text-white
-                      leading-loose
-                      mb-2
-                    "
-                  >
-                    FAQ
-                  </a>
+                  <Link href="/#faq">
+                    <a
+                      className="
+                        inline-block
+                        text-base text-[#efefef]
+                        hover:text-white
+                        leading-loose
+                        mb-2
+                      "
+                    >
+                      FAQ
+                    </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#testimonials"
-                    className="
-                      inline-block
-                      text-base text-[#efefef]
-                      hover:text-white
-                      leading-loose
-                      mb-2
-                    "
-                  >
-                    Testimonials
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#contact-us"
-                    className="
-                      inline-block
-                      text-base text-[#efefef]
-                      hover:text-white
-                      leading-loose
-                      mb-2
-                    "
-                  >
-                    Contact Us
-                  </a>
+                  <Link href="/#contact-us">
+                    <a
+                      className="
+                        inline-block
+                        text-base text-[#efefef]
+                        hover:text-white
+                        leading-loose
+                        mb-2
+                      "
+                    >
+                      Contact Us
+                    </a>
+                  </Link>
                 </li>
               </ul>
             </div>

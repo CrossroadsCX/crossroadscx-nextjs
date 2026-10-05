@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Image from 'next/future/image'
+import Link from 'next/link'
 
 export const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -27,29 +28,31 @@ export const NavBar = () => {
     <header
       className={`
         ${isSticky ? 'fixed z-50 bg-white bg-opacity-80 shadow-sm backdrop-blur-sm' : 'absolute'}
-        z-50 w-full left-0 top-0
+        z-50 w-full left-0 top-0 bg-white
       `}
     >
       <section className="container">
         <div className="flex -mx-4 items-center justify-between relative">
           <div className="px-4 w-80 max-w-full">
-            <a href="#home" className="w-full flex items-center justify-between py-5">
-              <Image
-                src="/images/logo/logo-symbol-v2.svg"
-                alt="logo"
-                className="w-20"
-                width="100"
-                height="100"
-              />
-              <div className="text-black text-2xl">CrossroadsCX</div>
-            </a>
+            <Link href="/#home">
+              <a  className="w-full flex items-center justify-between py-5">
+                <Image
+                  src="/images/logo/logo-symbol-v2.svg"
+                  alt="CrossroadsCX"
+                  className="w-20"
+                  width="100"
+                  height="100"
+                />
+                <div className="text-black text-2xl">CrossroadsCX</div>
+              </a>
+            </Link>
           </div>
           <div className="flex px-4 justify-between items-center w-full">
             <div>
               <button
                 onClick={ () => setIsOpen(!isOpen)}
                 className={`
-                  ${isOpen && 'navbarTogglerActive'}
+                  ${isOpen ? 'navbarTogglerActive' : ''}
                   block
                   absolute
                   right-4
@@ -76,7 +79,7 @@ export const NavBar = () => {
               </button>
               <nav
                 className={`
-                  ${!isOpen && 'hidden'}
+                  ${isOpen ? '' : 'hidden'}
                   absolute
                   py-5
                   px-6
@@ -96,72 +99,80 @@ export const NavBar = () => {
               >
                 <ul className="block lg:flex">
                   <li>
-                    <a
-                      href="#home"
-                      className="
-                        text-base
-                        font-medium
-                        text-dark
-                        hover:text-primary
-                        py-2
-                        lg:inline-flex
-                        flex
-                        lg:ml-12
-                      "
-                    >
-                      Home
-                    </a>
+                    <Link href="/#home">
+                      <a
+                        onClick={() => setIsOpen(false)}
+                        className="
+                          text-base
+                          font-medium
+                          text-dark
+                          hover:text-primary
+                          py-2
+                          lg:inline-flex
+                          flex
+                          lg:ml-12
+                        "
+                      >
+                        Home
+                      </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
-                      href="#services"
-                      className="
-                        text-base
-                        font-medium
-                        text-dark
-                        hover:text-primary
-                        py-2
-                        lg:inline-flex
-                        flex
-                        lg:ml-12
-                      "
-                    >
-                      Services
-                    </a>
+                    <Link href="/#services">
+                      <a
+                        onClick={() => setIsOpen(false)}
+                        className="
+                          text-base
+                          font-medium
+                          text-dark
+                          hover:text-primary
+                          py-2
+                          lg:inline-flex
+                          flex
+                          lg:ml-12
+                        "
+                      >
+                        Services
+                      </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
-                      href="#team"
-                      className="
-                        text-base
-                        font-medium
-                        text-dark
-                        hover:text-primary
-                        py-2
-                        lg:inline-flex
-                        flex
-                        lg:ml-12
-                      "
-                    >
-                      Team
-                    </a>
+                    <Link href="/#team">
+                      <a
+                        onClick={() => setIsOpen(false)}
+                        className="
+                          text-base
+                          font-medium
+                          text-dark
+                          hover:text-primary
+                          py-2
+                          lg:inline-flex
+                          flex
+                          lg:ml-12
+                        "
+                      >
+                        Team
+                      </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
-                      href="#faq"
-                      className="
-                        text-base
-                        font-medium
-                        text-dark
-                        hover:text-primary
-                        py-2
-                        lg:inline-flex
-                        flex
-                        lg:ml-12
-                      "
-                    >
-                      FAQ
-                    </a>
+                    <Link href="/#faq">
+                      <a
+                        onClick={() => setIsOpen(false)}
+                        className="
+                          text-base
+                          font-medium
+                          text-dark
+                          hover:text-primary
+                          py-2
+                          lg:inline-flex
+                          flex
+                          lg:ml-12
+                        "
+                      >
+                        FAQ
+                      </a>
+                    </Link>
                   </li>
                   {/* <li>
                     <a
@@ -181,21 +192,23 @@ export const NavBar = () => {
                     </a>
                   </li> */}
                   <li>
-                    <a
-                      href="#contact-us"
-                      className="
-                        text-base
-                        font-medium
-                        text-dark
-                        hover:text-primary
-                        py-2
-                        lg:inline-flex
-                        flex
-                        lg:ml-12
-                      "
-                    >
-                      Contact Us
-                    </a>
+                    <Link href="/#contact-us">
+                      <a
+                        onClick={() => setIsOpen(false)}
+                        className="
+                          text-base
+                          font-medium
+                          text-dark
+                          hover:text-primary
+                          py-2
+                          lg:inline-flex
+                          flex
+                          lg:ml-12
+                        "
+                      >
+                        Contact Us
+                      </a>
+                    </Link>
                   </li>
                 </ul>
               </nav>
@@ -214,21 +227,22 @@ export const NavBar = () => {
               >
                 Login
               </a> */}
-              <a
-                href="#contact-us"
-                className="
-                  text-base
-                  font-medium
-                  text-white
-                  bg-primary
-                  rounded-lg
-                  py-3
-                  px-7
-                  hover:bg-opacity-90
-                "
-              >
-                Get In Touch
-              </a>
+              <Link href="/#contact-us">
+                <a
+                  className="
+                    text-base
+                    font-medium
+                    text-white
+                    bg-primary
+                    rounded-lg
+                    py-3
+                    px-7
+                    hover:bg-opacity-90
+                  "
+                >
+                  Get In Touch
+                </a>
+              </Link>
             </div>
           </div>
         </div>

@@ -142,3 +142,9 @@ input#checkboxLabelFive:checked ~ .box {
     rgba(196, 196, 196, 0) 100%
   );
 }
+
+html {
+  scroll-behavior: smooth;
+  /* keep anchored sections clear of the fixed header (~120px) */
+  scroll-padding-top: 120px;
+}

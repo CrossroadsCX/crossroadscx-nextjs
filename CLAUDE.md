@@ -33,7 +33,9 @@ pnpm build       # run before calling any change done
 - Contact: hello@crossroadscx.com. No phone number is published.
 - Offerings: practical AI and automation (assistants, agents, workflow automation, evaluation and guardrails), data and analytics (pipelines, models, dashboards), systems integration (CRM, e-commerce, membership, APIs), and custom web software. Engagements are hourly, project or retainer, either augmenting a team or fully outsourced. **No general IT support.**
 - Don't name clients without Chris's explicit OK.
-- `public/docs/CrossroadsCX Offerings.pdf` dates from 2022 and is stale. It's no longer linked from the site.
+- Industries served: manufacturing, restaurants, non-profits, e-commerce, finance, government, legal, logistics.
+- Featured tools (toolset row): Claude, OpenAI, Google ADK, React, Google Cloud, Snowflake, Tableau, GraphQL, Next.js.
+- No blog. The old Medium blog is inactive and isn't linked.
 
 ## Voice
 Plain-spoken, warm, a little wry. "We're also human beings." No sales jargon, no AI hype, no buzzword stacks. Short sentences. Write from the client's pain point first (the persona quotes in `ServicesSection`), then what we do about it.

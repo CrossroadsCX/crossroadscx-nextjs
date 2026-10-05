@@ -109,60 +109,6 @@ export const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="w-full md:w-1/2 lg:w-4/12 2xl:w-3/12 px-4">
-            <div className="w-full mb-10">
-              <h4 className="text-white text-lg font-semibold mb-9">Read Our Blog</h4>
-              <ul>
-                <li>
-                  <a
-                    href="https://crossroads-cx.medium.com/"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="
-                      inline-block
-                      text-base text-[#efefef]
-                      hover:text-white
-                      leading-loose
-                      mb-2
-                      hover:underline
-                    "
-                  >
-                    CrossroadsCX on Medium
-                  </a>
-                </li>
-              </ul>
-              {/* <a
-                href="#"
-                className="flex items-center text-[#efefef] hover:text-white mb-8"
-              >
-                <div className="w-full max-w-[70px] rounded mr-5 overflow-hidden">
-                  <Image
-                    src="/images/footers/footer-04/blog-01.jpg"
-                    alt="image"
-                    className="w-full"
-                    height="500"
-                    width="500"
-                  />
-                </div>
-                <p className="text-base">I think really important to design...</p>
-              </a>
-              <a
-                href="#"
-                className="flex items-center text-[#efefef] hover:text-white mb-8"
-              >
-                <div className="w-full max-w-[70px] rounded mr-5 overflow-hidden">
-                  <Image
-                    src="/images/footers/footer-04/blog-02.jpg"
-                    alt="image"
-                    className="w-full"
-                    height="500"
-                    width="500"
-                  />
-                </div>
-                <p className="text-base">Recognizing the need is the primary...</p>
-              </a> */}
-            </div>
-          </div>
           <div className="w-full sm:w-1/2 lg:w-3/12 2xl:w-2/12 px-4">
             <div className="w-full mb-10">
               <h4 className="text-white text-lg font-semibold mb-9">Company</h4>

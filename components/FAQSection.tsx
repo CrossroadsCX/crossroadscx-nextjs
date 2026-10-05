@@ -256,7 +256,7 @@ export const FAQSection = () => {
               `}>
                 <p className="text-base text-body-color leading-relaxed py-3">
                   We&apos;ve worked with everyone from single-employee non-profits to multi-location
-                  enterprises. Their industries span e-commerce, finance, government, legal, and logistics.
+                  enterprises. Their industries span manufacturing, restaurants, non-profits, e-commerce, finance, government, legal, and logistics.
                   Our services for these clients have included architecting greenfield applications, augmenting existing teams,
                   connecting out-of-the-box software tools / workflows, and even just playing an advisory role. If we aren&apos;t
                   absolutely sure that we are a good fit for your project, we will be the first to say so.

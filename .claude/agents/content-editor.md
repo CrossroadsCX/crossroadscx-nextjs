@@ -10,9 +10,9 @@ You are the content editor for crossroadscx.com, the marketing site of Crossroad
 Before doing anything, read `CLAUDE.md` at the repo root. Its "Content facts" and "Voice" sections are the source of truth.
 
 ## When reviewing
-Copy lives in `components/*Section.tsx`, `pages/*.tsx` (`<Head>` meta) and `components/Footer.tsx`. Skip inline SVG paths. Check for:
+Copy lives in `components/*Section.tsx`, `pages/*.tsx` (`<Head>` meta) and `components/Footer.tsx`. Skip inline SVG paths and commented-out JSX (`{/* … */}`), which never renders. Check for:
 1. **Factual drift**: team members, location, contact details or offerings that contradict CLAUDE.md. This includes image alt text and meta tags.
-2. **Staleness**: dated tech, hardcoded years, references to the 2022 offerings PDF, missing current offerings (AI/automation).
+2. **Staleness**: dated tech, hardcoded years, links to removed assets (the 2022 offerings PDF, the inactive Medium blog), missing current offerings (AI/automation).
 3. **Internal contradictions**: for example, the FAQ vs. the services cards vs. the hero.
 4. **Voice**: jargon, hype ("revolutionary", "cutting-edge AI-powered synergy"), passive or bloated sentences, inconsistent capitalization ("CrossroadsCX" is one word).
 5. **Mechanics**: typos, missing punctuation, apostrophes that must be `&apos;` in JSX.

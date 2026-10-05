@@ -1,34 +1,28 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# crossroadscx.com
 
-## Getting Started
+Marketing site for [CrossroadsCX](https://crossroadscx.com). Built with Next.js 12, React 18, Tailwind CSS and TypeScript, and deployed on Vercel.
 
-First, run the development server:
+## Development
+
+Requires Node 22+ and [pnpm](https://pnpm.io) (`corepack enable` will pick up the pinned version).
 
 ```bash
-npm run dev
-# or
-yarn dev
+pnpm install
+cp .env.example .env.local   # then fill in values
+pnpm dev                     # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Before committing, run `pnpm typecheck`, `pnpm lint` and `pnpm build`.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Environment variables
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+| Name | Purpose |
+| --- | --- |
+| `RESEND_API_KEY` | Sending-only Resend API key used by the contact form (`pages/api/contact.ts`) |
+| `NEXT_PUBLIC_GA_ID` | GA4 measurement ID (`G-…`). Analytics is disabled when unset |
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Deployment
 
-## Learn More
+Pushing to `main` deploys to production on Vercel (team `crossroadscx`, project `crossroadscx-nextjs`). Other branches get preview deployments.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+See `CLAUDE.md` for architecture notes, content facts and voice guidelines.

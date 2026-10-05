@@ -1,86 +1,95 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+// Contact form submissions are emailed to hello@ via Resend (https://resend.com/docs/api-reference/emails/send-email)
 import type { NextApiRequest, NextApiResponse } from 'next'
-import * as SIBApi from '@sendinblue/client'
-import { types } from 'util'
-import { isNativeError } from 'util/types'
-
-type ContactData = {
-  name?: string
-  email?: string
-  phone?: string
-  message?: string
-}
 
 type ErrorResponse = { error: string }
 type SuccessResponse = { message: string }
 
 type Response = ErrorResponse | SuccessResponse
 
+const TO_EMAIL = 'hello@crossroadscx.com'
+const FROM_EMAIL = 'CrossroadsCX Website <website@send.crossroadscx.com>'
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+const escapeHtml = (value: string) =>
+  value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+
+const field = (value: unknown, maxLength: number) =>
+  typeof value === 'string' ? value.trim().slice(0, maxLength) : ''
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Response>
 ) {
-  try {
-    const { name, email, phone, message } = req.body
-
-    const { SIB_API_KEY } = process.env
-
-    if (!SIB_API_KEY) {
-      return res.status(500).json({ message: 'Could not send contact submission. SIB API key missing.'})
-    }
-
-    const api = new SIBApi.TransactionalEmailsApi()
-    api.setApiKey(SIBApi.TransactionalEmailsApiApiKeys.apiKey, SIB_API_KEY)
-
-    const sender = new SIBApi.SendSmtpEmailSender()
-    sender.email = 'hello@crossroadscx.com'
-
-    const toEmail = new SIBApi.SendSmtpEmailTo()
-    toEmail.email = 'hello@crossroadscx.com'
-
-    const sendInfo = new SIBApi.SendSmtpEmail()
-    sendInfo.to = [toEmail]
-    sendInfo.sender = sender
-    sendInfo.subject = 'New Contact Us Submission'
-
-    sendInfo.htmlContent = `
-      <!DOCTYPE html>
-      <html lang="en">
-
-      <head>
-          <meta charset="utf-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1">
-          <title>Contact Us Submission</title>
-      </head>
-
-      <body>
-          <div class="container">
-              <h1>Contact Us Submission</h1>
-              <hr>
-              <ul>
-                <li>Name: ${name}</li>
-                <li>Email: ${email}</li>
-                <li>Phone: ${phone}</li>
-                <li>Message: ${message}</li>
-              </ul>
-          </div>
-      </body>
-      </html>
-    `
-    const { response, body } = await api.sendTransacEmail(sendInfo)
-
-    // If there was an error sending the message
-    if (response.statusCode !== 201) {
-      const { statusCode, statusMessage } = response
-      return res.status(500).json({ error: `SIB message failed to send (${statusCode}): ${statusMessage}`})
-    }
-    return res.status(200).json({ message: 'Contact Submitted Successfully' })
-  } catch (err) {
-    console.error(err)
-    if (isNativeError(err)) {
-      return res.status(500).json({ error: err.message })
-    }
-    return res.status(500).json({ error: 'Unknown error'})
+  if (req.method !== 'POST') {
+    res.setHeader('Allow', 'POST')
+    return res.status(405).json({ error: 'Method not allowed' })
   }
 
+  const body = req.body ?? {}
+
+  // Honeypot: real visitors never see or fill this field, so quietly accept and drop bot submissions
+  if (field(body.company, 200)) {
+    return res.status(200).json({ message: 'Contact Submitted Successfully' })
+  }
+
+  const name = field(body.name, 200)
+  const email = field(body.email, 320)
+  const phone = field(body.phone, 50)
+  const message = field(body.message, 5000)
+
+  if (!name || !EMAIL_PATTERN.test(email) || !message) {
+    return res.status(400).json({ error: 'Please include your name, a valid email address, and a message.' })
+  }
+
+  const { RESEND_API_KEY } = process.env
+
+  if (!RESEND_API_KEY) {
+    console.error('Contact form: RESEND_API_KEY is not set')
+    return res.status(500).json({ error: 'Could not send contact submission.' })
+  }
+
+  const html = `
+    <h1>Contact Us Submission</h1>
+    <hr>
+    <ul>
+      <li>Name: ${escapeHtml(name)}</li>
+      <li>Email: ${escapeHtml(email)}</li>
+      <li>Phone: ${escapeHtml(phone || 'n/a')}</li>
+    </ul>
+    <p style="white-space: pre-wrap">${escapeHtml(message)}</p>
+  `
+  const text = `Name: ${name}\nEmail: ${email}\nPhone: ${phone || 'n/a'}\n\n${message}`
+
+  try {
+    const response = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${RESEND_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: FROM_EMAIL,
+        to: [TO_EMAIL],
+        reply_to: email,
+        subject: `New contact: ${name.replace(/\s+/g, ' ')}`,
+        html,
+        text,
+      }),
+    })
+
+    if (!response.ok) {
+      console.error(`Contact form: Resend failed (${response.status})`, await response.text())
+      return res.status(502).json({ error: 'Could not send contact submission.' })
+    }
+
+    return res.status(200).json({ message: 'Contact Submitted Successfully' })
+  } catch (err) {
+    console.error('Contact form: request to Resend failed', err)
+    return res.status(502).json({ error: 'Could not send contact submission.' })
+  }
 }

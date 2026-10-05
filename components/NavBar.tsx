@@ -6,7 +6,7 @@ import { useRouter } from 'next/router'
 type NavLink = { label: string, href: string }
 
 // Nav links are page-local: the same labels scroll to the matching section on the current page.
-// Only the audience switch (and the logo) moves between pages.
+// The logo and the "Engineering" link are the only header links that change pages.
 const NAV: Record<string, NavLink[]> = {
   '/': [
     { label: 'When to call', href: '#when-to-call' },
@@ -23,11 +23,6 @@ const NAV: Record<string, NavLink[]> = {
     { label: 'FAQ', href: '#eng-faq' },
   ],
 }
-
-const AUDIENCES = [
-  { label: 'For business leaders', href: '/' },
-  { label: 'For engineering teams & startups', href: '/engineering' },
-]
 
 const focusRing = 'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary'
 
@@ -69,30 +64,18 @@ export const NavBar = () => {
     }
   }, [isOpen])
 
-  // Background and text colors depend on state, so they're passed separately rather than mixed into optionClassName
-  const audienceSwitch = (className: string, optionClassName: string, inactiveClassName: string) => (
-    <ul className={className} aria-label="Choose your audience">
-      {AUDIENCES.map((audience) => {
-        const isCurrent = audience.href === pathname
-        return (
-          <li key={audience.href} className="flex">
-            <Link href={audience.href}>
-              <a
-                aria-current={isCurrent ? 'page' : undefined}
-                onClick={() => setIsOpen(false)}
-                className={`
-                  ${optionClassName}
-                  ${isCurrent ? 'bg-primary text-white' : inactiveClassName}
-                  ${focusRing}
-                `}
-              >
-                {audience.label}
-              </a>
-            </Link>
-          </li>
-        )
-      })}
-    </ul>
+  // The one page link in the header; underlined when you're on that page.
+  const isEngineering = pathname === '/engineering'
+  const engineeringLink = (className: string) => (
+    <Link href="/engineering">
+      <a
+        aria-current={isEngineering ? 'page' : undefined}
+        onClick={() => setIsOpen(false)}
+        className={`${className} ${isEngineering ? 'text-primary underline underline-offset-8 decoration-2' : 'text-dark hover:text-primary'} ${focusRing}`}
+      >
+        Engineering
+      </a>
+    </Link>
   )
 
   return (
@@ -103,11 +86,6 @@ export const NavBar = () => {
         z-50 w-full left-0 top-0 bg-white
       `}
     >
-      <div className="hidden lg:block bg-[#F4F7FF]">
-        <div className="container flex justify-end h-9 items-center">
-          {audienceSwitch('flex rounded-full bg-white p-0.5 text-sm', 'px-4 py-1 rounded-full whitespace-nowrap', 'text-dark hover:text-primary')}
-        </div>
-      </div>
       <div className="container">
         <div className="flex items-center justify-between h-[72px] gap-4">
           <Link href="/">
@@ -124,8 +102,8 @@ export const NavBar = () => {
             </a>
           </Link>
 
-          <nav className="hidden lg:block" aria-label="Sections on this page">
-            <ul className="flex gap-6 xl:gap-10">
+          <nav className="hidden lg:block" aria-label="Main">
+            <ul className="flex gap-5 xl:gap-9">
               {links.map((link) => (
                 <li key={link.href}>
                   <a href={hrefFor(link.href)} className={`text-base font-medium text-dark hover:text-primary whitespace-nowrap ${focusRing}`}>
@@ -133,6 +111,7 @@ export const NavBar = () => {
                   </a>
                 </li>
               ))}
+              <li>{engineeringLink('text-base font-medium whitespace-nowrap')}</li>
             </ul>
           </nav>
 
@@ -171,8 +150,7 @@ export const NavBar = () => {
         className={`${isOpen ? '' : 'hidden'} lg:hidden absolute left-0 right-0 top-full bg-white shadow-lg border-t border-[#EFEFEF]`}
       >
         <div className="container py-4">
-          {audienceSwitch('flex flex-col gap-2 mb-4', 'w-full rounded-lg px-4 py-3 font-medium', 'bg-[#F4F7FF] text-dark hover:text-primary')}
-          <nav aria-label="Sections on this page">
+          <nav aria-label="Main">
             <ul>
               {links.map((link) => (
                 <li key={link.href}>
@@ -185,6 +163,7 @@ export const NavBar = () => {
                   </a>
                 </li>
               ))}
+              <li>{engineeringLink('flex py-3 text-base font-medium')}</li>
             </ul>
           </nav>
           <a

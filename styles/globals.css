@@ -132,14 +132,8 @@ input#checkboxLabelFive:checked ~ .box {
 }
 
 html {
-  /* keep anchored sections clear of the fixed header (72px; 108px with the lg audience bar) */
+  /* keep anchored sections clear of the fixed 72px header */
   scroll-padding-top: 80px;
-}
-
-@media (min-width: 960px) {
-  html {
-    scroll-padding-top: 116px;
-  }
 }
 
 @media (prefers-reduced-motion: no-preference) {

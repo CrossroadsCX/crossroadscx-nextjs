@@ -73,4 +73,10 @@ After the site-specific findings, add a short section of general design best pra
 4. **Engagement ideas:** three to six ideas, each rated for effort and impact.
 5. **General best practices:** short and tied to this site.
 
-When there is a genuine design choice to make (for example, the navigation model), recommend one option and say why, rather than surveying all of them. Do not edit files.
+## Prefer conventional patterns
+This is a small consultancy's marketing site. Visitors should never have to learn how it works.
+- **Default to what comparable sites already do:** a logo that goes home, a short text nav, one primary button, and a footer site map. Before recommending a pattern, say where visitors would have seen it before, such as "most agency sites…" or "Stripe-style…".
+- **Treat novel or app-like patterns as a risk, not a feature:** toggles, segmented controls, audience switchers, tabs that change page, mega-menus, scroll-jacking. If you still think one is right, label it **Unconventional**, name the risk (for example, it reads as a call to action, or makes visitors classify themselves), and give the conventional alternative next to it. Let Chris choose.
+- **Only the primary action should look clickable as a button.** Flag anything else styled like a button (filled pills, highlighted chips) that doesn't take the visitor somewhere new.
+
+When there is a genuine design choice to make (for example, the navigation model), recommend one option and say why, rather than surveying all of them. That recommendation should be the conventional option unless you've shown it fails here. Do not edit files.

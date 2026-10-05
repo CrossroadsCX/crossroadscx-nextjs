@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import Link from 'next/link'
 import {
   ContactSection,
   FAQSection,
@@ -174,11 +175,11 @@ const Engineering: NextPage = () => {
       </Head>
       <NavBar />
 
-      <section className="pt-[120px] lg:pt-[160px] pb-20 lg:pb-[110px] bg-white" id="engineering">
+      <section className="pt-[120px] lg:pt-[150px] pb-20 lg:pb-[110px] bg-white" id="engineering">
         <div className="container">
           <div className="flex flex-wrap -mx-4 items-center">
             <div className="w-full lg:w-7/12 px-4">
-              <span className={eyebrow}>For engineering teams &amp; startups</span>
+              <span className={eyebrow}>For engineering teams and startups</span>
               <h1 className="text-dark font-bold text-4xl sm:text-[42px] leading-snug mb-3 max-w-[760px]">
                 Senior engineering help for teams that already know how to build
               </h1>
@@ -253,6 +254,9 @@ const Engineering: NextPage = () => {
             <h2 className={sectionHeading}>What we do</h2>
             <p className="text-base text-body-color">
               Five areas. Most engagements touch two or three.
+            </p>
+            <p className="text-base text-dark mt-4">
+              No engineering team? <Link href="/#services"><a className="text-primary font-medium hover:underline">Here&apos;s how we help business leaders.</a></Link>
             </p>
           </div>
           <div className="grid gap-8 md:grid-cols-2">

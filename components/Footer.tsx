@@ -18,7 +18,7 @@ const columns = [
     ],
   },
   {
-    heading: 'For engineering teams & startups',
+    heading: 'For engineering teams and startups',
     page: '/engineering',
     links: [
       { label: 'When to call', href: '/engineering#eng-triggers' },

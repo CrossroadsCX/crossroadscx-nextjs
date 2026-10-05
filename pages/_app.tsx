@@ -2,26 +2,34 @@ import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import Script from 'next/script'
 
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
+      {GA_ID && (
+        <>
+          <Script
+            strategy="afterInteractive"
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          />
+          <Script id="google-analytics" strategy="afterInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_ID}');
+            `}
+          </Script>
+        </>
+      )}
       <Script
-        strategy="lazyOnload"
-        src={`https://www.googletagmanager.com/gtag/js?id=UA-119741426-1`}
+        id="vtag-ai-js"
+        strategy="afterInteractive"
+        src="https://r2.leadsy.ai/tag.js"
+        data-pid="MT1gPz0jD4KHEwCn"
+        data-version="062024"
       />
-      <Script
-        id="google-analytics"
-        strategy="lazyOnload"
-      >
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'UA-119741426-1');
-        `}
-      </Script>
-      <script id="vtag-ai-js" async src="https://r2.leadsy.ai/tag.js" data-pid="MT1gPz0jD4KHEwCn" data-version="062024"></script>
       <Script strategy="lazyOnload" id="mouseflow">
         {`
         window._mfq = window._mfq || [];

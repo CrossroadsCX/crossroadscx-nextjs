@@ -1,17 +1,14 @@
 import React from 'react'
 import Image from 'next/future/image'
-import { useSmoothScrollTo } from '../helpers/useSmoothScrollTo'
 import { TwitterIcon } from './TwitterIcon'
 import { LinkedInIcon } from './LinkedInIcon'
 import { GitHubIcon } from './GitubIcon'
-import { TableauIcon } from './TableauIcon'
 
 export const TeamSection = () => {
-  const scrollBind = useSmoothScrollTo('#team')
 
   return (
     <section
-      {...scrollBind}
+      id="team"
       className="
         bg-[#F4F7FF]
         pt-20
@@ -58,7 +55,7 @@ export const TeamSection = () => {
                 shadow-lg
                 relative
                 flex flex-wrap
-                justify-between
+                justify-center
               "
             >
               {/* <div className="w-full flex flex-wrap -mx-4"> */}
@@ -67,7 +64,7 @@ export const TeamSection = () => {
                   <div className="rounded overflow-hidden mb-5">
                     <Image
                       src="/images/team/Chris.jpg"
-                      alt="image"
+                      alt="Chris Birk"
                       className="w-full"
                       width="500"
                       height="500"
@@ -81,7 +78,7 @@ export const TeamSection = () => {
                       CEO / Co-Founder
                     </p>
                     <div className="flex justify-center items-center">
-                      <TwitterIcon link="https://twitter.com/cmbirk" />
+                      <TwitterIcon link="https://x.com/cmbirk" />
                       <LinkedInIcon link="https://linkedin.com/in/cmbirk" />
                       <GitHubIcon link="https://github.com/cmbirk" />
                     </div>
@@ -92,34 +89,8 @@ export const TeamSection = () => {
                 <div className="max-w-[200px] mx-auto mb-10">
                   <div className="rounded overflow-hidden mb-5">
                     <Image
-                      src="/images/team/Danny.jpg"
-                      alt="image"
-                      className="w-full"
-                      width="500"
-                      height="500"
-                    />
-                  </div>
-                  <div className="text-center">
-                    <h4 className="font-semibold text-base text-dark mb-2">
-                      Danny Steinmetz
-                    </h4>
-                    <p className="text-[10px] uppercase text-body-color mb-5">
-                      Data and Analytics Lead
-                    </p>
-                    <div className="flex justify-center items-center">
-                      <LinkedInIcon link="https://www.linkedin.com/in/danny-steinmetz/" />
-                      <TableauIcon link="https://public.tableau.com/app/profile/danny.steinmetz" />
-                      <GitHubIcon link="https://github.com/dmsteinmetz14" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="w-full sm:w-1/2 lg:w-1/4 px-4">
-                <div className="max-w-[200px] mx-auto mb-10">
-                  <div className="rounded overflow-hidden mb-5">
-                    <Image
                       src="/images/team/Mario.jpg"
-                      alt="image"
+                      alt="Mario Medina"
                       className="w-full"
                       width="500"
                       height="500"

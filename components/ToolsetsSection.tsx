@@ -1,6 +1,18 @@
 import React from 'react'
 import Image from 'next/future/image'
 
+const tools = [
+  { name: 'Claude', href: 'https://www.anthropic.com/claude', src: '/images/tools/claude.svg', width: 112 },
+  { name: 'OpenAI', href: 'https://openai.com/', src: '/images/tools/openai.svg', width: 118 },
+  { name: 'Google ADK', href: 'https://google.github.io/adk-docs/', src: '/images/tools/google-adk.svg', width: 150 },
+  { name: 'React', href: 'https://react.dev/', src: '/images/tools/react.svg', width: 120 },
+  { name: 'Google Cloud', href: 'https://cloud.google.com/', src: '/images/tools/gcp.svg', width: 120 },
+  { name: 'Snowflake', href: 'https://www.snowflake.com/', src: '/images/tools/snowflake.svg', width: 120 },
+  { name: 'Tableau', href: 'https://www.tableau.com/', src: '/images/tools/tableau.svg', width: 150 },
+  { name: 'GraphQL', href: 'https://graphql.org/', src: '/images/tools/graphql.svg', width: 150 },
+  { name: 'Next.js', href: 'https://nextjs.org/', src: '/images/tools/nextjs.svg', width: 150 },
+]
+
 export const ToolsetsSection = () => {
   return (
     <section className="pb-12 lg:pb-[90px] bg-white">
@@ -21,62 +33,14 @@ export const ToolsetsSection = () => {
               className="w-8 h-[1px] bg-body-color inline-block ml-2"
             ></span>
           </h6>
-          <div className="flex items-center w-full justify-between">
-            <div className="w-1/7 py-3 mr-4">
-              <a href="https://reactjs.org/" target="_blank" rel="noreferrer">
-                <Image src="/images/tools/react.svg" alt="React" width="120" height="10" />
-              </a>
-            </div>
-            <div className="w-1/7 py-3 mr-4">
-              <a href="https://cloud.google.com/gcp" target="_blank" rel="noreferrer">
-                <Image src="/images/tools/gcp.svg" alt="GCP" width="120" height="10" />
-              </a>
-            </div>
-            <div className="w-1/7 py-3 mr-4">
-              <a href="https://www.snowflake.com/" target="_blank" rel="noreferrer">
-                <Image
-                  src="/images/tools/snowflake.svg"
-                  alt="Snowflake"
-                  width="120" height="10"
-                />
-              </a>
-            </div>
-            <div className="w-1/7 py-3 mr-4">
-              <a href="https://www.tableau.com/" target="_blank" rel="noreferrer">
-                <Image
-                  src="/images/tools/tableau.svg"
-                  alt="Tableau"
-                  width="150" height="10"
-                />
-              </a>
-            </div>
-            <div className="w-1/7 py-3 mr-4">
-              <a href="https://graphql.org/" target="_blank" rel="noreferrer">
-                <Image
-                  src="/images/tools/graphql.svg"
-                  alt="GraphQL"
-                  width="150" height="10"
-                />
-              </a>
-            </div>
-            <div className="w-1/7 py-3 mr-4">
-              <a href="https://nextjs.org/" target="_blank" rel="noreferrer">
-                <Image
-                  src="/images/tools/nextjs.svg"
-                  alt="NextJS"
-                  width="150" height="10"
-                />
-              </a>
-            </div>
-            <div className="w-1/7 py-3 mr-4">
-              <a href="https://www.zingg.ai/" target="_blank" rel="noreferrer">
-                <Image
-                  src="/images/tools/zingg.svg"
-                  alt="NextJS"
-                  width="150" height="10"
-                />
-              </a>
-            </div>
+          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-2 w-full">
+            {tools.map((tool) => (
+              <div key={tool.name} className="py-3">
+                <a href={tool.href} target="_blank" rel="noreferrer">
+                  <Image src={tool.src} alt={tool.name} width={tool.width} height="60" />
+                </a>
+              </div>
+            ))}
           </div>
         </div>
       </div>

@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
-import { useSmoothScrollTo } from '../helpers/useSmoothScrollTo'
+import Link from 'next/link'
 
 export const FAQSection = () => {
   const [currentOpen, setCurrentOpen] = useState<number>()
 
-  const scrollBind = useSmoothScrollTo('#faq')
 
   const handleOpen = (index: number) => {
     if (currentOpen === index) {
@@ -26,7 +25,7 @@ export const FAQSection = () => {
         z-20
         overflow-hidden
       "
-      {...scrollBind}
+      id="faq"
     >
       <div className="container">
         <div className="flex flex-wrap -mx-4">
@@ -48,7 +47,7 @@ export const FAQSection = () => {
                 You have questions. <br /> We have answers.
               </h2>
               <p className="text-base text-body-color">
-                Feel free to ask any questions <a href="#contact-us" className="hover:underline font-bold italic">below</a> as well.
+                Feel free to ask any questions <Link href="/#contact-us"><a className="hover:underline font-bold italic">below</a></Link> as well.
               </p>
             </div>
           </div>
@@ -106,7 +105,7 @@ export const FAQSection = () => {
                 </div>
                 <div className="w-full">
                   <h4 className="text-lg font-semibold text-black">
-                    What makes you different than other technology vendors?
+                    What makes you different from other technology vendors?
                   </h4>
                 </div>
               </button>
@@ -120,10 +119,79 @@ export const FAQSection = () => {
                   outside help. We try to build trust with our clients first and help them grow. We would
                   much rather create a lasting relationship where we can prove our value time and time again.
                   <br /><br />
-                  We pride ourselves on our clear and consistent communication - including offering advice
-                  to our clients that may be out-of-box, less costly alternatives to building
+                  We pride ourselves on our clear and consistent communication, including offering advice
+                  to our clients on out-of-the-box, less costly alternatives to building
                   everything ourselves. We will ensure that you are informed of all timelines and risks
                   and will be there to assist in your decision making every step of the way.
+                </p>
+              </div>
+            </div>
+            <div
+              className="
+                single-faq
+                w-full
+                bg-white
+                border border-[#F3F4FE]
+                rounded-lg
+                p-4
+                sm:p-8
+                lg:px-6
+                xl:px-8
+                mb-8
+              "
+            >
+              <button
+                className="faq-btn flex w-full text-left"
+                onClick={() => handleOpen(7)}
+              >
+                <div
+                  className={`
+                    ${currentOpen === 7 ? 'rotate-0' : '-rotate-90'}
+                    transition
+                    w-full
+                    max-w-[40px]
+                    h-10
+                    flex
+                    items-center
+                    justify-center
+                    rounded-lg
+                    bg-primary
+                    text-primary
+                    bg-opacity-5
+                    mr-5
+                  `}
+                >
+                  <svg
+                    width="17"
+                    height="10"
+                    viewBox="0 0 17 10"
+                    className="fill-current icon"
+                  >
+                    <path
+                      d="M7.28687 8.43257L7.28679 8.43265L7.29496 8.43985C7.62576 8.73124 8.02464 8.86001 8.41472 8.86001C8.83092 8.86001 9.22376 8.69083 9.53447 8.41713L9.53454 8.41721L9.54184 8.41052L15.7631 2.70784L15.7691 2.70231L15.7749 2.69659C16.0981 2.38028 16.1985 1.80579 15.7981 1.41393C15.4803 1.1028 14.9167 1.00854 14.5249 1.38489L8.41472 7.00806L2.29995 1.38063L2.29151 1.37286L2.28271 1.36548C1.93092 1.07036 1.38469 1.06804 1.03129 1.41393L1.01755 1.42738L1.00488 1.44184C0.69687 1.79355 0.695778 2.34549 1.0545 2.69659L1.05999 2.70196L1.06565 2.70717L7.28687 8.43257Z"
+                      fill="#3056D3"
+                      stroke="#3056D3"
+                    />
+                  </svg>
+                </div>
+                <div className="w-full">
+                  <h4 className="text-lg font-semibold text-black">
+                    Do you build AI / LLM solutions?
+                  </h4>
+                </div>
+              </button>
+              <div className={`
+                faq-content
+                pl-[62px]
+                ${currentOpen === 7 ? '' : 'hidden'}
+              `}>
+                <p className="text-base text-body-color leading-relaxed py-3">
+                  Yes, and we keep it practical. We start with the problems where AI can measurably save time
+                  or improve decisions, then build assistants, agents, and automations grounded in your own data
+                  and existing tools.
+                  <br /><br />
+                  We evaluate what we build before it reaches your team, design with data privacy and human
+                  review in mind, and will tell you honestly when a simpler, non-AI approach is the better fit.
                 </p>
               </div>
             </div>
@@ -187,8 +255,8 @@ export const FAQSection = () => {
                 ${currentOpen === 2 ? '' : 'hidden'}
               `}>
                 <p className="text-base text-body-color leading-relaxed py-3">
-                  We&apos;ve worked on projects and clients from small single-employee non-profits to large
-                  multi-billion dollar commerce giants. Their industries span e-commerce, finance, government, legal, and logistics.
+                  We&apos;ve worked with everyone from single-employee non-profits to multi-location
+                  enterprises. Their industries span manufacturing, restaurants, non-profits, e-commerce, finance, government, legal, and logistics.
                   Our services for these clients have included architecting greenfield applications, augmenting existing teams,
                   connecting out-of-the-box software tools / workflows, and even just playing an advisory role. If we aren&apos;t
                   absolutely sure that we are a good fit for your project, we will be the first to say so.
@@ -322,11 +390,8 @@ export const FAQSection = () => {
                 ${currentOpen === 4 ? '' : 'hidden'}
               `}>
                 <p className="text-base text-body-color leading-relaxed py-3">
-                  We&apos;re flexible. We want to make sure that you get the value you deserve.
-                  We are comfortable operating on an hourly basis if that works for you, although we
-                  also are very comfortable in a project-by-project basis or even on retainer. The retainer option
-                  does allow us to be more flexible with our customers and flex higher during periods of
-                  time that we are needed more.
+                  We&apos;re flexible: hourly, by project, or on retainer. We can augment your team or
+                  run the work end to end. A retainer lets us scale up when you need us most.
                 </p>
               </div>
             </div>
@@ -380,7 +445,7 @@ export const FAQSection = () => {
                 </div>
                 <div className="w-full">
                   <h4 className="text-lg font-semibold text-black">
-                    Are you familiar with &lt;insert-technology-here&gt;
+                    Are you familiar with &lt;insert-technology-here&gt;?
                   </h4>
                 </div>
               </button>
@@ -459,10 +524,8 @@ export const FAQSection = () => {
                 <p className="text-base text-body-color leading-relaxed py-3">
                   Yes.
                   <br /><br />
-                  We&apos;re very comfortable augmenting existing teams, and believe that
-                  we are very quick studies on new codebases, patterns, and workflows. We have experience with
-                  performing roles ranging from hands-on-a-keyboard to assisting C-level executives make
-                  high-impact decisions. We can also work hand-in-hand with existing vendors and partners to
+                  We pick up new codebases, patterns, and workflows quickly. We&apos;ve done everything from
+                  hands-on-keyboard development to helping C-level executives make high-impact decisions. We can also work hand-in-hand with existing vendors and partners to
                   ensure your project is successful.
                 </p>
               </div>

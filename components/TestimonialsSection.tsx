@@ -1,12 +1,10 @@
 import React from 'react'
 import Image from 'next/future/image'
-import { useSmoothScrollTo } from '../helpers/useSmoothScrollTo'
 
 export const TestimonialsSection = () => {
-  const scrollBind = useSmoothScrollTo('#testimonials')
 
   return (
-    <section className="pt-20 lg:pt-[120px] pb-7 lg:pb-14 bg-white" {...scrollBind}>
+    <section className="pt-20 lg:pt-[120px] pb-7 lg:pb-14 bg-white" id="testimonials">
       <div className="container">
         <div className="flex flex-wrap justify-center -mx-4">
           <div className="w-full px-4">

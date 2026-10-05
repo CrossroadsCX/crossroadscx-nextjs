@@ -10,8 +10,6 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@sendinblue/client": "^3.2.1",
-    "axios": "^0.27.2",
     "next": "12.2.3",
     "react": "18.2.0",
     "react-dom": "18.2.0"
@@ -27,8 +25,17 @@
     "tailwindcss": "^3.1.8",
     "typescript": "4.7.4"
   },
-  "resolutions": {
-    "@types/react": "18.0.28",
-    "@types/react-dom": "18.0.11"
+  "packageManager": "pnpm@10.32.1",
+  "engines": {
+    "node": "24.x"
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/react": "18.0.28",
+      "@types/react-dom": "18.0.11"
+    },
+    "ignoredBuiltDependencies": [
+      "core-js-pure"
+    ]
   }
 }

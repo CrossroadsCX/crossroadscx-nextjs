@@ -1,13 +1,12 @@
 import React from 'react'
 import Image from 'next/future/image'
-import { useSmoothScrollTo } from '../helpers/useSmoothScrollTo'
+import Link from 'next/link'
 
 export const HeroSection = () => {
 
-  const scrollBind = useSmoothScrollTo('#home')
 
   return (
-    <section className="relative pt-[120px] lg:pt-[150px] pb-[110px] bg-white" {...scrollBind}>
+    <section className="relative pt-[120px] lg:pt-[150px] pb-[110px] bg-white" id="home">
       <div className="container">
         <div className="flex flex-wrap -mx-4">
           <div className="w-full lg:w-5/12 px-4">
@@ -24,88 +23,67 @@ export const HeroSection = () => {
                   mb-3
                 "
               >
-                Boutique software consultancy
+                Practical AI, data, and software
               </h1>
               <h2
                 className="text-dark text-2xl mb-3"
               >
-                High quality customer experiences
+                A boutique consultancy for teams that want results, not hype
               </h2>
               <p className="text-base mb-8 text-body-color max-w-[480px]">
-              CrossroadsCX is a boutique consultancy that uses modern technologies to create exceptional experiences for our clients. Start-ups and enterprises engage CrossroadsCX to help deliver ambitious e-commerce, data, and software projects. We can augment your existing team or operate as a fully outsourced team.
+              CrossroadsCX is a Chicago-based consultancy that helps organizations put modern technology to work. From non-profits and growing businesses to multi-location enterprises, clients engage us to deliver AI and automation, data and analytics, systems integration, and custom software. We can augment your existing team or operate as a fully outsourced one.
               </p>
               <ul className="flex flex-wrap items-center">
                 <li>
-                  <a
-                    href="/docs/CrossroadsCX Offerings.pdf"
-                    className="
-                      py-4
-                      px-6
-                      sm:px-10
-                      lg:px-8
-                      xl:px-10
-                      inline-flex
-                      items-center
-                      justify-center
-                      text-center text-white text-base
-                      bg-primary
-                      hover:bg-opacity-90
-                      font-normal
-                      rounded-lg
-                    "
-                  >
-                    Download Our Offerings
-                  </a>
+                  <Link href="/#contact-us">
+                    <a
+                      className="
+                        py-4
+                        px-6
+                        sm:px-10
+                        lg:px-8
+                        xl:px-10
+                        inline-flex
+                        items-center
+                        justify-center
+                        text-center text-white text-base
+                        bg-primary
+                        hover:bg-opacity-90
+                        font-normal
+                        rounded-lg
+                      "
+                    >
+                      Get In Touch
+                    </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="/docs/CrossroadsCX Offerings.pdf"
-                    className="
-                      py-4
-                      px-6
-                      sm:px-10
-                      lg:px-8
-                      xl:px-10
-                      inline-flex
-                      items-center
-                      justify-center
-                      text-center text-base
-                      font-normal
-                      text-body-color
-                      hover:text-primary
-                    "
-                  >
-                    <span className="mr-2">
-                      <svg
-                        width="22"
-                        height="22"
-                        viewBox="0 0 22 22"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <circle cx="11" cy="11" r="11" fill="#3056D3" />
-                        <rect
-                          x="6.90906"
-                          y="13.3636"
-                          width="8.18182"
-                          height="1.63636"
-                          fill="white"
-                        />
-                        <rect
-                          x="10.1818"
-                          y="6"
-                          width="1.63636"
-                          height="4.09091"
-                          fill="white"
-                        />
-                        <path
-                          d="M11 12.5454L13.8343 9.47726H8.16576L11 12.5454Z"
-                          fill="white"
-                        />
-                      </svg>
-                    </span>
-                    Learn More
-                  </a>
+                  <Link href="/#services">
+                    <a
+                      className="
+                        py-4
+                        px-6
+                        sm:px-10
+                        lg:px-8
+                        xl:px-10
+                        inline-flex
+                        items-center
+                        justify-center
+                        text-center text-base
+                        font-normal
+                        text-body-color
+                        hover:text-primary
+                      "
+                    >
+                      <span className="mr-2">
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                          <circle cx="11" cy="11" r="11" fill="#3056D3" />
+                          <path d="M7 11h7.5M11.5 7.5L15 11l-3.5 3.5" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </span>
+                      Learn More
+                    </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -116,7 +94,7 @@ export const HeroSection = () => {
               <div className="relative inline-block z-10 pt-11 lg:pt-0">
                 <Image
                   src="/images/hero/hero.jpg"
-                  alt="hero"
+                  alt="Neon sign on a brick wall reading 'This is the sign you've been looking for'"
                   className="max-w-full lg:ml-auto rounded-lg rounded-tl-[150px]"
                   width="500" height="10"
                   priority

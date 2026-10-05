@@ -1,11 +1,9 @@
 import React from 'react'
-import { useSmoothScrollTo } from '../helpers/useSmoothScrollTo'
 
 export const ServicesSection = () => {
-  const bind = useSmoothScrollTo('#services')
 
   return (
-    <section className="pb-12 lg:pb-[90px] bg-white" {...bind}>
+    <section className="pb-12 lg:pb-[90px] bg-white" id="services">
       <div className="container">
         <div className="flex flex-wrap -mx-4">
           <div className="w-full px-4">
@@ -23,16 +21,16 @@ export const ServicesSection = () => {
                   mb-4
                 "
               >
-                CX Services
+                How We Help
               </h2>
               <p className="text-base text-body-color">
-                We&apos;re a full-service micro-agency. We&apos;re also human beings. No sales jargon or technical run-arounds. Let&apos;s chat about what you need.
+                We&apos;re a small, senior team of builders. We&apos;re also human beings. No sales jargon, no AI hype, no technical run-arounds. Let&apos;s chat about what you need.
               </p>
             </div>
           </div>
         </div>
         <div className="flex flex-wrap justify-center -mx-4">
-          <div className="w-full sm:w-4/5 md:w-1/2 lg:w-1/3 px-4">
+          <div className="w-full sm:w-4/5 md:w-1/2 xl:w-1/4 px-4">
             <div
               className="
                 p-10
@@ -90,7 +88,10 @@ export const ServicesSection = () => {
                 Technology Leaders
               </h4>
               <p className="text-body-color">
-                <q>Our IT was cutting edge... five years ago. We need to level up, but where to even start?</q>
+                <q>Our tech was cutting edge... five years ago. We need to level up, but where to even start?</q>
+              </p>
+              <p className="mt-4 text-sm text-body-color">
+                We assess where you are, map a practical roadmap, and build or rebuild the software your team runs on.
               </p>
 
               <span
@@ -112,7 +113,7 @@ export const ServicesSection = () => {
               ></span>
             </div>
           </div>
-          <div className="w-full sm:w-4/5 md:w-1/2 lg:w-1/3 px-4">
+          <div className="w-full sm:w-4/5 md:w-1/2 xl:w-1/4 px-4">
             <div
               className="
                 p-10
@@ -178,7 +179,10 @@ export const ServicesSection = () => {
                 Data Storytellers
               </h4>
               <p className="text-body-color">
-                <q>So much internal data, so little actual use from it - we should be doing much more!</q>
+                <q>So much internal data, so little actual use from it. We should be doing much more!</q>
+              </p>
+              <p className="mt-4 text-sm text-body-color">
+                We build the pipelines, models, and dashboards that turn raw data into answers your team actually uses: automated, trusted, and up to date.
               </p>
               <span
                 className="
@@ -199,7 +203,7 @@ export const ServicesSection = () => {
               ></span>
             </div>
           </div>
-          <div className="w-full sm:w-4/5 md:w-1/2 lg:w-1/3 px-4">
+          <div className="w-full sm:w-4/5 md:w-1/2 xl:w-1/4 px-4">
             <div
               className="
                 p-10
@@ -266,6 +270,92 @@ export const ServicesSection = () => {
               </h4>
               <p className="text-body-color">
                 <q>Why do we look at four different systems to find a simple, but critical, answer? Can&apos;t we bring these together in one place?</q>
+              </p>
+              <p className="mt-4 text-sm text-body-color">
+                We connect your CRM, e-commerce, membership, and back-office tools with APIs and automation so critical answers live in one place.
+              </p>
+
+              <span
+                className="
+                  absolute
+                  -bottom-2
+                  left-0
+                  right-0
+                  w-3/4
+                  mx-auto
+                  h-12
+                  bg-primary
+                  opacity-0
+                  group-hover:opacity-[14%]
+                  blur-[12px]
+                  transition
+                  z-[-1]
+                "
+              ></span>
+            </div>
+          </div>
+          <div className="w-full sm:w-4/5 md:w-1/2 xl:w-1/4 px-4">
+            <div
+              className="
+                p-10
+                md:px-8
+                lg:py-9 lg:px-6
+                xl:p-10
+                2xl:p-12
+                rounded-xl
+                bg-white
+                border border-[#EFEFEF]
+                mb-8
+                text-center
+                group
+                relative
+              "
+            >
+              <div
+                className="
+                  h-11
+                  inline-flex
+                  items-center
+                  mb-10
+                  relative
+                  z-10
+                  mx-auto
+                "
+              >
+                <span
+                  className="
+                    w-7
+                    h-7
+                    rounded-full
+                    bg-primary
+                    opacity-20
+                    absolute
+                    -right-3
+                    top-0
+                    z-[-1]
+                  "
+                ></span>
+                <svg
+                  width="40"
+                  height="40"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 2l1.9 5.6L19.5 9.5l-5.6 1.9L12 17l-1.9-5.6L4.5 9.5l5.6-1.9L12 2zM19 14l.95 2.55L22.5 17.5l-2.55.95L19 21l-.95-2.55L15.5 17.5l2.55-.95L19 14zM5 15l.7 1.8 1.8.7-1.8.7L5 20l-.7-1.8-1.8-.7 1.8-.7L5 15z"
+                    fill="#3056D3"
+                  />
+                </svg>
+              </div>
+              <h4 className="font-semibold text-xl text-dark mb-3">
+                AI Pragmatists
+              </h4>
+              <p className="text-body-color">
+                <q>Everyone says we should be using AI. What would actually help us, and how do we do it safely?</q>
+              </p>
+              <p className="mt-4 text-sm text-body-color">
+                We find the use cases worth doing, then build and evaluate assistants, agents, and workflow automation grounded in your data, with guardrails and privacy built in.
               </p>
 
               <span

@@ -1,35 +1,44 @@
 import React, { useState, FormEventHandler } from 'react'
-import { useSmoothScrollTo } from '../helpers/useSmoothScrollTo'
-import axios from 'axios'
+type SubmitStatus = 'idle' | 'sending' | 'sent' | 'error'
 
 export const ContactSection = () => {
-  const scrollBind = useSmoothScrollTo('#contact-us')
-  const [name, setName] = useState<string>()
-  const [email, setEmail] = useState<string>()
-  const [phone, setPhone] = useState<string>()
-  const [message, setMessage] = useState<string>()
-  const [contactSumbitted, setContactSubmitted] = useState(false)
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
+  const [message, setMessage] = useState('')
+  const [company, setCompany] = useState('')
+  const [status, setStatus] = useState<SubmitStatus>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
 
   const onContactSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault()
-    setContactSubmitted(true)
+    setStatus('sending')
 
-    setTimeout(() => {
-      setContactSubmitted(false)
-    }, 5000)
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, phone, message, company }),
+      })
 
-    const formData = {
-      name,
-      email,
-      phone,
-      message
+      if (!response.ok) {
+        const data = await response.json().catch(() => ({}))
+        throw new Error(data.error || 'Something went wrong.')
+      }
+
+      setStatus('sent')
+      setName('')
+      setEmail('')
+      setPhone('')
+      setMessage('')
+    } catch (err) {
+      setErrorMessage(err instanceof Error ? err.message : 'Something went wrong.')
+      setStatus('error')
     }
-
-    const response = await axios.post('/api/contact', formData)
   }
 
   return (
-    <section className="bg-white py-20 lg:py-[120px] overflow-hidden relative z-10" {...scrollBind}>
+    <section className="bg-white py-20 lg:py-[120px] overflow-hidden relative z-10" id="contact-us">
       <div className="container">
         <div className="flex flex-wrap lg:justify-between -mx-4">
           <div className="w-full lg:w-1/2 xl:w-6/12 px-4">
@@ -88,8 +97,6 @@ export const ContactSection = () => {
                   <h4 className="font-bold text-dark text-xl mb-1">Our Location</h4>
                   <p className="text-base text-body-color">
                     Chicago, IL
-                    <br />
-                    New York, NY
                   </p>
                 </div>
               </div>
@@ -176,15 +183,27 @@ export const ContactSection = () => {
           <div className="w-full lg:w-1/2 xl:w-5/12 px-4">
             <div className="bg-white relative rounded-lg p-8 sm:p-12 shadow-lg">
               {
-                contactSumbitted ? (
-                  <div className="text-base text-body-color">
-                    Thank You! We&apos;ll be in touch soon.
+                status === 'sent' ? (
+                  <div className="text-base text-body-color" role="status">
+                    Thank you! We&apos;ll be in touch soon.
                   </div>
                 ) :
                   (<form onSubmit={onContactSubmit}>
+                    {/* Honeypot for bots; hidden from people and assistive tech */}
+                    <div className="hidden" aria-hidden="true">
+                      <input
+                        type="text"
+                        name="company"
+                        tabIndex={-1}
+                        autoComplete="off"
+                        value={company}
+                        onChange={(e) => setCompany(e.target.value)}
+                      />
+                    </div>
                     <div className="mb-6">
                       <input
                         required
+                        value={name}
                         onChange={(e) => setName(e.target.value)}
                         type="text"
                         placeholder="Your Name"
@@ -204,6 +223,7 @@ export const ContactSection = () => {
                     <div className="mb-6">
                       <input
                         required
+                        value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         type="email"
                         placeholder="Your Email"
@@ -222,8 +242,9 @@ export const ContactSection = () => {
                     </div>
                     <div className="mb-6">
                       <input
+                        value={phone}
                         onChange={(e) => setPhone(e.target.value)}
-                        type="text"
+                        type="tel"
                         placeholder="Your Phone"
                         className="
                           w-full
@@ -240,6 +261,8 @@ export const ContactSection = () => {
                     </div>
                     <div className="mb-6">
                       <textarea
+                        required
+                        value={message}
                         onChange={(e) => setMessage(e.target.value)}
                         rows={6}
                         placeholder="Your Message"
@@ -257,9 +280,16 @@ export const ContactSection = () => {
                         "
                       ></textarea>
                     </div>
+                    {status === 'error' && (
+                      <p className="mb-6 text-base text-red-600" role="alert">
+                        {errorMessage} Please try again or email us directly at{' '}
+                        <a className="underline" href="mailto:hello@crossroadscx.com">hello@crossroadscx.com</a>.
+                      </p>
+                    )}
                     <div>
                       <button
                         type="submit"
+                        disabled={status === 'sending'}
                         className="
                           w-full
                           text-white
@@ -269,9 +299,10 @@ export const ContactSection = () => {
                           p-3
                           transition
                           hover:bg-opacity-90
+                          disabled:opacity-60
                         "
                       >
-                        Send Message
+                        {status === 'sending' ? 'Sending…' : 'Send Message'}
                       </button>
                     </div>
                   </form>)

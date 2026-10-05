@@ -69,7 +69,8 @@ export const NavBar = () => {
     }
   }, [isOpen])
 
-  const audienceSwitch = (className: string, optionClassName: string) => (
+  // Background and text colors depend on state, so they're passed separately rather than mixed into optionClassName
+  const audienceSwitch = (className: string, optionClassName: string, inactiveClassName: string) => (
     <ul className={className} aria-label="Choose your audience">
       {AUDIENCES.map((audience) => {
         const isCurrent = audience.href === pathname
@@ -81,7 +82,7 @@ export const NavBar = () => {
                 onClick={() => setIsOpen(false)}
                 className={`
                   ${optionClassName}
-                  ${isCurrent ? 'bg-primary text-white' : 'text-dark hover:text-primary'}
+                  ${isCurrent ? 'bg-primary text-white' : inactiveClassName}
                   ${focusRing}
                 `}
               >
@@ -104,7 +105,7 @@ export const NavBar = () => {
     >
       <div className="hidden lg:block bg-[#F4F7FF]">
         <div className="container flex justify-end h-9 items-center">
-          {audienceSwitch('flex rounded-full bg-white p-0.5 text-sm', 'px-4 py-1 rounded-full whitespace-nowrap')}
+          {audienceSwitch('flex rounded-full bg-white p-0.5 text-sm', 'px-4 py-1 rounded-full whitespace-nowrap', 'text-dark hover:text-primary')}
         </div>
       </div>
       <div className="container">
@@ -170,7 +171,7 @@ export const NavBar = () => {
         className={`${isOpen ? '' : 'hidden'} lg:hidden absolute left-0 right-0 top-full bg-white shadow-lg border-t border-[#EFEFEF]`}
       >
         <div className="container py-4">
-          {audienceSwitch('flex flex-col gap-2 mb-4', 'w-full rounded-lg px-4 py-3 font-medium bg-[#F4F7FF]')}
+          {audienceSwitch('flex flex-col gap-2 mb-4', 'w-full rounded-lg px-4 py-3 font-medium', 'bg-[#F4F7FF] text-dark hover:text-primary')}
           <nav aria-label="Sections on this page">
             <ul>
               {links.map((link) => (

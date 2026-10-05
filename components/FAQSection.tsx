@@ -185,10 +185,10 @@ export const FAQSection = ({ faqs = homeFaqs, id = 'faq' }: FAQSectionProps) => 
                   mb-4
                 "
               >
-                You have questions. <br /> We have answers.
+                Questions we hear a lot
               </h2>
               <p className="text-base text-body-color">
-                Feel free to ask any questions <a href="#contact-us" className="hover:underline font-semibold">below</a> as well.
+                Don&apos;t see yours? <a href="#contact-us" className="text-primary underline hover:no-underline">Ask us directly</a>.
               </p>
             </div>
           </div>

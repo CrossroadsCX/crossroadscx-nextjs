@@ -14,7 +14,7 @@ const inputClass = `
   px-[14px]
   bg-white
   text-dark text-base
-  border border-[#E5E7EB]
+  border border-[#8A94A0]
   focus:outline-none
   focus-visible:ring-2
   focus-visible:ring-primary

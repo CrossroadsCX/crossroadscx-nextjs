@@ -7,7 +7,7 @@ type SuccessResponse = { message: string }
 type Response = ErrorResponse | SuccessResponse
 
 const TO_EMAIL = 'hello@crossroadscx.com'
-const FROM_EMAIL = 'CrossroadsCX Website <website@send.crossroadscx.com>'
+const FROM_EMAIL = 'CrossroadsCX Website <website@crossroadscx.com>'
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 const escapeHtml = (value: string) =>

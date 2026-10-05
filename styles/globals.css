@@ -1,8 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 html,
 body {
@@ -19,16 +19,6 @@ a {
 
 * {
   box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
 }
 
 .snap {
@@ -144,7 +134,18 @@ input#checkboxLabelFive:checked ~ .box {
 }
 
 html {
-  scroll-behavior: smooth;
-  /* keep anchored sections clear of the fixed header (~120px) */
-  scroll-padding-top: 120px;
+  /* keep anchored sections clear of the fixed header (72px; 108px with the lg audience bar) */
+  scroll-padding-top: 80px;
+}
+
+@media (min-width: 960px) {
+  html {
+    scroll-padding-top: 116px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }

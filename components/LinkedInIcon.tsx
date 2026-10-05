@@ -2,13 +2,14 @@ import React from 'react'
 
 type LinkedInIconProps = {
   link: string;
+  className?: string;
 }
 
-export const LinkedInIcon: React.FC<LinkedInIconProps> = ({ link }) => {
+export const LinkedInIcon: React.FC<LinkedInIconProps> = ({ link, className = 'text-body-color hover:text-primary' }) => {
   return (
     <a
       href={link}
-      className="px-3 text-[#CDCED6] hover:text-primary"
+      className={`${className} px-3`}
       target="_blank"
       rel="noreferrer"
     >

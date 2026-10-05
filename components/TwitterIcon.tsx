@@ -2,15 +2,16 @@ import React from 'react'
 
 type TwitterIconProps = {
   link: string;
+  className?: string;
 }
 
-export const TwitterIcon: React.FC<TwitterIconProps> = ({ link }) => {
+export const TwitterIcon: React.FC<TwitterIconProps> = ({ link, className = 'text-body-color hover:text-primary' }) => {
   return (
     <a
       href={link}
       target="_blank"
       rel="noreferrer"
-      className="text-[#CDCED6] hover:text-primary mx-3"
+      className={`${className} mx-3`}
     >
       <svg
         width="14"

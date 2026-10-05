@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import {
   ContactSection,
+  ExamplesSection,
   FAQSection,
   Footer,
   HeroSection,
@@ -31,6 +32,7 @@ const Home: NextPage = () => {
       <HeroSection />
       <WhenToCallSection />
       <ServicesSection />
+      <ExamplesSection />
       <ToolsetsSection />
       <TeamSection />
       <FAQSection />

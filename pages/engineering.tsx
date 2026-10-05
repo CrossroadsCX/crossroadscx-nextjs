@@ -2,9 +2,12 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import {
   ContactSection,
+  FAQSection,
   Footer,
   NavBar,
+  TeamSection,
 } from '../components'
+import type { FAQ } from '../components/FAQSection'
 
 const triggers = [
   {
@@ -91,15 +94,75 @@ const examples = [
   },
 ]
 
+const engineeringFaqs: FAQ[] = [
+  {
+    question: 'How do engagements work?',
+    answer: (
+      <>
+        Hourly, project-based or on retainer, whichever fits the work. We can augment your team and work
+        alongside your engineers, or take a piece of the work and own it end to end.
+        <br /><br />
+        Discovery calls are free. If we&apos;re not the right fit, we&apos;ll say so and point you somewhere useful.
+      </>
+    ),
+  },
+  {
+    question: 'Can you work inside our repos, tracker and cloud accounts?',
+    answer: (
+      <>
+        Yes, with the access you grant. We use your repos, your issue tracker and your cloud accounts, so the
+        work lives where your team already looks.
+        <br /><br />
+        Google Cloud is our home turf. We also work in AWS and Azure.
+      </>
+    ),
+  },
+  {
+    question: 'Do you work with startups and early teams?',
+    answer: (
+      <>
+        Yes. Early teams often need senior architecture help well before a full-time hire makes sense. We can
+        set the foundations, such as cloud setup, deployment pipelines and data model, and then step back or
+        stay on as you grow.
+      </>
+    ),
+  },
+  {
+    question: 'How do you use AI coding tools in our codebase?',
+    answer: (
+      <>
+        Carefully. AI-assisted engineering only helps if it follows your conventions, so we agree on those
+        first. Generated code goes through the same review and CI as everything else.
+        <br /><br />
+        Where AI is part of your product, we add evaluations and guardrails so you can tell when it works and
+        when it doesn&apos;t.
+      </>
+    ),
+  },
+  {
+    question: 'Is DevOps the same as IT support?',
+    answer: (
+      <>
+        No. Our DevOps work is infrastructure and CI/CD for your product: cloud environments, deployments,
+        monitoring and security hardening. We don&apos;t do help desk or general IT support, like laptops,
+        email accounts or printers.
+      </>
+    ),
+  },
+]
+
 const sectionHeading = 'font-bold text-3xl sm:text-4xl md:text-[40px] text-dark mb-4'
-const card = 'bg-white rounded-xl border border-[#EFEFEF] p-8'
+const eyebrow = 'font-semibold text-lg text-primary mb-2 block'
+const sectionIntro = 'text-center mx-auto mb-12 lg:mb-16 max-w-[640px]'
+const card = 'bg-white rounded-xl border border-[#E5E7EB] p-8'
+const primaryButton = 'py-4 px-10 inline-flex items-center justify-center text-center text-white text-base bg-primary hover:bg-opacity-90 font-normal rounded-lg'
 
 const Engineering: NextPage = () => {
   return (
     <div>
       <Head>
         <title>Engineering for Tech Teams: Cloud, Data, AI | CrossroadsCX</title>
-        <meta name="description" content="Senior cloud, data, AI agent and custom software engineering for tech teams. A small Chicago team that works in your repo and leaves clean handoffs." />
+        <meta name="description" content="Senior cloud, data, AI agent and custom software engineering for tech teams and startups. A small Chicago team that works in your repo and leaves clean handoffs." />
         <link rel="icon" href="/images/logo/logo-symbol-v2.svg" />
         <link rel="canonical" href="https://crossroadscx.com/engineering" />
         <meta property="og:type" content="website" />
@@ -111,40 +174,60 @@ const Engineering: NextPage = () => {
       </Head>
       <NavBar />
 
-      <section className="pt-[120px] lg:pt-[150px] pb-20 lg:pb-[110px] bg-white" id="engineering">
+      <section className="pt-[120px] lg:pt-[160px] pb-20 lg:pb-[110px] bg-white" id="engineering">
         <div className="container">
-          <div className="max-w-[760px]">
-            <span className="font-semibold text-lg text-primary mb-2 block">
-              For engineering teams
-            </span>
-            <h1 className="text-dark font-bold text-4xl sm:text-[42px] leading-snug mb-3">
-              Senior engineering help for teams that already know how to build
-            </h1>
-            <h2 className="text-dark text-2xl mb-3">
-              Cloud, data, AI agents, and custom software. A small team in Chicago that plugs into yours.
-            </h2>
-            <p className="text-base mb-8 text-body-color">
-              The migration stalled. The agent demo never shipped. The infrastructure was clicked together in a console and nobody wants to touch it. We&apos;re a small, senior team led by an architect with 15 years of building data platforms and running engineering teams. We work in your repos, review your pull requests, and leave things better documented than we found them.
-            </p>
-            <ul className="flex flex-wrap items-center gap-4">
-              <li>
-                <a href="#contact-us" className="py-4 px-10 inline-flex items-center justify-center text-center text-white text-base bg-primary hover:bg-opacity-90 font-normal rounded-lg">
-                  Talk to an engineer
-                </a>
-              </li>
-              <li>
-                <a href="#eng-triggers" className="py-4 px-6 inline-flex items-center justify-center text-center text-base text-body-color hover:text-primary">
-                  Sound familiar?
-                </a>
-              </li>
-            </ul>
+          <div className="flex flex-wrap -mx-4 items-center">
+            <div className="w-full lg:w-7/12 px-4">
+              <span className={eyebrow}>For engineering teams &amp; startups</span>
+              <h1 className="text-dark font-bold text-4xl sm:text-[42px] leading-snug mb-3 max-w-[760px]">
+                Senior engineering help for teams that already know how to build
+              </h1>
+              <h2 className="text-dark text-2xl mb-3 max-w-[640px]">
+                Cloud, data, AI agents, and custom software. A small team in Chicago that plugs into yours.
+              </h2>
+              <p className="text-base mb-8 text-body-color max-w-[640px]">
+                The migration stalled. The agent demo never shipped. The infrastructure was clicked together in a console and nobody wants to touch it. We&apos;re a small, senior team led by an architect with 15 years of building data platforms and running engineering teams. We work in your repos, review your pull requests, and leave things better documented than we found them.
+              </p>
+              <ul className="flex flex-wrap items-center gap-4">
+                <li>
+                  <a href="#contact-us" className={primaryButton}>
+                    Talk to an engineer
+                  </a>
+                </li>
+                <li>
+                  <a href="#eng-triggers" className="py-4 px-6 inline-flex items-center justify-center text-center text-base text-body-color hover:text-primary">
+                    <span className="mr-2">
+                      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <circle cx="11" cy="11" r="11" fill="#3056D3" />
+                        <path d="M7 11h7.5M11.5 7.5L15 11l-3.5 3.5" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </span>
+                    Sounds familiar?
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div className="hidden lg:block lg:w-5/12 px-4">
+              <ul className="bg-[#F4F7FF] rounded-xl p-8 space-y-4">
+                {practices.slice(0, 4).map((practice) => (
+                  <li key={practice.title} className="flex gap-3 items-start">
+                    <svg width="20" height="20" viewBox="0 0 20 20" className="flex-none mt-1" aria-hidden="true">
+                      <circle cx="10" cy="10" r="10" fill="#3056D3" />
+                      <path d="M6 10.5l2.5 2.5L14 7.5" stroke="white" strokeWidth="1.8" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    <span className="text-base text-dark font-medium">{practice.title}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
       <section className="bg-[#F4F7FF] py-20 lg:py-[120px]" id="eng-triggers">
         <div className="container">
-          <div className="text-center mx-auto mb-12 lg:mb-16 max-w-[560px]">
+          <div className={sectionIntro}>
+            <span className={eyebrow}>When to call</span>
             <h2 className={sectionHeading}>Sounds familiar?</h2>
             <p className="text-base text-body-color">
               If you&apos;ve said one of these in standup lately, we should talk.
@@ -165,15 +248,17 @@ const Engineering: NextPage = () => {
 
       <section className="bg-white py-20 lg:py-[120px]" id="eng-capabilities">
         <div className="container">
-          <div className="text-center mx-auto mb-12 lg:mb-16 max-w-[560px]">
+          <div className={sectionIntro}>
+            <span className={eyebrow}>Services</span>
             <h2 className={sectionHeading}>What we do</h2>
             <p className="text-base text-body-color">
               Five areas. Most engagements touch two or three.
             </p>
           </div>
           <div className="grid gap-8 md:grid-cols-2">
-            {capabilities.map((capability) => (
-              <article key={capability.title} className={card}>
+            {capabilities.map((capability, i) => (
+              // The odd last card spans both columns so it isn't orphaned.
+              <article key={capability.title} className={`${card} ${i === capabilities.length - 1 && capabilities.length % 2 ? 'md:col-span-2' : ''}`}>
                 <h3 className="font-semibold text-xl text-dark mb-3">{capability.title}</h3>
                 <p className="text-base text-body-color mb-4">{capability.body}</p>
                 <p className="text-sm text-body-color">
@@ -188,7 +273,8 @@ const Engineering: NextPage = () => {
 
       <section className="bg-[#F4F7FF] py-20 lg:py-[120px]" id="eng-how-we-work">
         <div className="container">
-          <div className="text-center mx-auto mb-12 lg:mb-16 max-w-[560px]">
+          <div className={sectionIntro}>
+            <span className={eyebrow}>How we work</span>
             <h2 className={sectionHeading}>How we work with your team</h2>
             <p className="text-base text-body-color">
               We&apos;d rather be a good teammate than a black box.
@@ -207,7 +293,8 @@ const Engineering: NextPage = () => {
 
       <section className="bg-white py-20 lg:py-[120px]" id="eng-examples">
         <div className="container">
-          <div className="text-center mx-auto mb-12 lg:mb-16 max-w-[560px]">
+          <div className={sectionIntro}>
+            <span className={eyebrow}>Examples</span>
             <h2 className={sectionHeading}>What that looks like in practice</h2>
             <p className="text-base text-body-color">
               Client names stay private. We&apos;d do the same for you.
@@ -232,27 +319,35 @@ const Engineering: NextPage = () => {
               </article>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="bg-[#F4F7FF] py-20 lg:py-[120px]" id="eng-team">
-        <div className="container">
-          <div className="mx-auto max-w-[760px]">
-            <h2 className={`${sectionHeading} text-center`}>Who you&apos;ll work with</h2>
-            <p className="text-base text-body-color mb-4">
-              Chris Birk, CEO and co-founder, is a hands-on architect with 15 years of building data platforms and leading engineering teams. He works directly with Google Cloud engineering teams on architecture, escalations, and roadmap. Before CrossroadsCX, he led a team of 15+ engineers through GCP migrations and application modernization for enterprise customers, and was lead developer and a board member at a civic-tech nonprofit whose work served the U.S. Congress, the White House, federal agencies, and major U.S. cities.
+          <div className="mt-16 text-center mx-auto max-w-[560px]">
+            <p className="text-lg text-dark mb-6">
+              Got one of these on your board? Discovery calls are free.
             </p>
-            <p className="text-base text-body-color mb-4">
-              He also plans long-range technical roadmaps across several client platforms at once, which helps when your real question is &quot;what should we do first?&quot;
-            </p>
-            <p className="text-base text-body-color">
-              Mario Medina is our developer. It&apos;s a small team on purpose. You&apos;ll talk to the people doing the work.
-            </p>
+            <a href="#contact-us" className={primaryButton}>
+              Talk to an engineer
+            </a>
           </div>
         </div>
       </section>
 
-      <ContactSection />
+      <TeamSection id="eng-team">
+        <h3 className="font-semibold text-xl text-dark mb-4">About Chris</h3>
+        <ul className="list-disc pl-5 space-y-2 text-base text-body-color">
+          <li>15 years of building data platforms and leading engineering teams, hands on the keyboard throughout.</li>
+          <li>Works directly with Google Cloud engineering teams on architecture, escalations, and roadmap.</li>
+          <li>Before CrossroadsCX, led a team of 15+ engineers through GCP migrations and application modernization for enterprise customers.</li>
+          <li>Was lead developer and a board member at a civic-tech nonprofit whose work served the U.S. Congress, the White House, federal agencies, and major U.S. cities.</li>
+          <li>Plans long-range technical roadmaps across several client platforms at once, which helps when your real question is &quot;what should we do first?&quot;</li>
+        </ul>
+      </TeamSection>
+
+      <FAQSection id="eng-faq" faqs={engineeringFaqs} />
+
+      <ContactSection
+        eyebrow="Talk to an engineer"
+        heading="Tell us what's stuck"
+        intro="Describe it the way you'd explain it to a colleague. We'll tell you honestly whether we're a fit, and whether you need us at all."
+      />
       <Footer />
     </div>
   )

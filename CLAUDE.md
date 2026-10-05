@@ -3,7 +3,7 @@
 Marketing site for CrossroadsCX, Chris Birk's boutique consultancy. Next.js 12 (pages router), React 18, Tailwind 3, TypeScript.
 
 ## Commands
-Package manager is **pnpm** (pinned via `packageManager`; Node >= 22). Do not use npm or yarn.
+Package manager is **pnpm** (pinned via `packageManager`; Node 24.x, pinned via `engines`, which Vercel uses over the dashboard setting). Do not use npm or yarn.
 
 ```bash
 pnpm install

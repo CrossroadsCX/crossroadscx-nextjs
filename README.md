@@ -4,7 +4,7 @@ Marketing site for [CrossroadsCX](https://crossroadscx.com). Built with Next.js 
 
 ## Development
 
-Requires Node 22+ and [pnpm](https://pnpm.io) (`corepack enable` will pick up the pinned version).
+Requires Node 24 and [pnpm](https://pnpm.io) (`corepack enable` will pick up the pinned version).
 
 ```bash
 pnpm install

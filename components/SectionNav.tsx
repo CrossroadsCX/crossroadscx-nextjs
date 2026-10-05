@@ -6,8 +6,8 @@ type SectionNavProps = {
   sections: SectionLink[]
 }
 
-// Header (72px) + this bar (44px). Keep in sync with scroll-padding-top in styles/globals.css.
-const STUCK_OFFSET = 116
+// Header (72px) + this bar (44px list + 2px top/bottom borders). Keep in sync with scroll-padding-top in styles/globals.css.
+const STUCK_OFFSET = 118
 
 // Opaque in-page menu that sticks under the header and highlights the section you're reading.
 // Render it right after a page's hero.

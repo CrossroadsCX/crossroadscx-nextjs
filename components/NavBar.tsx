@@ -71,8 +71,8 @@ export const NavBar = () => {
     <header
       ref={headerRef}
       className={`
-        ${isSticky ? 'fixed shadow-sm' : 'absolute'}
-        z-50 w-full left-0 top-0 bg-white
+        ${isSticky ? 'shadow-sm' : ''}
+        fixed z-50 w-full left-0 top-0 bg-white
       `}
     >
       <div className="container">

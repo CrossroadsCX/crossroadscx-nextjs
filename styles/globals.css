@@ -132,8 +132,8 @@ input#checkboxLabelFive:checked ~ .box {
 }
 
 html {
-  /* keep anchored sections clear of the fixed 72px header plus the 44px SectionNav */
-  scroll-padding-top: 124px;
+  /* keep anchored sections clear of the fixed 72px header plus the 46px SectionNav (STUCK_OFFSET in SectionNav.tsx) */
+  scroll-padding-top: 118px;
 }
 
 @media (prefers-reduced-motion: no-preference) {

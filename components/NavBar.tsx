@@ -118,6 +118,25 @@ export const NavBar = () => {
                     </Link>
                   </li>
                   <li>
+                    <Link href="/#when-to-call">
+                      <a
+                        onClick={() => setIsOpen(false)}
+                        className="
+                          text-base
+                          font-medium
+                          text-dark
+                          hover:text-primary
+                          py-2
+                          lg:inline-flex
+                          flex
+                          lg:ml-12
+                        "
+                      >
+                        Is this you?
+                      </a>
+                    </Link>
+                  </li>
+                  <li>
                     <Link href="/#services">
                       <a
                         onClick={() => setIsOpen(false)}

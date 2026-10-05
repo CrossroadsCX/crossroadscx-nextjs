@@ -129,6 +129,21 @@ export const Footer = () => {
                   </Link>
                 </li>
                 <li>
+                  <Link href="/#when-to-call">
+                    <a
+                      className="
+                        inline-block
+                        text-base text-[#efefef]
+                        hover:text-white
+                        leading-loose
+                        mb-2
+                      "
+                    >
+                      Is this you?
+                    </a>
+                  </Link>
+                </li>
+                <li>
                   <Link href="/#services">
                     <a
                       className="

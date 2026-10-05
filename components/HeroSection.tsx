@@ -23,15 +23,15 @@ export const HeroSection = () => {
                   mb-3
                 "
               >
-                Practical AI, data, and software
+                Your systems, your data, and that AI question, straightened out
               </h1>
               <h2
                 className="text-dark text-2xl mb-3"
               >
-                A boutique consultancy for teams that want results, not hype
+                A small, senior consultancy in Chicago. Results, not hype.
               </h2>
               <p className="text-base mb-8 text-body-color max-w-[480px]">
-              CrossroadsCX is a Chicago-based consultancy that helps organizations put modern technology to work. From non-profits and growing businesses to multi-location enterprises, clients engage us to deliver AI and automation, data and analytics, systems integration, and custom software. We can augment your existing team or operate as a fully outsourced one.
+              Your systems don&apos;t talk to each other. Your data sits unused. Someone keeps asking about AI. We connect the systems, build the dashboards and automations, and write the custom software, working alongside your team or running the whole thing. We&apos;ll also tell you when you don&apos;t need us.
               </p>
               <ul className="flex flex-wrap items-center">
                 <li>
@@ -58,7 +58,7 @@ export const HeroSection = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/#services">
+                  <Link href="/#when-to-call">
                     <a
                       className="
                         py-4
@@ -81,7 +81,7 @@ export const HeroSection = () => {
                           <path d="M7 11h7.5M11.5 7.5L15 11l-3.5 3.5" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                       </span>
-                      Learn More
+                      Sound familiar?
                     </a>
                   </Link>
                 </li>
